@@ -1,0 +1,42 @@
+{
+    "name": "diversified-design/measurement-unit",
+    "type": "library",
+    "license": "MIT",
+    "description": "A collection of measurement units for easy conversion",
+    "autoload": {
+        "psr-4": {
+            "MeasurementUnit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MeasurementUnit\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+        "brick/math": "^0.14.8"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.94",
+        "phpstan/phpstan": "^2.1",
+        "pestphp/pest": "^4.4"
+    },
+    "scripts": {
+        "cs": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix --dry-run",
+        "cs:fix": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix",
+        "stan": "phpstan analyse",
+        "post-update-cmd": [
+            "composer dump-autoload -o"
+        ],
+        "post-install-cmd": [
+            "composer dump-autoload -o"
+        ],
+        "test": "./vendor/bin/pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

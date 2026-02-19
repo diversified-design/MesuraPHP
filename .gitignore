@@ -1,0 +1,18 @@
+# Composer
+/vendor
+/composer.lock
+
+
+#PHPCSFixer
+.php-cs-fixer.cache
+
+#editors
+/.idea
+/.vscode
+
+# macOS
+.DS_Store
+
+# Local
+/.claude
+/_dev

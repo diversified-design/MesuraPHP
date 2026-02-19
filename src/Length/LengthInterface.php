@@ -1,0 +1,13 @@
+<?php
+declare(strict_types=1);
+
+namespace MeasurementUnit\Length;
+
+use MeasurementUnit\MeasurementUnitInterface;
+
+interface LengthInterface extends MeasurementUnitInterface
+{
+    public static function fromMeterValue(float $value): self;
+
+    public function toMeterValue(): float;
+}

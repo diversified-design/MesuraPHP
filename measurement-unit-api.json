@@ -1,0 +1,530 @@
+{
+    "MeasurementUnit\\Angle\\Angle": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Angle\\AngleInterface"
+        ],
+        "methods": [
+            "toDegree(): MeasurementUnit\\Angle\\Degree",
+            "toRadian(): MeasurementUnit\\Angle\\Radian",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Angle\\Angle"
+        ]
+    },
+    "MeasurementUnit\\Angle\\Degree": {
+        "extends": "MeasurementUnit\\Angle\\Angle",
+        "methods": [
+            "static fromRadianValue(float $value): self",
+            "toRadianValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Angle\\Radian": {
+        "extends": "MeasurementUnit\\Angle\\Angle",
+        "methods": [
+            "static fromRadianValue(float $value): self",
+            "toRadianValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Customise": {
+        "methods": [
+            "static unitSymbols(array $units /*An associative array where the keys are unit class names and the values are the symbols to set.*/): void — Set the symbols for the given measurement units. @throws \\InvalidArgumentException"
+        ]
+    },
+    "MeasurementUnit\\Length\\Centimeter": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Fathom": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Foot": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Furlong": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\HorseLength": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Inch": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Kilometer": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Length": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Length\\LengthInterface"
+        ],
+        "methods": [
+            "toCentimeter(): MeasurementUnit\\Length\\Centimeter",
+            "toFathom(): MeasurementUnit\\Length\\Fathom",
+            "toFoot(): MeasurementUnit\\Length\\Foot",
+            "toFurlong(): MeasurementUnit\\Length\\Furlong",
+            "toHorseLength(): MeasurementUnit\\Length\\HorseLength",
+            "toInch(): MeasurementUnit\\Length\\Inch",
+            "toKilometer(): MeasurementUnit\\Length\\Kilometer",
+            "toMeter(): MeasurementUnit\\Length\\Meter",
+            "toMillimeter(): MeasurementUnit\\Length\\Millimeter",
+            "toStatuteMile(): MeasurementUnit\\Length\\StatuteMile",
+            "toNauticalMile(): MeasurementUnit\\Length\\NauticalMile",
+            "toSurveyMile(): MeasurementUnit\\Length\\SurveyMile",
+            "toThou(): MeasurementUnit\\Length\\Thou",
+            "toYard(): MeasurementUnit\\Length\\Yard",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Length\\Length"
+        ]
+    },
+    "MeasurementUnit\\Length\\Meter": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Millimeter": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\NauticalMile": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\StatuteMile": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\SurveyMile": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Thou": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Length\\Yard": {
+        "extends": "MeasurementUnit\\Length\\Length",
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\MeasurementUnit": {
+        "abstract": true,
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "properties": [
+            "readonly float $value"
+        ],
+        "methods": [
+            "__construct(float $value, ?string $symbol = null)",
+            "getValue(): float",
+            "getInstanceSymbol(): string",
+            "setInstanceSymbol(string $symbol): static",
+            "static getSymbol(): string",
+            "static setSymbol(string $symbol): string",
+            "toHtml(string $sprintf_Template = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
+            "toFormat(string $sprintf_Template = '%.1f %s'): string"
+        ]
+    },
+    "MeasurementUnit\\Percentage\\Percent": {
+        "extends": "MeasurementUnit\\Percentage\\Percentage",
+        "methods": [
+            "toDecimal(): float — Returns the percentage as a decimal ratio.",
+            "toCoefficient(): float — Returns a multiplicative coefficient."
+        ]
+    },
+    "MeasurementUnit\\Percentage\\Percentage": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Percentage\\PercentageInterface"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Bar": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Hectopascal": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Kilopascal": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Millibar": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\MillimetreOfMercury": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Pascal": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\PoundPerSquareInch": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Pressure": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Pressure\\PressureInterface"
+        ],
+        "methods": [
+            "toBar(): MeasurementUnit\\Pressure\\Bar",
+            "toHectopascal(): MeasurementUnit\\Pressure\\Hectopascal",
+            "toKilopascal(): MeasurementUnit\\Pressure\\Kilopascal",
+            "toMillibar(): MeasurementUnit\\Pressure\\Millibar",
+            "toMillimetreOfMercury(): MeasurementUnit\\Pressure\\MillimetreOfMercury",
+            "toPascal(): MeasurementUnit\\Pressure\\Pascal",
+            "toPoundPerSquareInch(): MeasurementUnit\\Pressure\\PoundPerSquareInch",
+            "toStandardAtmosphere(): MeasurementUnit\\Pressure\\StandardAtmosphere",
+            "toTorr(): MeasurementUnit\\Pressure\\Torr",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Pressure\\Pressure"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\StandardAtmosphere": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\Torr": {
+        "extends": "MeasurementUnit\\Pressure\\Pressure",
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Speed\\KilometerPerHour": {
+        "extends": "MeasurementUnit\\Speed\\Speed",
+        "methods": [
+            "static fromMeterPerSecondValue(float $value): self",
+            "toMeterPerSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Speed\\Knot": {
+        "extends": "MeasurementUnit\\Speed\\Speed",
+        "methods": [
+            "static fromMeterPerSecondValue(float $value): self",
+            "toMeterPerSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Speed\\MeterPerSecond": {
+        "extends": "MeasurementUnit\\Speed\\Speed",
+        "methods": [
+            "static fromMeterPerSecondValue(float $value): self",
+            "toMeterPerSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Speed\\MilesPerHour": {
+        "extends": "MeasurementUnit\\Speed\\Speed",
+        "methods": [
+            "static fromMeterPerSecondValue(float $value): self",
+            "toMeterPerSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Speed\\Speed": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Speed\\SpeedInterface"
+        ],
+        "methods": [
+            "toKilometerPerHour(): MeasurementUnit\\Speed\\KilometerPerHour",
+            "toKnot(): MeasurementUnit\\Speed\\Knot",
+            "toMeterPerSecond(): MeasurementUnit\\Speed\\MeterPerSecond",
+            "toMilesPerHour(): MeasurementUnit\\Speed\\MilesPerHour",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Speed\\Speed"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\Celsius": {
+        "extends": "MeasurementUnit\\Temperature\\Temperature",
+        "methods": [
+            "static fromKelvinValue(float $value): self",
+            "toKelvinValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\Fahrenheit": {
+        "extends": "MeasurementUnit\\Temperature\\Temperature",
+        "methods": [
+            "static fromKelvinValue(float $value): self",
+            "toKelvinValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\Kelvin": {
+        "extends": "MeasurementUnit\\Temperature\\Temperature",
+        "methods": [
+            "static fromKelvinValue(float $value): self",
+            "toKelvinValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\Rankine": {
+        "extends": "MeasurementUnit\\Temperature\\Temperature",
+        "methods": [
+            "static fromKelvinValue(float $value): self",
+            "toKelvinValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\Temperature": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Temperature\\TemperatureInterface"
+        ],
+        "methods": [
+            "toCelsius(): MeasurementUnit\\Temperature\\Celsius",
+            "toFahrenheit(): MeasurementUnit\\Temperature\\Fahrenheit",
+            "toRankine(): MeasurementUnit\\Temperature\\Rankine",
+            "toKelvin(): MeasurementUnit\\Temperature\\Kelvin",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Temperature\\Temperature"
+        ]
+    },
+    "MeasurementUnit\\Time\\Day": {
+        "extends": "MeasurementUnit\\Time\\Time",
+        "methods": [
+            "static fromSecondValue(float $value): self",
+            "toSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Time\\Hour": {
+        "extends": "MeasurementUnit\\Time\\Time",
+        "methods": [
+            "static fromSecondValue(float $value): self",
+            "toSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Time\\Minute": {
+        "extends": "MeasurementUnit\\Time\\Time",
+        "methods": [
+            "static fromSecondValue(float $value): self",
+            "toSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Time\\Second": {
+        "extends": "MeasurementUnit\\Time\\Time",
+        "methods": [
+            "static fromSecondValue(float $value): self",
+            "toSecondValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Time\\Time": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Time\\TimeInterface"
+        ],
+        "methods": [
+            "toSecond(): MeasurementUnit\\Time\\Second",
+            "toMinute(): MeasurementUnit\\Time\\Minute",
+            "toHour(): MeasurementUnit\\Time\\Hour",
+            "toDay(): MeasurementUnit\\Time\\Day",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Time\\Time"
+        ]
+    },
+    "MeasurementUnit\\Torque\\NewtonMeter": {
+        "extends": "MeasurementUnit\\Torque\\Torque",
+        "methods": [
+            "static fromNewtonMeterValue(float $value): self",
+            "toNewtonMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Torque\\Torque": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Torque\\TorqueInterface"
+        ],
+        "methods": [
+            "toNewtonMeter(): MeasurementUnit\\Torque\\NewtonMeter",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Torque\\Torque"
+        ]
+    },
+    "MeasurementUnit\\Volume\\CubicInch": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\CubicMeter": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\CubicYard": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\FluidDram": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\FluidOunce": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\Liter": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\Pint": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\Quart": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\TableSpoon": {
+        "extends": "MeasurementUnit\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Volume\\Volume": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Volume\\VolumeInterface"
+        ],
+        "methods": [
+            "toCubicInch(): MeasurementUnit\\Volume\\CubicInch",
+            "toCubicMeter(): MeasurementUnit\\Volume\\CubicMeter",
+            "toCubicYard(): MeasurementUnit\\Volume\\CubicYard",
+            "toFluidDram(): MeasurementUnit\\Volume\\FluidDram",
+            "toFluidOunce(): MeasurementUnit\\Volume\\FluidOunce",
+            "toLiter(): MeasurementUnit\\Volume\\Liter",
+            "toPint(): MeasurementUnit\\Volume\\Pint",
+            "toQuart(): MeasurementUnit\\Volume\\Quart",
+            "toTableSpoon(): MeasurementUnit\\Volume\\TableSpoon",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Volume\\Volume"
+        ]
+    },
+    "MeasurementUnit\\Weight\\Kilogram": {
+        "extends": "MeasurementUnit\\Weight\\Weight",
+        "methods": [
+            "static fromKilogramValue(float $value): self",
+            "toKilogramValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Weight\\MetricTon": {
+        "extends": "MeasurementUnit\\Weight\\Weight",
+        "methods": [
+            "static fromKilogramValue(float $value): self",
+            "toKilogramValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Weight\\Pound": {
+        "extends": "MeasurementUnit\\Weight\\Weight",
+        "methods": [
+            "static fromKilogramValue(float $value): self",
+            "toKilogramValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Weight\\Weight": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Weight\\WeightInterface"
+        ],
+        "methods": [
+            "toKilogram(): MeasurementUnit\\Weight\\Kilogram",
+            "toMetricTon(): MeasurementUnit\\Weight\\MetricTon",
+            "toPound(): MeasurementUnit\\Weight\\Pound",
+            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Weight\\Weight"
+        ]
+    }
+}

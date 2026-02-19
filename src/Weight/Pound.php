@@ -1,0 +1,23 @@
+<?php
+declare(strict_types=1);
+
+namespace MeasurementUnit\Weight;
+
+use Brick\Math\BigRational;
+
+class Pound extends Weight
+{
+    protected static string $defaultSymbol = 'lb';
+
+    public static function fromKilogramValue(float $value): self
+    {
+        return new self(
+            BigRational::of($value)->dividedBy('0.453592')->toFloat()
+        );
+    }
+
+    public function toKilogramValue(): float
+    {
+        return BigRational::of($this->value)->multipliedBy('0.453592')->toFloat();
+    }
+}
