@@ -3,5 +3,16 @@ parameters:
     paths:
         - src
         - tests
+    ignoreErrors:
+        - identifier: method.internalClass
+          paths:
+              - tests/*
+        - identifier: method.notFound
+          paths:
+              - tests/*
+        - identifier: argument.templateType
+          paths:
+              - tests/*
 includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/pestphp/pest/extension.neon
