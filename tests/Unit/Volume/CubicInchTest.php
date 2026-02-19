@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Volume;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\CubicInch;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Volume\CubicInch
- */
-class CubicInchTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('in³', CubicInch::getSymbol());
-    }
+test('symbol is in³', fn () =>
+    expect(CubicInch::getSymbol())->toBe('in³')
+);
 
-    /**
-     * @covers ::fromCubicMeterValue
-     */
-    public function testFromCubicMeterValue(): void
-    {
-        $cubicInch = CubicInch::fromCubicMeterValue(42.0);
-        static::assertEqualsWithDelta(2562991.62146, $cubicInch->getValue(), 0.01);
-    }
+test('creates from cubic meter value', fn () =>
+    expect(CubicInch::fromCubicMeterValue(42.0)->getValue())->toEqualWithDelta(2562991.62146, 0.01)
+);
 
-    /**
-     * @covers ::toCubicMeterValue
-     */
-    public function testToCubicMeterValue(): void
-    {
-        static::assertEqualsWithDelta(0.0006882582, (new CubicInch(42.0))->toCubicMeterValue(), 0.000001);
-    }
-}
+test('converts to cubic meter value', fn () =>
+    expect((new CubicInch(42.0))->toCubicMeterValue())->toEqualWithDelta(0.0006882582, 0.000001)
+);

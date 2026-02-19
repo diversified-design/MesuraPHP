@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\Millimeter;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\Millimeter
- */
-class MillimeterTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('mm', Millimeter::getSymbol());
-    }
+test('symbol is mm', fn () =>
+    expect(Millimeter::getSymbol())->toBe('mm')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $millimeter = Millimeter::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(42000.0, $millimeter->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(Millimeter::fromMeterValue(42.0)->getValue())->toEqualWithDelta(42000.0, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(0.042, (new Millimeter(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new Millimeter(42.0))->toMeterValue())->toEqualWithDelta(0.042, 0.000001)
+);

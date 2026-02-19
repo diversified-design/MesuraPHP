@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Volume;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\FluidOunce;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Volume\FluidOunce
- */
-class FluidOunceTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('fl oz', FluidOunce::getSymbol());
-    }
+test('symbol is fl oz', fn () =>
+    expect(FluidOunce::getSymbol())->toBe('fl oz')
+);
 
-    /**
-     * @covers ::fromCubicMeterValue
-     */
-    public function testFromCubicMeterValue(): void
-    {
-        $fluidOunce = FluidOunce::fromCubicMeterValue(42.0);
-        static::assertEqualsWithDelta(1420102.69157, $fluidOunce->getValue(), 1.0);
-    }
+test('creates from cubic meter value', fn () =>
+    expect(FluidOunce::fromCubicMeterValue(42.0)->getValue())->toEqualWithDelta(1420102.69157, 1.0)
+);
 
-    /**
-     * @covers ::toCubicMeterValue
-     */
-    public function testToCubicMeterValue(): void
-    {
-        static::assertEqualsWithDelta(0.00124216369, (new FluidOunce(42.0))->toCubicMeterValue(), 0.000001);
-    }
-}
+test('converts to cubic meter value', fn () =>
+    expect((new FluidOunce(42.0))->toCubicMeterValue())->toEqualWithDelta(0.00124216369, 0.000001)
+);

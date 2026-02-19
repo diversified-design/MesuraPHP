@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\Inch;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\Inch
- */
-class InchTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('in', Inch::getSymbol());
-    }
+test('symbol is in', fn () =>
+    expect(Inch::getSymbol())->toBe('in')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $inch = Inch::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(1653.54330709, $inch->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(Inch::fromMeterValue(42.0)->getValue())->toEqualWithDelta(1653.54330709, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(1.0668, (new Inch(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new Inch(42.0))->toMeterValue())->toEqualWithDelta(1.0668, 0.000001)
+);

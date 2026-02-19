@@ -1,75 +1,39 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Customise;
-use MeasurementUnit\Length\Meter;
 use MeasurementUnit\Length\Fathom;
+use MeasurementUnit\Length\Meter;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Customise
- */
-class CustomiseTest extends TestCase
-{
-    private string $originalMeterSymbol;
+$originalMeterSymbol = Meter::getSymbol();
+$originalFathomSymbol = Fathom::getSymbol();
 
-    private string $originalFathomSymbol;
+afterEach(function () use ($originalMeterSymbol, $originalFathomSymbol) {
+    Meter::setSymbol($originalMeterSymbol);
+    Fathom::setSymbol($originalFathomSymbol);
+});
 
-    protected function setUp(): void
-    {
-        // Store original symbols
-        $this->originalMeterSymbol  = Meter::getSymbol();
-        $this->originalFathomSymbol = Fathom::getSymbol();
-    }
+test('changes symbols successfully', function () use ($originalMeterSymbol, $originalFathomSymbol) {
+    Customise::unitSymbols([
+        Meter::class  => 'METRE',
+        Fathom::class => 'FATHOM',
+    ]);
 
-    /**
-     * @covers ::unitSymbols
-     */
-    public function testUnitSymbolsChangesSymbolsSuccessfully(): void
-    {
-        Customise::unitSymbols([
-            Meter::class  => 'METRE',
-            Fathom::class => 'FATHOM'
-        ]);
+    expect(Meter::getSymbol())->toBe('METRE');
+    expect(Fathom::getSymbol())->toBe('FATHOM');
+    expect(Meter::getSymbol())->not->toBe($originalMeterSymbol);
+    expect(Fathom::getSymbol())->not->toBe($originalFathomSymbol);
+});
 
-        static::assertSame('METRE', Meter::getSymbol());
-        static::assertSame('FATHOM', Fathom::getSymbol());
-        static::assertNotEquals($this->originalMeterSymbol, Meter::getSymbol());
-        static::assertNotEquals($this->originalFathomSymbol, Fathom::getSymbol());
-    }
+test('throws for non-existent class', function () {
+    Customise::unitSymbols([ // @phpstan-ignore argument.type (intentionally passing invalid class name)
+        'NonExistentClass' => 'SYMBOL',
+    ]);
+})->throws(\InvalidArgumentException::class, 'Class NonExistentClass does not exist.');
 
-    /**
-     * @covers ::unitSymbols
-     */
-    public function testUnitSymbolsThrowsExceptionForNonExistentClass(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Class NonExistentClass does not exist.');
-
-        Customise::unitSymbols([
-            'NonExistentClass' => 'SYMBOL'
-        ]);
-    }
-
-    /**
-     * @covers ::unitSymbols
-     */
-    public function testUnitSymbolsThrowsExceptionForInvalidMeasurementUnitClass(): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Class stdClass does not exist.');
-
-        Customise::unitSymbols([
-            \stdClass::class => 'SYMBOL'
-        ]);
-    }
-
-    protected function tearDown(): void
-    {
-        // Reset to original symbols
-        Meter::setSymbol($this->originalMeterSymbol);
-        Fathom::setSymbol($this->originalFathomSymbol);
-    }
-}
+test('throws for invalid measurement unit class', function () {
+    Customise::unitSymbols([
+        \stdClass::class => 'SYMBOL',
+    ]);
+})->throws(\InvalidArgumentException::class, 'Class stdClass does not exist.');

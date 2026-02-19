@@ -1,45 +1,27 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Integration;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Temperature\Celsius;
 use MeasurementUnit\Temperature\Fahrenheit;
 use MeasurementUnit\Temperature\Kelvin;
 use MeasurementUnit\Temperature\Rankine;
-use MeasurementUnit\Temperature\Temperature;
 
-/** @coversNothing */
-class TemperatureTest extends TestCase
-{
-    /** @var array<class-string<Temperature>> */
-    private const TEMPERATURE_FQN_S = [
-        Celsius::class,
-        Fahrenheit::class,
-        Kelvin::class,
-        Rankine::class,
-    ];
+dataset('temperature units', function () {
+    yield Celsius::class    => [new Celsius(42.0)];
+    yield Fahrenheit::class => [new Fahrenheit(42.0)];
+    yield Kelvin::class     => [new Kelvin(42.0)];
+    yield Rankine::class    => [new Rankine(42.0)];
+});
 
-    /** @dataProvider temperatureInstances */
-    public function testReversibility(Temperature $temperature): void
-    {
-        static::assertEqualsWithDelta($temperature, $temperature::fromKelvinValue($temperature->toKelvinValue()), 0.000001);
-    }
+test('round-trips through kelvin value', function ($temperature) {
+    expect($temperature::fromKelvinValue($temperature->toKelvinValue()))
+        ->toEqualWithDelta($temperature, 0.000001);
+})->with('temperature units');
 
-    /** @return iterable<class-string<Temperature>, array<Temperature>> */
-    public function temperatureInstances(): iterable
-    {
-        foreach (self::TEMPERATURE_FQN_S as $temperatureFQN) {
-            yield $temperatureFQN => [new $temperatureFQN(42.0)];
-        }
-    }
-
-    public function testCorrectConversionRate(): void
-    {
-        static::assertEqualsWithDelta(new Kelvin(315.15), (new Celsius(42.0))->toKelvin(), 0.000001);
-        static::assertEqualsWithDelta(new Kelvin(278.705555), (new Fahrenheit(42.0))->toKelvin(), 0.000001);
-        static::assertEqualsWithDelta(new Kelvin(42.0), (new Kelvin(42.0))->toKelvin(), 0.000001);
-        static::assertEqualsWithDelta(new Kelvin(23.333333), (new Rankine(42.0))->toKelvin(), 0.000001);
-    }
-}
+test('converts at correct rate', function () {
+    expect((new Celsius(42.0))->toKelvin())->toEqualWithDelta(new Kelvin(315.15), 0.000001);
+    expect((new Fahrenheit(42.0))->toKelvin())->toEqualWithDelta(new Kelvin(278.705555), 0.000001);
+    expect((new Kelvin(42.0))->toKelvin())->toEqualWithDelta(new Kelvin(42.0), 0.000001);
+    expect((new Rankine(42.0))->toKelvin())->toEqualWithDelta(new Kelvin(23.333333), 0.000001);
+});

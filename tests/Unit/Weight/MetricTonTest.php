@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Weight;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Weight\MetricTon;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Weight\MetricTon
- */
-class MetricTonTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('t', MetricTon::getSymbol());
-    }
+test('symbol is t', fn () =>
+    expect(MetricTon::getSymbol())->toBe('t')
+);
 
-    /**
-     * @covers ::fromKilogramValue
-     */
-    public function testFromMeterPerSecondValue(): void
-    {
-        $metricTon = MetricTon::fromKilogramValue(42.0);
-        static::assertEqualsWithDelta(0.042, $metricTon->getValue(), 0.000001);
-    }
+test('creates from kilogram value', fn () =>
+    expect(MetricTon::fromKilogramValue(42.0)->getValue())->toEqualWithDelta(0.042, 0.000001)
+);
 
-    /**
-     * @covers ::toKilogramValue
-     */
-    public function testToMeterPerSecondValue(): void
-    {
-        static::assertEqualsWithDelta(42000.0, (new MetricTon(42.0))->toKilogramValue(), 0.000001);
-    }
-}
+test('converts to kilogram value', fn () =>
+    expect((new MetricTon(42.0))->toKilogramValue())->toEqualWithDelta(42000.0, 0.000001)
+);

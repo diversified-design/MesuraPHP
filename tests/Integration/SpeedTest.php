@@ -1,45 +1,27 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Integration;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Speed\KilometerPerHour;
 use MeasurementUnit\Speed\Knot;
 use MeasurementUnit\Speed\MeterPerSecond;
 use MeasurementUnit\Speed\MilesPerHour;
-use MeasurementUnit\Speed\Speed;
 
-/** @coversNothing */
-class SpeedTest extends TestCase
-{
-    /** @var array<class-string<Speed>> */
-    private const SPEED_FQN_S = [
-        KilometerPerHour::class,
-        Knot::class,
-        MeterPerSecond::class,
-        MilesPerHour::class,
-    ];
+dataset('speed units', function () {
+    yield KilometerPerHour::class => [new KilometerPerHour(42.0)];
+    yield Knot::class             => [new Knot(42.0)];
+    yield MeterPerSecond::class   => [new MeterPerSecond(42.0)];
+    yield MilesPerHour::class     => [new MilesPerHour(42.0)];
+});
 
-    /** @dataProvider speedInstances */
-    public function testReversibility(Speed $speed): void
-    {
-        static::assertEqualsWithDelta($speed, $speed::fromMeterPerSecondValue($speed->toMeterPerSecondValue()), 0.000001);
-    }
+test('round-trips through meter per second value', function ($speed) {
+    expect($speed::fromMeterPerSecondValue($speed->toMeterPerSecondValue()))
+        ->toEqualWithDelta($speed, 0.000001);
+})->with('speed units');
 
-    /** @return iterable<class-string<Speed>, array<Speed>> */
-    public function speedInstances(): iterable
-    {
-        foreach (self::SPEED_FQN_S as $speedFQN) {
-            yield $speedFQN => [new $speedFQN(42.0)];
-        }
-    }
-
-    public function testCorrectConversionRate(): void
-    {
-        static::assertEqualsWithDelta(new MeterPerSecond(11.666676), (new KilometerPerHour(42.0))->toMeterPerSecond(), 0.000001);
-        static::assertEqualsWithDelta(new MeterPerSecond(21.606648), (new Knot(42.0))->toMeterPerSecond(), 0.000001);
-        static::assertEqualsWithDelta(new MeterPerSecond(42.0), (new MeterPerSecond(42.0))->toMeterPerSecond(), 0.000001);
-        static::assertEqualsWithDelta(new MeterPerSecond(18.77568), (new MilesPerHour(42.0))->toMeterPerSecond(), 0.000001);
-    }
-}
+test('converts at correct rate', function () {
+    expect((new KilometerPerHour(42.0))->toMeterPerSecond())->toEqualWithDelta(new MeterPerSecond(11.666676), 0.000001);
+    expect((new Knot(42.0))->toMeterPerSecond())->toEqualWithDelta(new MeterPerSecond(21.606648), 0.000001);
+    expect((new MeterPerSecond(42.0))->toMeterPerSecond())->toEqualWithDelta(new MeterPerSecond(42.0), 0.000001);
+    expect((new MilesPerHour(42.0))->toMeterPerSecond())->toEqualWithDelta(new MeterPerSecond(18.77568), 0.000001);
+});

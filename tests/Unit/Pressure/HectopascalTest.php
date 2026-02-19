@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Pressure;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Pressure\Hectopascal;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Pressure\Hectopascal
- */
-class HectopascalTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('hPa', Hectopascal::getSymbol());
-    }
+test('symbol is hPa', fn () =>
+    expect(Hectopascal::getSymbol())->toBe('hPa')
+);
 
-    /**
-     * @covers ::fromPascalValue
-     */
-    public function testFromPascalValue(): void
-    {
-        $hectopascal = Hectopascal::fromPascalValue(42.0);
-        static::assertEqualsWithDelta(0.42, $hectopascal->getValue(), 0.000001);
-    }
+test('creates from pascal value', fn () =>
+    expect(Hectopascal::fromPascalValue(42.0)->getValue())->toEqualWithDelta(0.42, 0.000001)
+);
 
-    /**
-     * @covers ::toPascalValue
-     */
-    public function testToPascalValue(): void
-    {
-        static::assertEqualsWithDelta(4200.0, (new Hectopascal(42.0))->toPascalValue(), 0.000001);
-    }
-}
+test('converts to pascal value', fn () =>
+    expect((new Hectopascal(42.0))->toPascalValue())->toEqualWithDelta(4200.0, 0.000001)
+);

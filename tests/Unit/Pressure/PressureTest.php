@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Pressure;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Pressure\Bar;
 use MeasurementUnit\Pressure\Hectopascal;
 use MeasurementUnit\Pressure\Kilopascal;
@@ -16,101 +14,43 @@ use MeasurementUnit\Pressure\PressureInterface;
 use MeasurementUnit\Pressure\StandardAtmosphere;
 use MeasurementUnit\Pressure\Torr;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Pressure\Pressure
- */
-class PressureTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Pressure', function () {
+    test('stores value on construction', function () {
         $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromPascalValue(float $value): PressureInterface
-            {
-                return new self($value);
-            }
-
-            public function toPascalValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
+            public function toPascalValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $pressure->value);
-    }
+        expect($pressure->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toBar
-     * @covers ::toHectopascal
-     * @covers ::toKilopascal
-     * @covers ::toMillibar
-     * @covers ::toMillimetreOfMercury
-     * @covers ::toPascal
-     * @covers ::toPoundPerSquareInch
-     * @covers ::toStandardAtmosphere
-     * @covers ::toTorr
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all pressure units', function () {
         $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromPascalValue(float $value): PressureInterface
-            {
-                return new self($value);
-            }
-
-            public function toPascalValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
+            public function toPascalValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(Bar::class, $pressure->toBar());
-        static::assertInstanceOf(Hectopascal::class, $pressure->toHectopascal());
-        static::assertInstanceOf(Kilopascal::class, $pressure->toKilopascal());
-        static::assertInstanceOf(Millibar::class, $pressure->toMillibar());
-        static::assertInstanceOf(MillimetreOfMercury::class, $pressure->toMillimetreOfMercury());
-        static::assertInstanceOf(Pascal::class, $pressure->toPascal());
-        static::assertEqualsWithDelta(21.0, $pressure->toPascal()->getValue(), 0.000001);
-        static::assertInstanceOf(PoundPerSquareInch::class, $pressure->toPoundPerSquareInch());
-        static::assertInstanceOf(StandardAtmosphere::class, $pressure->toStandardAtmosphere());
-        static::assertInstanceOf(Torr::class, $pressure->toTorr());
-    }
+        expect($pressure->toBar())->toBeInstanceOf(Bar::class);
+        expect($pressure->toHectopascal())->toBeInstanceOf(Hectopascal::class);
+        expect($pressure->toKilopascal())->toBeInstanceOf(Kilopascal::class);
+        expect($pressure->toMillibar())->toBeInstanceOf(Millibar::class);
+        expect($pressure->toMillimetreOfMercury())->toBeInstanceOf(MillimetreOfMercury::class);
+        expect($pressure->toPascal())->toBeInstanceOf(Pascal::class);
+        expect($pressure->toPascal()->getValue())->toEqualWithDelta(21.0, 0.000001);
+        expect($pressure->toPoundPerSquareInch())->toBeInstanceOf(PoundPerSquareInch::class);
+        expect($pressure->toStandardAtmosphere())->toBeInstanceOf(StandardAtmosphere::class);
+        expect($pressure->toTorr())->toBeInstanceOf(Torr::class);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromPascalValue(float $value): PressureInterface
-            {
-                return new self($value);
-            }
-
-            public function toPascalValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
+            public function toPascalValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $pressure->__toString());
-    }
-}
+        expect($pressure->__toString())->toBe('42 unit');
+    });
+});

@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Volume;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\FluidDram;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Volume\FluidDram
- */
-class FluidDramTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('fl dr', FluidDram::getSymbol());
-    }
+test('symbol is fl dr', fn () =>
+    expect(FluidDram::getSymbol())->toBe('fl dr')
+);
 
-    /**
-     * @covers ::fromCubicMeterValue
-     */
-    public function testFromCubicMeterValue(): void
-    {
-        $fluidDram = FluidDram::fromCubicMeterValue(42.0);
-        static::assertEqualsWithDelta(11361511.6134, $fluidDram->getValue(), 1.0);
-    }
+test('creates from cubic meter value', fn () =>
+    expect(FluidDram::fromCubicMeterValue(42.0)->getValue())->toEqualWithDelta(11361511.6134, 1.0)
+);
 
-    /**
-     * @covers ::toCubicMeterValue
-     */
-    public function testToCubicMeterValue(): void
-    {
-        static::assertEqualsWithDelta(0.00015526103, (new FluidDram(42.0))->toCubicMeterValue(), 0.000001);
-    }
-}
+test('converts to cubic meter value', fn () =>
+    expect((new FluidDram(42.0))->toCubicMeterValue())->toEqualWithDelta(0.00015526103, 0.000001)
+);

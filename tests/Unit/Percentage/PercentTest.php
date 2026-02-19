@@ -1,48 +1,21 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Percentage;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Percentage\Percent;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Percentage\Percent
- */
-class PercentTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('%', Percent::getSymbol());
-    }
+test('symbol is %', fn () =>
+    expect(Percent::getSymbol())->toBe('%')
+);
 
-    /**
-     * @covers ::getValue
-     */
-    public function testGetValue(): void
-    {
-        $percent = new Percent(42.0);
-        static::assertSame(42.0, $percent->getValue());
-    }
+test('getValue returns construction value', fn () =>
+    expect((new Percent(42.0))->getValue())->toBe(42.0)
+);
 
-    /**
-     * @covers ::toDecimal
-     */
-    public function testToDecimal(): void
-    {
-        $percent = new Percent(42.0);
-        static::assertEqualsWithDelta(0.42, $percent->toDecimal(), 0.000001);
-    }
+test('toDecimal converts to decimal', fn () =>
+    expect((new Percent(42.0))->toDecimal())->toEqualWithDelta(0.42, 0.000001)
+);
 
-    /**
-     * @covers ::toCoefficient
-     */
-    public function testToCoefficient(): void
-    {
-        $percent = new Percent(42.0);
-        static::assertEqualsWithDelta(1.42, $percent->toCoefficient(), 0.000001);
-    }
-}
+test('toCoefficient converts to coefficient', fn () =>
+    expect((new Percent(42.0))->toCoefficient())->toEqualWithDelta(1.42, 0.000001)
+);

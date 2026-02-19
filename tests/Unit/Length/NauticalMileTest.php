@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\NauticalMile;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\NauticalMile
- */
-class NauticalMileTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('nmi', NauticalMile::getSymbol());
-    }
+test('symbol is nmi', fn () =>
+    expect(NauticalMile::getSymbol())->toBe('nmi')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $nauticalMile = NauticalMile::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(0.02267818574, $nauticalMile->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(NauticalMile::fromMeterValue(42.0)->getValue())->toEqualWithDelta(0.02267818574, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(77784.0, (new NauticalMile(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new NauticalMile(42.0))->toMeterValue())->toEqualWithDelta(77784.0, 0.000001)
+);

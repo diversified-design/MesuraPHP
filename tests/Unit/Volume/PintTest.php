@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Volume;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\Pint;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Volume\Pint
- */
-class PintTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('pt', Pint::getSymbol());
-    }
+test('symbol is pt', fn () =>
+    expect(Pint::getSymbol())->toBe('pt')
+);
 
-    /**
-     * @covers ::fromCubicMeterValue
-     */
-    public function testFromCubicMeterValue(): void
-    {
-        $pint = Pint::fromCubicMeterValue(42.0);
-        static::assertEqualsWithDelta(88761.8983211, $pint->getValue(), 0.01);
-    }
+test('creates from cubic meter value', fn () =>
+    expect(Pint::fromCubicMeterValue(42.0)->getValue())->toEqualWithDelta(88761.8983211, 0.01)
+);
 
-    /**
-     * @covers ::toCubicMeterValue
-     */
-    public function testToCubicMeterValue(): void
-    {
-        static::assertEqualsWithDelta(0.019873392, (new Pint(42.0))->toCubicMeterValue(), 0.000001);
-    }
-}
+test('converts to cubic meter value', fn () =>
+    expect((new Pint(42.0))->toCubicMeterValue())->toEqualWithDelta(0.019873392, 0.000001)
+);

@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Speed;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Speed\Knot;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Speed\Knot
- */
-class KnotTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('kn', Knot::getSymbol());
-    }
+test('symbol is kn', fn () =>
+    expect(Knot::getSymbol())->toBe('kn')
+);
 
-    /**
-     * @covers ::fromMeterPerSecondValue
-     */
-    public function testFromMeterPerSecondValue(): void
-    {
-        $knot = Knot::fromMeterPerSecondValue(42.0);
-        static::assertEqualsWithDelta(81.6415392151, $knot->getValue(), 0.000001);
-    }
+test('creates from meter per second value', fn () =>
+    expect(Knot::fromMeterPerSecondValue(42.0)->getValue())->toEqualWithDelta(81.6415392151, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterPerSecondValue
-     */
-    public function testToMeterPerSecondValue(): void
-    {
-        static::assertEqualsWithDelta(21.606648, (new Knot(42.0))->toMeterPerSecondValue(), 0.000001);
-    }
-}
+test('converts to meter per second value', fn () =>
+    expect((new Knot(42.0))->toMeterPerSecondValue())->toEqualWithDelta(21.606648, 0.000001)
+);

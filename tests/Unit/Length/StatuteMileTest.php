@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\SurveyMile;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\SurveyMile
- */
-class StatuteMileTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('mi', SurveyMile::getSymbol());
-    }
+test('symbol is mi', fn () =>
+    expect(SurveyMile::getSymbol())->toBe('mi')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $surveyMile = SurveyMile::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(0.02609753818, $surveyMile->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(SurveyMile::fromMeterValue(42.0)->getValue())->toEqualWithDelta(0.02609753818, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(67592.5824, (new SurveyMile(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new SurveyMile(42.0))->toMeterValue())->toEqualWithDelta(67592.5824, 0.000001)
+);

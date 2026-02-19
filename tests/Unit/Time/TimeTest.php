@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Time;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Time\Day;
 use MeasurementUnit\Time\Hour;
 use MeasurementUnit\Time\Minute;
@@ -11,91 +9,38 @@ use MeasurementUnit\Time\Second;
 use MeasurementUnit\Time\Time;
 use MeasurementUnit\Time\TimeInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Time\Time
- */
-class TimeTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Time', function () {
+    test('stores value on construction', function () {
         $time = new class (42.0) extends Time {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromSecondValue(float $value): TimeInterface
-            {
-                return new self($value);
-            }
-
-            public function toSecondValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromSecondValue(float $value): TimeInterface { return new self($value); }
+            public function toSecondValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $time->value);
-    }
+        expect($time->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toDay
-     * @covers ::toHour
-     * @covers ::toMinute
-     * @covers ::toSecond
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all time units', function () {
         $time = new class (42.0) extends Time {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromSecondValue(float $value): TimeInterface
-            {
-                return new self($value);
-            }
-
-            public function toSecondValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromSecondValue(float $value): TimeInterface { return new self($value); }
+            public function toSecondValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(Day::class, $time->toDay());
-        static::assertInstanceOf(Hour::class, $time->toHour());
-        static::assertInstanceOf(Minute::class, $time->toMinute());
-        static::assertInstanceOf(Second::class, $time->toSecond());
-        static::assertEqualsWithDelta(21.0, $time->toSecond()->getValue(), 0.000001);
-    }
+        expect($time->toDay())->toBeInstanceOf(Day::class);
+        expect($time->toHour())->toBeInstanceOf(Hour::class);
+        expect($time->toMinute())->toBeInstanceOf(Minute::class);
+        expect($time->toSecond())->toBeInstanceOf(Second::class);
+        expect($time->toSecond()->getValue())->toEqualWithDelta(21.0, 0.000001);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $time = new class (42.0) extends Time {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromSecondValue(float $value): TimeInterface
-            {
-                return new self($value);
-            }
-
-            public function toSecondValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromSecondValue(float $value): TimeInterface { return new self($value); }
+            public function toSecondValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $time->__toString());
-    }
-}
+        expect($time->__toString())->toBe('42 unit');
+    });
+});

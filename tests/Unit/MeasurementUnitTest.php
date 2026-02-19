@@ -1,178 +1,100 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\MeasurementUnit;
-use MeasurementUnit\MeasurementUnitInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\MeasurementUnit
- */
-class MeasurementUnitTest extends TestCase
-{
-    /**
-     * @covers ::getValue
-     */
-    public function testGetValue(): void
-    {
-        $unit = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('getValue returns construction value', function () {
+    $unit = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame(42.0, $unit->getValue());
-    }
+    expect($unit->getValue())->toBe(42.0);
+});
 
-    /**
-     * @covers ::getInstanceSymbol
-     */
-    public function testGetInstanceSymbol(): void
-    {
-        $unit = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('getInstanceSymbol returns class symbol by default', function () {
+    $unit = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame('unit', $unit->getInstanceSymbol());
+    expect($unit->getInstanceSymbol())->toBe('unit');
+});
 
-        $unitWithCustomSymbol = new class (42.0, 'custom') extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('getInstanceSymbol returns custom symbol when provided', function () {
+    $unit = new class (42.0, 'custom') extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame('custom', $unitWithCustomSymbol->getInstanceSymbol());
-    }
+    expect($unit->getInstanceSymbol())->toBe('custom');
+});
 
-    /**
-     * @covers ::setInstanceSymbol
-     */
-    public function testSetInstanceSymbol(): void
-    {
-        $unit = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('setInstanceSymbol changes instance symbol and returns self', function () {
+    $unit = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame($unit, $unit->setInstanceSymbol('customSymbol')); // setInstanceSymbol returns $this
-        static::assertSame('customSymbol', $unit->getInstanceSymbol());
-    }
+    expect($unit->setInstanceSymbol('customSymbol'))->toBe($unit);
+    expect($unit->getInstanceSymbol())->toBe('customSymbol');
+});
 
-    /**
-     * @covers ::setSymbol
-     */
-    public function testSetSymbol(): void
-    {
-        $unitClass = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return static::$defaultSymbol;
-            }
-        };
+test('setSymbol changes default symbol', function () {
+    $unitClass = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return static::$defaultSymbol; }
+    };
 
-        $className      = get_class($unitClass);
-        $originalSymbol = $className::getSymbol();
+    $className = get_class($unitClass);
+    $originalSymbol = $className::getSymbol();
 
-        static::assertSame('newSymbol', $className::setSymbol('newSymbol'));
-        static::assertSame('newSymbol', $className::getSymbol());
+    expect($className::setSymbol('newSymbol'))->toBe('newSymbol');
+    expect($className::getSymbol())->toBe('newSymbol');
 
-        // Reset to original value to avoid affecting other tests
-        $className::setSymbol($originalSymbol);
-    }
+    $className::setSymbol($originalSymbol);
+});
 
-    /**
-     * @covers ::setSymbol
-     * @covers ::getSymbol
-     * @covers ::getInstanceSymbol
-     */
-    public function testSetSymbolAffectsNewInstances(): void
-    {
-        // Define a test measurement unit class
-        $unitClass = new class (0.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return static::$defaultSymbol;
-            }
-        };
+test('setSymbol affects new instances', function () {
+    $unitClass = new class (0.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return static::$defaultSymbol; }
+    };
 
-        $className      = get_class($unitClass);
-        $originalSymbol = $className::getSymbol();
+    $className = get_class($unitClass);
+    $originalSymbol = $className::getSymbol();
 
-        // Change the default symbol
-        $className::setSymbol('changedSymbol');
+    $className::setSymbol('changedSymbol');
 
-        // Verify static method returns updated symbol
-        static::assertSame('changedSymbol', $className::getSymbol());
+    expect($className::getSymbol())->toBe('changedSymbol');
 
-        // Create a new instance and verify it uses the updated symbol
-        $newInstance = new $className(42.0);
-        static::assertSame('changedSymbol', $newInstance->getInstanceSymbol());
+    $newInstance = new $className(42.0);
+    expect($newInstance->getInstanceSymbol())->toBe('changedSymbol');
 
-        // Reset to original value to avoid affecting other tests
-        $className::setSymbol($originalSymbol);
-    }
+    $className::setSymbol($originalSymbol);
+});
 
-    /**
-     * @covers ::toFormat
-     */
-    public function testToFormat(): void
-    {
-        $unit = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('toFormat formats value with symbol', function () {
+    $unit = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame('42.0 unit', $unit->toFormat());
-        static::assertSame('Value: 42.0, Symbol: unit', $unit->toFormat('Value: %.1f, Symbol: %s'));
-        static::assertSame('42.00', $unit->toFormat('%.2f'));
-    }
+    expect($unit->toFormat())->toBe('42.0 unit');
+    expect($unit->toFormat('Value: %.1f, Symbol: %s'))->toBe('Value: 42.0, Symbol: unit');
+    expect($unit->toFormat('%.2f'))->toBe('42.00');
+});
 
-    /**
-     * @covers ::toHtml
-     */
-    public function testToHtml(): void
-    {
-        $unit = new class (42.0) extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('toHtml wraps value and symbol in spans', function () {
+    $unit = new class (42.0) extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame('<span class="value">42.0</span> <span class="symbol">unit</span>', $unit->toHtml());
+    expect($unit->toHtml())->toBe('<span class="value">42.0</span> <span class="symbol">unit</span>');
 
-        $customTemplate = '<div class="measurement"><strong>%1$.2f</strong><em>%2$s</em></div>';
-        static::assertSame(
-            '<div class="measurement"><strong>42.00</strong><em>unit</em></div>',
-            $unit->toHtml($customTemplate)
-        );
-    }
+    $customTemplate = '<div class="measurement"><strong>%1$.2f</strong><em>%2$s</em></div>';
+    expect($unit->toHtml($customTemplate))->toBe('<div class="measurement"><strong>42.00</strong><em>unit</em></div>');
+});
 
-    /**
-     * @covers ::toHtml
-     * @covers ::toFormat
-     */
-    public function testFormattingWithCustomSymbol(): void
-    {
-        $unit = new class (42.0, 'custom') extends MeasurementUnit {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-        };
+test('formatting uses custom instance symbol', function () {
+    $unit = new class (42.0, 'custom') extends MeasurementUnit {
+        public static function getSymbol(): string { return 'unit'; }
+    };
 
-        static::assertSame('42.0 custom', $unit->toFormat());
-        static::assertSame('<span class="value">42.0</span> <span class="symbol">custom</span>', $unit->toHtml());
-    }
-}
+    expect($unit->toFormat())->toBe('42.0 custom');
+    expect($unit->toHtml())->toBe('<span class="value">42.0</span> <span class="symbol">custom</span>');
+});

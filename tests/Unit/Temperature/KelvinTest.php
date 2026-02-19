@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Temperature;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Temperature\Kelvin;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Temperature\Kelvin
- */
-class KelvinTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('K', Kelvin::getSymbol());
-    }
+test('symbol is K', fn () =>
+    expect(Kelvin::getSymbol())->toBe('K')
+);
 
-    /**
-     * @covers ::fromKelvinValue
-     */
-    public function testFromKelvinValue(): void
-    {
-        $kelvin = Kelvin::fromKelvinValue(42.0);
-        static::assertEqualsWithDelta(42.0, $kelvin->getValue(), 0.000001);
-    }
+test('creates from kelvin value', fn () =>
+    expect(Kelvin::fromKelvinValue(42.0)->getValue())->toEqualWithDelta(42.0, 0.000001)
+);
 
-    /**
-     * @covers ::toKelvinValue
-     */
-    public function testToKelvinValue(): void
-    {
-        static::assertSame(42.0, (new Kelvin(42.0))->toKelvinValue());
-    }
-}
+test('converts to kelvin value', fn () =>
+    expect((new Kelvin(42.0))->toKelvinValue())->toBe(42.0)
+);

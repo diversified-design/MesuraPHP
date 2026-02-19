@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Temperature;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Temperature\Celsius;
 use MeasurementUnit\Temperature\Fahrenheit;
 use MeasurementUnit\Temperature\Kelvin;
@@ -11,91 +9,38 @@ use MeasurementUnit\Temperature\Rankine;
 use MeasurementUnit\Temperature\Temperature;
 use MeasurementUnit\Temperature\TemperatureInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Temperature\Temperature
- */
-class TemperatureTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Temperature', function () {
+    test('stores value on construction', function () {
         $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromKelvinValue(float $value): TemperatureInterface
-            {
-                return new self($value);
-            }
-
-            public function toKelvinValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
+            public function toKelvinValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $temperature->value);
-    }
+        expect($temperature->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toCelsius
-     * @covers ::toFahrenheit
-     * @covers ::toKelvin
-     * @covers ::toRankine
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all temperature units', function () {
         $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromKelvinValue(float $value): TemperatureInterface
-            {
-                return new self($value);
-            }
-
-            public function toKelvinValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
+            public function toKelvinValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(Celsius::class, $temperature->toCelsius());
-        static::assertInstanceOf(Fahrenheit::class, $temperature->toFahrenheit());
-        static::assertInstanceOf(Kelvin::class, $temperature->toKelvin());
-        static::assertEqualsWithDelta(21.0, $temperature->toKelvin()->getValue(), 0.000001);
-        static::assertInstanceOf(Rankine::class, $temperature->toRankine());
-    }
+        expect($temperature->toCelsius())->toBeInstanceOf(Celsius::class);
+        expect($temperature->toFahrenheit())->toBeInstanceOf(Fahrenheit::class);
+        expect($temperature->toKelvin())->toBeInstanceOf(Kelvin::class);
+        expect($temperature->toKelvin()->getValue())->toEqualWithDelta(21.0, 0.000001);
+        expect($temperature->toRankine())->toBeInstanceOf(Rankine::class);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromKelvinValue(float $value): TemperatureInterface
-            {
-                return new self($value);
-            }
-
-            public function toKelvinValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
+            public function toKelvinValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $temperature->__toString());
-    }
-}
+        expect($temperature->__toString())->toBe('42 unit');
+    });
+});

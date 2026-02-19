@@ -1,59 +1,31 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Percentage;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Percentage\Percentage;
-use MeasurementUnit\Percentage\PercentageInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Percentage\Percentage
- */
-class PercentageTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Percentage', function () {
+    test('stores value on construction', function () {
         $percentage = new class (42.0) extends Percentage {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
+            public static function getSymbol(): string { return 'unit'; }
         };
 
-        static::assertSame(42.0, $percentage->value);
-    }
+        expect($percentage->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
+    test('returns symbol', function () {
         $percentage = new class (42.0) extends Percentage {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
+            public static function getSymbol(): string { return 'unit'; }
         };
 
-        static::assertSame('unit', $percentage->getSymbol());
-    }
+        expect($percentage->getSymbol())->toBe('unit');
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $percentage = new class (42.0) extends Percentage {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
+            public static function getSymbol(): string { return 'unit'; }
         };
 
-        static::assertSame('42 unit', $percentage->__toString());
-    }
-}
+        expect($percentage->__toString())->toBe('42 unit');
+    });
+});

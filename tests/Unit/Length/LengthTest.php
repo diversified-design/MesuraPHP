@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\Centimeter;
 use MeasurementUnit\Length\Fathom;
 use MeasurementUnit\Length\Foot;
@@ -15,113 +13,52 @@ use MeasurementUnit\Length\Length;
 use MeasurementUnit\Length\LengthInterface;
 use MeasurementUnit\Length\Meter;
 use MeasurementUnit\Length\Millimeter;
-use MeasurementUnit\Length\StatuteMile;
 use MeasurementUnit\Length\NauticalMile;
+use MeasurementUnit\Length\StatuteMile;
 use MeasurementUnit\Length\SurveyMile;
 use MeasurementUnit\Length\Thou;
 use MeasurementUnit\Length\Yard;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\Length
- */
-class LengthTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Length', function () {
+    test('stores value on construction', function () {
         $length = new class (42.0) extends Length {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromMeterValue(float $value): LengthInterface
-            {
-                return new self($value);
-            }
-
-            public function toMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
+            public function toMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $length->value);
-    }
+        expect($length->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toFathom
-     * @covers ::toFoot
-     * @covers ::toFurlong
-     * @covers ::toHorseLength
-     * @covers ::toInch
-     * @covers ::toMeter
-     * @covers ::toStatuteMile
-     * @covers ::toNauticalMile
-     * @covers ::toSurveyMile
-     * @covers ::toThou
-     * @covers ::toYard
-     * @covers ::toKilometer
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all length units', function () {
         $length = new class (42.0) extends Length {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromMeterValue(float $value): LengthInterface
-            {
-                return new self($value);
-            }
-
-            public function toMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
+            public function toMeterValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(Fathom::class, $length->toFathom());
-        static::assertInstanceOf(Foot::class, $length->toFoot());
-        static::assertInstanceOf(Furlong::class, $length->toFurlong());
-        static::assertInstanceOf(HorseLength::class, $length->toHorseLength());
-        static::assertInstanceOf(Inch::class, $length->toInch());
-        static::assertInstanceOf(Meter::class, $length->toMeter());
-        static::assertEqualsWithDelta(21.0, $length->toMeter()->getValue(), 0.000001);
-        static::assertInstanceOf(StatuteMile::class, $length->toStatuteMile());
-        static::assertInstanceOf(NauticalMile::class, $length->toNauticalMile());
-        static::assertInstanceOf(SurveyMile::class, $length->toSurveyMile());
-        static::assertInstanceOf(Thou::class, $length->toThou());
-        static::assertInstanceOf(Yard::class, $length->toYard());
-        static::assertInstanceOf(Kilometer::class, $length->toKilometer());
-    }
+        expect($length->toFathom())->toBeInstanceOf(Fathom::class);
+        expect($length->toFoot())->toBeInstanceOf(Foot::class);
+        expect($length->toFurlong())->toBeInstanceOf(Furlong::class);
+        expect($length->toHorseLength())->toBeInstanceOf(HorseLength::class);
+        expect($length->toInch())->toBeInstanceOf(Inch::class);
+        expect($length->toMeter())->toBeInstanceOf(Meter::class);
+        expect($length->toMeter()->getValue())->toEqualWithDelta(21.0, 0.000001);
+        expect($length->toStatuteMile())->toBeInstanceOf(StatuteMile::class);
+        expect($length->toNauticalMile())->toBeInstanceOf(NauticalMile::class);
+        expect($length->toSurveyMile())->toBeInstanceOf(SurveyMile::class);
+        expect($length->toThou())->toBeInstanceOf(Thou::class);
+        expect($length->toYard())->toBeInstanceOf(Yard::class);
+        expect($length->toKilometer())->toBeInstanceOf(Kilometer::class);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $length = new class (42.0) extends Length {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromMeterValue(float $value): LengthInterface
-            {
-                return new self($value);
-            }
-
-            public function toMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
+            public function toMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $length->__toString());
-    }
-}
+        expect($length->__toString())->toBe('42 unit');
+    });
+});

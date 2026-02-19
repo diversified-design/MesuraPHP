@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Speed;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Speed\KilometerPerHour;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Speed\KilometerPerHour
- */
-class KilometerPerHourTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('km/h', KilometerPerHour::getSymbol());
-    }
+test('symbol is km/h', fn () =>
+    expect(KilometerPerHour::getSymbol())->toBe('km/h')
+);
 
-    /**
-     * @covers ::fromMeterPerSecondValue
-     */
-    public function testFromMeterPerSecondValue(): void
-    {
-        $kmh = KilometerPerHour::fromMeterPerSecondValue(42.0);
-        static::assertEqualsWithDelta(151.19987904, $kmh->getValue(), 0.000001);
-    }
+test('creates from meter per second value', fn () =>
+    expect(KilometerPerHour::fromMeterPerSecondValue(42.0)->getValue())->toEqualWithDelta(151.19987904, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterPerSecondValue
-     */
-    public function testToMeterPerSecondValue(): void
-    {
-        static::assertEqualsWithDelta(11.666676, (new KilometerPerHour(42.0))->toMeterPerSecondValue(), 0.000001);
-    }
-}
+test('converts to meter per second value', fn () =>
+    expect((new KilometerPerHour(42.0))->toMeterPerSecondValue())->toEqualWithDelta(11.666676, 0.000001)
+);

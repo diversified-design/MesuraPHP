@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Integration;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\CubicInch;
 use MeasurementUnit\Volume\CubicMeter;
 use MeasurementUnit\Volume\CubicYard;
@@ -13,48 +11,32 @@ use MeasurementUnit\Volume\Liter;
 use MeasurementUnit\Volume\Pint;
 use MeasurementUnit\Volume\Quart;
 use MeasurementUnit\Volume\TableSpoon;
-use MeasurementUnit\Volume\Volume;
 
-/** @coversNothing */
-class VolumeTest extends TestCase
-{
-    /** @var array<class-string<Volume>> */
-    private const VOLUME_FQN_S = [
-        CubicInch::class,
-        CubicMeter::class,
-        CubicYard::class,
-        FluidDram::class,
-        FluidOunce::class,
-        Liter::class,
-        Pint::class,
-        Quart::class,
-        TableSpoon::class,
-    ];
+dataset('volume units', function () {
+    yield CubicInch::class  => [new CubicInch(42.0)];
+    yield CubicMeter::class => [new CubicMeter(42.0)];
+    yield CubicYard::class  => [new CubicYard(42.0)];
+    yield FluidDram::class  => [new FluidDram(42.0)];
+    yield FluidOunce::class => [new FluidOunce(42.0)];
+    yield Liter::class      => [new Liter(42.0)];
+    yield Pint::class       => [new Pint(42.0)];
+    yield Quart::class      => [new Quart(42.0)];
+    yield TableSpoon::class => [new TableSpoon(42.0)];
+});
 
-    /** @dataProvider volumeInstances */
-    public function testReversibility(Volume $volume): void
-    {
-        static::assertEqualsWithDelta($volume, $volume::fromCubicMeterValue($volume->toCubicMeterValue()), 0.000001);
-    }
+test('round-trips through cubic meter value', function ($volume) {
+    expect($volume::fromCubicMeterValue($volume->toCubicMeterValue()))
+        ->toEqualWithDelta($volume, 0.000001);
+})->with('volume units');
 
-    /** @return iterable<class-string<Volume>, array<Volume>> */
-    public function volumeInstances(): iterable
-    {
-        foreach (self::VOLUME_FQN_S as $volumeFQN) {
-            yield $volumeFQN => [new $volumeFQN(42.0)];
-        }
-    }
-
-    public function testCorrectConversionRate(): void
-    {
-        static::assertEqualsWithDelta(new CubicMeter(0.0006882582), (new CubicInch(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(42.0), (new CubicMeter(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(32.1113099), (new CubicYard(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.000155261), (new FluidDram(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.00124209), (new FluidOunce(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.042), (new Liter(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.019873392), (new Pint(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.0397468), (new Quart(42.0))->toCubicMeter(), 0.000001);
-        static::assertEqualsWithDelta(new CubicMeter(0.000621044), (new TableSpoon(42.0))->toCubicMeter(), 0.000001);
-    }
-}
+test('converts at correct rate', function () {
+    expect((new CubicInch(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.0006882582), 0.000001);
+    expect((new CubicMeter(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(42.0), 0.000001);
+    expect((new CubicYard(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(32.1113099), 0.000001);
+    expect((new FluidDram(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.000155261), 0.000001);
+    expect((new FluidOunce(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.00124209), 0.000001);
+    expect((new Liter(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.042), 0.000001);
+    expect((new Pint(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.019873392), 0.000001);
+    expect((new Quart(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.0397468), 0.000001);
+    expect((new TableSpoon(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.000621044), 0.000001);
+});

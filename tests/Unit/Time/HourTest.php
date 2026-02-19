@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Time;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Time\Hour;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Time\Hour
- */
-class HourTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('h', Hour::getSymbol());
-    }
+test('symbol is h', fn () =>
+    expect(Hour::getSymbol())->toBe('h')
+);
 
-    /**
-     * @covers ::fromSecondValue
-     */
-    public function testFromSecondValue(): void
-    {
-        $hour = Hour::fromSecondValue(42.0);
-        static::assertEqualsWithDelta(0.01166666666, $hour->getValue(), 0.000001);
-    }
+test('creates from second value', fn () =>
+    expect(Hour::fromSecondValue(42.0)->getValue())->toEqualWithDelta(0.01166666666, 0.000001)
+);
 
-    /**
-     * @covers ::toSecondValue
-     */
-    public function testToSecondValue(): void
-    {
-        static::assertEqualsWithDelta(151200.0, (new Hour(42.0))->toSecondValue(), 0.000001);
-    }
-}
+test('converts to second value', fn () =>
+    expect((new Hour(42.0))->toSecondValue())->toEqualWithDelta(151200.0, 0.000001)
+);

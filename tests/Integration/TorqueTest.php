@@ -1,36 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Integration;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Torque\NewtonMeter;
-use MeasurementUnit\Torque\Torque;
 
-/** @coversNothing */
-class TorqueTest extends TestCase
-{
-    /** @var array<class-string<Torque>> */
-    private const TORQUE_FQN_S = [
-        NewtonMeter::class,
-    ];
+dataset('torque units', function () {
+    yield NewtonMeter::class => [new NewtonMeter(42.0)];
+});
 
-    /** @dataProvider torqueInstances */
-    public function testReversibility(Torque $torque): void
-    {
-        static::assertEqualsWithDelta($torque, $torque::fromNewtonMeterValue($torque->toNewtonMeterValue()), 0.000001);
-    }
+test('round-trips through newton meter value', function ($torque) {
+    expect($torque::fromNewtonMeterValue($torque->toNewtonMeterValue()))
+        ->toEqualWithDelta($torque, 0.000001);
+})->with('torque units');
 
-    /** @return iterable<class-string<Torque>, array<Torque>> */
-    public function torqueInstances(): iterable
-    {
-        foreach (self::TORQUE_FQN_S as $torqueFQN) {
-            yield $torqueFQN => [new $torqueFQN(42.0)];
-        }
-    }
-
-    public function testCorrectConversionRate(): void
-    {
-        static::assertEqualsWithDelta(new NewtonMeter(42.0), (new NewtonMeter(42.0))->toNewtonMeter(), 0.000001);
-    }
-}
+test('converts at correct rate', function () {
+    expect((new NewtonMeter(42.0))->toNewtonMeter())->toEqualWithDelta(new NewtonMeter(42.0), 0.000001);
+});

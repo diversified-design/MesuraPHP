@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Time;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Time\Day;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Time\Day
- */
-class DayTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('d', Day::getSymbol());
-    }
+test('symbol is d', fn () =>
+    expect(Day::getSymbol())->toBe('d')
+);
 
-    /**
-     * @covers ::fromSecondValue
-     */
-    public function testFromSecondValue(): void
-    {
-        $day = Day::fromSecondValue(42.0);
-        static::assertEqualsWithDelta(0.00048611111, $day->getValue(), 0.000001);
-    }
+test('creates from second value', fn () =>
+    expect(Day::fromSecondValue(42.0)->getValue())->toEqualWithDelta(0.00048611111, 0.000001)
+);
 
-    /**
-     * @covers ::toSecondValue
-     */
-    public function testToSecondValue(): void
-    {
-        static::assertEqualsWithDelta(3628800.0, (new Day(42.0))->toSecondValue(), 0.000001);
-    }
-}
+test('converts to second value', fn () =>
+    expect((new Day(42.0))->toSecondValue())->toEqualWithDelta(3628800.0, 0.000001)
+);

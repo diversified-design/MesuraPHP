@@ -1,92 +1,40 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Torque;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Torque\NewtonMeter;
 use MeasurementUnit\Torque\Torque;
 use MeasurementUnit\Torque\TorqueInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Torque\Torque
- */
-class TorqueTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Torque', function () {
+    test('stores value on construction', function () {
         $torque = new class (42.0) extends Torque {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
-            {
-                return new self($value);
-            }
-
-            public function toNewtonMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromNewtonMeterValue(float $value): TorqueInterface { return new self($value); }
+            public function toNewtonMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $torque->value);
-    }
+        expect($torque->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toNewtonMeter
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all torque units', function () {
         $torque = new class (42.0) extends Torque {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
-            {
-                return new self($value);
-            }
-
-            public function toNewtonMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromNewtonMeterValue(float $value): TorqueInterface { return new self($value); }
+            public function toNewtonMeterValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(NewtonMeter::class, $torque->toNewtonMeter());
-        static::assertEqualsWithDelta(21.0, $torque->toNewtonMeter()->getValue(), 0.000001);
-    }
+        expect($torque->toNewtonMeter())->toBeInstanceOf(NewtonMeter::class);
+        expect($torque->toNewtonMeter()->getValue())->toEqualWithDelta(21.0, 0.000001);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $torque = new class (42.0) extends Torque {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
-            {
-                return new self($value);
-            }
-
-            public function toNewtonMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromNewtonMeterValue(float $value): TorqueInterface { return new self($value); }
+            public function toNewtonMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $torque->__toString());
-    }
-}
+        expect($torque->__toString())->toBe('42 unit');
+    });
+});

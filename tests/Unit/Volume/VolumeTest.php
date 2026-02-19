@@ -1,9 +1,7 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Volume;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Volume\CubicInch;
 use MeasurementUnit\Volume\CubicMeter;
 use MeasurementUnit\Volume\CubicYard;
@@ -16,101 +14,43 @@ use MeasurementUnit\Volume\TableSpoon;
 use MeasurementUnit\Volume\Volume;
 use MeasurementUnit\Volume\VolumeInterface;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Volume\Volume
- */
-class VolumeTest extends TestCase
-{
-    /**
-     * @covers ::__construct
-     */
-    public function testConstruct(): void
-    {
+describe('Volume', function () {
+    test('stores value on construction', function () {
         $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromCubicMeterValue(float $value): VolumeInterface
-            {
-                return new self($value);
-            }
-
-            public function toCubicMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
+            public function toCubicMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame(42.0, $volume->value);
-    }
+        expect($volume->value)->toBe(42.0);
+    });
 
-    /**
-     * @covers ::toUnit
-     * @covers ::toCubicInch
-     * @covers ::toCubicMeter
-     * @covers ::toCubicYard
-     * @covers ::toFluidDram
-     * @covers ::toFluidOunce
-     * @covers ::toLiter
-     * @covers ::toPint
-     * @covers ::toQuart
-     * @covers ::toTableSpoon
-     */
-    public function testToUnit(): void
-    {
+    test('converts to all volume units', function () {
         $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string
-            {
-                return '';
-            }
-
-            public static function fromCubicMeterValue(float $value): VolumeInterface
-            {
-                return new self($value);
-            }
-
-            public function toCubicMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return ''; }
+            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
+            public function toCubicMeterValue(): float { return 21.0; }
         };
 
-        static::assertInstanceOf(CubicInch::class, $volume->toCubicInch());
-        static::assertInstanceOf(CubicMeter::class, $volume->toCubicMeter());
-        static::assertEqualsWithDelta(21.0, $volume->toCubicMeter()->getValue(), 0.000001);
-        static::assertInstanceOf(CubicYard::class, $volume->toCubicYard());
-        static::assertInstanceOf(FluidDram::class, $volume->toFluidDram());
-        static::assertInstanceOf(FluidOunce::class, $volume->toFluidOunce());
-        static::assertInstanceOf(Liter::class, $volume->toLiter());
-        static::assertInstanceOf(Pint::class, $volume->toPint());
-        static::assertInstanceOf(Quart::class, $volume->toQuart());
-        static::assertInstanceOf(TableSpoon::class, $volume->toTableSpoon());
-    }
+        expect($volume->toCubicInch())->toBeInstanceOf(CubicInch::class);
+        expect($volume->toCubicMeter())->toBeInstanceOf(CubicMeter::class);
+        expect($volume->toCubicMeter()->getValue())->toEqualWithDelta(21.0, 0.000001);
+        expect($volume->toCubicYard())->toBeInstanceOf(CubicYard::class);
+        expect($volume->toFluidDram())->toBeInstanceOf(FluidDram::class);
+        expect($volume->toFluidOunce())->toBeInstanceOf(FluidOunce::class);
+        expect($volume->toLiter())->toBeInstanceOf(Liter::class);
+        expect($volume->toPint())->toBeInstanceOf(Pint::class);
+        expect($volume->toQuart())->toBeInstanceOf(Quart::class);
+        expect($volume->toTableSpoon())->toBeInstanceOf(TableSpoon::class);
+    });
 
-    /**
-     * @covers ::__toString
-     */
-    public function testToString(): void
-    {
+    test('casts to string', function () {
         $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string
-            {
-                return 'unit';
-            }
-
-            public static function fromCubicMeterValue(float $value): VolumeInterface
-            {
-                return new self($value);
-            }
-
-            public function toCubicMeterValue(): float
-            {
-                return 21.0;
-            }
+            public static function getSymbol(): string { return 'unit'; }
+            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
+            public function toCubicMeterValue(): float { return 21.0; }
         };
 
-        static::assertSame('42 unit', $volume->__toString());
-    }
-}
+        expect($volume->__toString())->toBe('42 unit');
+    });
+});

@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\Foot;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\Foot
- */
-class FootTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('ft', Foot::getSymbol());
-    }
+test('symbol is ft', fn () =>
+    expect(Foot::getSymbol())->toBe('ft')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $foot = Foot::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(137.795275591, $foot->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(Foot::fromMeterValue(42.0)->getValue())->toEqualWithDelta(137.795275591, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(12.8016, (new Foot(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new Foot(42.0))->toMeterValue())->toEqualWithDelta(12.8016, 0.000001)
+);

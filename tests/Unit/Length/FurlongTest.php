@@ -1,38 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Length;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Length\Furlong;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Length\Furlong
- */
-class FurlongTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testgetSymbol(): void
-    {
-        static::assertSame('fur', Furlong::getSymbol());
-    }
+test('symbol is fur', fn () =>
+    expect(Furlong::getSymbol())->toBe('fur')
+);
 
-    /**
-     * @covers ::fromMeterValue
-     */
-    public function testFromMeterValue(): void
-    {
-        $furlong = Furlong::fromMeterValue(42.0);
-        static::assertEqualsWithDelta(0.20878072059, $furlong->getValue(), 0.000001);
-    }
+test('creates from meter value', fn () =>
+    expect(Furlong::fromMeterValue(42.0)->getValue())->toEqualWithDelta(0.20878072059, 0.000001)
+);
 
-    /**
-     * @covers ::toMeterValue
-     */
-    public function testToMeterValue(): void
-    {
-        static::assertEqualsWithDelta(8449.056, (new Furlong(42.0))->toMeterValue(), 0.000001);
-    }
-}
+test('converts to meter value', fn () =>
+    expect((new Furlong(42.0))->toMeterValue())->toEqualWithDelta(8449.056, 0.000001)
+);

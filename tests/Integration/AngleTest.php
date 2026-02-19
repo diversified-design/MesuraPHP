@@ -1,39 +1,21 @@
 <?php
+
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Integration;
-
-use PHPUnit\Framework\TestCase;
-use MeasurementUnit\Angle\Radian;
 use MeasurementUnit\Angle\Degree;
-use MeasurementUnit\Angle\Angle;
+use MeasurementUnit\Angle\Radian;
 
-/** @coversNothing */
-class AngleTest extends TestCase
-{
-    /** @var array<class-string<Angle>> */
-    private const ANGLE_FQN_S = [
-        Radian::class,
-        Degree::class,
-    ];
+dataset('angle units', function () {
+    yield Radian::class => [new Radian(42.0)];
+    yield Degree::class => [new Degree(42.0)];
+});
 
-    /** @dataProvider angleInstances */
-    public function testReversibility(Angle $angle): void
-    {
-        static::assertEqualsWithDelta($angle, $angle::fromRadianValue($angle->toRadianValue()), 0.000001);
-    }
+test('round-trips through radian value', function ($angle) {
+    expect($angle::fromRadianValue($angle->toRadianValue()))
+        ->toEqualWithDelta($angle, 0.000001);
+})->with('angle units');
 
-    /** @return iterable<class-string<Angle>, array<Angle>> */
-    public function angleInstances(): iterable
-    {
-        foreach (self::ANGLE_FQN_S as $angleFQN) {
-            yield $angleFQN => [new $angleFQN(42.0)];
-        }
-    }
-
-    public function testCorrectConversionRate(): void
-    {
-        static::assertEqualsWithDelta(new Radian(42.0), (new Radian(42.0))->toRadian(), 0.000001);
-        static::assertEqualsWithDelta(new Radian(0.733038), (new Degree(42.0))->toRadian(), 0.000001);
-    }
-}
+test('converts at correct rate', function () {
+    expect((new Radian(42.0))->toRadian())->toEqualWithDelta(new Radian(42.0), 0.000001);
+    expect((new Degree(42.0))->toRadian())->toEqualWithDelta(new Radian(0.733038), 0.000001);
+});

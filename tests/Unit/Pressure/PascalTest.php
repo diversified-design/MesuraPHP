@@ -2,38 +2,16 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Tests\Unit\Pressure;
-
-use PHPUnit\Framework\TestCase;
 use MeasurementUnit\Pressure\Pascal;
 
-/**
- * @coversDefaultClass \MeasurementUnit\Pressure\Pascal
- */
-class PascalTest extends TestCase
-{
-    /**
-     * @covers ::getSymbol
-     */
-    public function testGetSymbol(): void
-    {
-        static::assertSame('Pa', Pascal::getSymbol());
-    }
+test('symbol is Pa', fn () =>
+    expect(Pascal::getSymbol())->toBe('Pa')
+);
 
-    /**
-     * @covers ::fromPascalValue
-     */
-    public function testFromPascalValue(): void
-    {
-        $pascal = Pascal::fromPascalValue(42.0);
-        static::assertEqualsWithDelta(42.0, $pascal->getValue(), 0.000001);
-    }
+test('creates from pascal value', fn () =>
+    expect(Pascal::fromPascalValue(42.0)->getValue())->toEqualWithDelta(42.0, 0.000001)
+);
 
-    /**
-     * @covers ::toPascalValue
-     */
-    public function testToPascalValue(): void
-    {
-        static::assertSame(42.0, (new Pascal(42.0))->toPascalValue());
-    }
-}
+test('converts to pascal value', fn () =>
+    expect((new Pascal(42.0))->toPascalValue())->toBe(42.0)
+);
