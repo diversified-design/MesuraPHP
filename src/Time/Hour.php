@@ -12,12 +12,12 @@ class Hour extends Time
     public static function fromSecondValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('3600')->toFloat()
+            BigRational::of((string) $value)->dividedBy('3600')->toFloat()
         );
     }
 
     public function toSecondValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('3600')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('3600')->toFloat();
     }
 }

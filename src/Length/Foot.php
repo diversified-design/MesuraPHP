@@ -12,12 +12,12 @@ class Foot extends Length
     public static function fromMeterValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('0.3048')->toFloat()
+            BigRational::of((string) $value)->dividedBy('0.3048')->toFloat()
         );
     }
 
     public function toMeterValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('0.3048')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('0.3048')->toFloat();
     }
 }

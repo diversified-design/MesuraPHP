@@ -12,12 +12,12 @@ class Furlong extends Length
     public static function fromMeterValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('201.1680')->toFloat()
+            BigRational::of((string) $value)->dividedBy('201.1680')->toFloat()
         );
     }
 
     public function toMeterValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('201.1680')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('201.1680')->toFloat();
     }
 }

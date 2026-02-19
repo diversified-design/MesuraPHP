@@ -12,12 +12,12 @@ class Liter extends Volume
     public static function fromCubicMeterValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('0.001')->toFloat()
+            BigRational::of((string) $value)->dividedBy('0.001')->toFloat()
         );
     }
 
     public function toCubicMeterValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('0.001')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('0.001')->toFloat();
     }
 }

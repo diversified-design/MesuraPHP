@@ -12,12 +12,12 @@ class Minute extends Time
     public static function fromSecondValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('60')->toFloat()
+            BigRational::of((string) $value)->dividedBy('60')->toFloat()
         );
     }
 
     public function toSecondValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('60')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('60')->toFloat();
     }
 }

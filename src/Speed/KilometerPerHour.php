@@ -12,12 +12,12 @@ class KilometerPerHour extends Speed
     public static function fromMeterPerSecondValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('0.277778')->toFloat()
+            BigRational::of((string) $value)->dividedBy('0.277778')->toFloat()
         );
     }
 
     public function toMeterPerSecondValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('0.277778')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('0.277778')->toFloat();
     }
 }

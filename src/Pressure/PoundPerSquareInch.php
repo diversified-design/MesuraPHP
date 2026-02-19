@@ -12,12 +12,12 @@ class PoundPerSquareInch extends Pressure
     public static function fromPascalValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('6894.757293168')->toFloat()
+            BigRational::of((string) $value)->dividedBy('6894.757293168')->toFloat()
         );
     }
 
     public function toPascalValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('6894.757293168')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('6894.757293168')->toFloat();
     }
 }

@@ -12,12 +12,12 @@ class MetricTon extends Weight
     public static function fromKilogramValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('1000')->toFloat()
+            BigRational::of((string) $value)->dividedBy('1000')->toFloat()
         );
     }
 
     public function toKilogramValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('1000')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('1000')->toFloat();
     }
 }

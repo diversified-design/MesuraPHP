@@ -12,12 +12,12 @@ class Kilometer extends Length
     public static function fromMeterValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('1000')->toFloat()
+            BigRational::of((string) $value)->dividedBy('1000')->toFloat()
         );
     }
 
     public function toMeterValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('1000')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('1000')->toFloat();
     }
 }

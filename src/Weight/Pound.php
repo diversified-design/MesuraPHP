@@ -12,12 +12,12 @@ class Pound extends Weight
     public static function fromKilogramValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->dividedBy('0.453592')->toFloat()
+            BigRational::of((string) $value)->dividedBy('0.453592')->toFloat()
         );
     }
 
     public function toKilogramValue(): float
     {
-        return BigRational::of($this->value)->multipliedBy('0.453592')->toFloat();
+        return BigRational::of((string) $this->value)->multipliedBy('0.453592')->toFloat();
     }
 }

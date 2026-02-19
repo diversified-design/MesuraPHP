@@ -12,12 +12,12 @@ class Celsius extends Temperature
     public static function fromKelvinValue(float $value): self
     {
         return new self(
-            BigRational::of($value)->minus('273.15')->toFloat()
+            BigRational::of((string) $value)->minus('273.15')->toFloat()
         );
     }
 
     public function toKelvinValue(): float
     {
-        return BigRational::of($this->value)->plus('273.15')->toFloat();
+        return BigRational::of((string) $this->value)->plus('273.15')->toFloat();
     }
 }

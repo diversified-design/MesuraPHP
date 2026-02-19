@@ -31,6 +31,6 @@ class Percent extends Percentage
     // Percentage to Decimal DRY method
     private function toDecimalValue(): float
     {
-        return BigRational::of($this->value)->dividedBy(100)->toFloat();
+        return BigRational::of((string) $this->value)->dividedBy(100)->toFloat();
     }
 }
