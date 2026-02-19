@@ -20,7 +20,8 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.94",
         "phpstan/phpstan": "^2.1",
-        "pestphp/pest": "^4.4"
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-type-coverage": "^4.0"
     },
     "scripts": {
         "cs": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix --dry-run",
