@@ -11,20 +11,42 @@ use MeasurementUnit\Temperature\TemperatureInterface;
 
 describe('Temperature', function () {
     test('stores value on construction', function () {
-        $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
-            public function toKelvinValue(): float { return 21.0; }
+        $temperature = new class(42.0) extends Temperature {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromKelvinValue(float $value): TemperatureInterface
+            {
+                return new self($value);
+            }
+
+            public function toKelvinValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($temperature->value)->toBe(42.0);
     });
 
     test('converts to all temperature units', function () {
-        $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string { return ''; }
-            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
-            public function toKelvinValue(): float { return 21.0; }
+        $temperature = new class(42.0) extends Temperature {
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromKelvinValue(float $value): TemperatureInterface
+            {
+                return new self($value);
+            }
+
+            public function toKelvinValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($temperature->toCelsius())->toBeInstanceOf(Celsius::class);
@@ -35,10 +57,21 @@ describe('Temperature', function () {
     });
 
     test('casts to string', function () {
-        $temperature = new class (42.0) extends Temperature {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromKelvinValue(float $value): TemperatureInterface { return new self($value); }
-            public function toKelvinValue(): float { return 21.0; }
+        $temperature = new class(42.0) extends Temperature {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromKelvinValue(float $value): TemperatureInterface
+            {
+                return new self($value);
+            }
+
+            public function toKelvinValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($temperature->__toString())->toBe('42 unit');

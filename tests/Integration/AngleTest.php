@@ -12,7 +12,8 @@ dataset('angle units', function () {
 
 test('round-trips through radian value', function ($angle) {
     expect($angle::fromRadianValue($angle->toRadianValue()))
-        ->toEqualWithDelta($angle, 0.000001);
+        ->toEqualWithDelta($angle, 0.000001)
+    ;
 })->with('angle units');
 
 test('converts at correct rate', function () {

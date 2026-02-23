@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Torque;
@@ -14,14 +15,14 @@ abstract class Torque extends MeasurementUnit implements TorqueInterface
 
     /**
      * @template T of Torque
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Torque
     {
-        /** @var T $unit */
-        $unit = $fqn::fromNewtonMeterValue($this->toNewtonMeterValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromNewtonMeterValue($this->toNewtonMeterValue());
     }
 }

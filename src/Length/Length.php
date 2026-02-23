@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Length;
@@ -79,14 +80,14 @@ abstract class Length extends MeasurementUnit implements LengthInterface
 
     /**
      * @template T of Length
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Length
     {
-        /** @var T $unit */
-        $unit = $fqn::fromMeterValue($this->toMeterValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromMeterValue($this->toMeterValue());
     }
 }

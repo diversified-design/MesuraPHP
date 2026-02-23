@@ -8,8 +8,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // Example showing how to use the Customise class to change the unit symbols
 // ----------------------------------------------------
 use MeasurementUnit\Customise;
-use MeasurementUnit\Length\Meter;
 use MeasurementUnit\Length\Fathom;
+use MeasurementUnit\Length\Meter;
 use MeasurementUnit\Temperature\Celsius;
 use MeasurementUnit\Temperature\Fahrenheit;
 
@@ -25,7 +25,7 @@ $customUnits = [
     Meter::class      => 'METRE',
     Fathom::class     => 'FATHOM',
     Celsius::class    => '℃',
-    Fahrenheit::class => '℉'
+    Fahrenheit::class => '℉',
 ];
 // Customise::unitSymbols($customUnits);
 
@@ -33,20 +33,20 @@ $customUnits = [
 
 // Display the default symbols
 echo "Default unit symbols:\n";
-echo "Meter: " . Meter::getSymbol() . "\n";
-echo "Fathom: " . Fathom::getSymbol() . "\n";
-echo "Celsius: " . Celsius::getSymbol() . "\n";
-echo "Fahrenheit: " . Fahrenheit::getSymbol() . "\n";
+echo 'Meter: ' . Meter::getSymbol() . "\n";
+echo 'Fathom: ' . Fathom::getSymbol() . "\n";
+echo 'Celsius: ' . Celsius::getSymbol() . "\n";
+echo 'Fahrenheit: ' . Fahrenheit::getSymbol() . "\n";
 
 // Customise the unit symbols
 Customise::unitSymbols($customUnits);
 
 // Display the Customised symbols
 echo "Customised unit symbols:\n";
-echo "Meter: " . Meter::getSymbol() . "\n";
-echo "Fathom: " . Fathom::getSymbol() . "\n";
-echo "Celsius: " . Celsius::getSymbol() . "\n";
-echo "Fahrenheit: " . Fahrenheit::getSymbol() . "\n";
+echo 'Meter: ' . Meter::getSymbol() . "\n";
+echo 'Fathom: ' . Fathom::getSymbol() . "\n";
+echo 'Celsius: ' . Celsius::getSymbol() . "\n";
+echo 'Fahrenheit: ' . Fahrenheit::getSymbol() . "\n";
 
 // Example showing how to use the Customised units in a measurement
 echo "\nA new instance of 5 meters is displayed as: \"5 METRE\" -> " . new Meter(5) . "\n";
@@ -57,17 +57,17 @@ echo "\nA new instance of 5 degrees Fahrenheit is displayed as: \"5 ℉\" -> " .
 // Error handling demonstration
 try {
     Customise::unitSymbols([
-        'NonExistentClass' => 'SYMBOL'
+        'NonExistentClass' => 'SYMBOL',
     ]);
-} catch (\InvalidArgumentException $e) {
+} catch (InvalidArgumentException $e) {
     echo "\nError: " . $e->getMessage() . "\n";
 }
 
 // Demonstration with an invalid measurement unit class
 try {
     Customise::unitSymbols([
-        \stdClass::class => 'SYMBOL'
+        stdClass::class => 'SYMBOL',
     ]);
-} catch (\InvalidArgumentException $e) {
+} catch (InvalidArgumentException $e) {
     echo "\nError: " . $e->getMessage() . "\n";
 }

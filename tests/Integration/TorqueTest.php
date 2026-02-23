@@ -10,7 +10,8 @@ dataset('torque units', function () {
 
 test('round-trips through newton meter value', function ($torque) {
     expect($torque::fromNewtonMeterValue($torque->toNewtonMeterValue()))
-        ->toEqualWithDelta($torque, 0.000001);
+        ->toEqualWithDelta($torque, 0.000001)
+    ;
 })->with('torque units');
 
 test('converts at correct rate', function () {

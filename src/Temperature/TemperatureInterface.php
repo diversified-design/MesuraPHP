@@ -1,9 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Temperature;
 
-use MeasurementUnit\MeasurementUnit;
 use MeasurementUnit\MeasurementUnitInterface;
 
 interface TemperatureInterface extends MeasurementUnitInterface

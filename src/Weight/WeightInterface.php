@@ -1,9 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Weight;
 
-use MeasurementUnit\MeasurementUnit;
 use MeasurementUnit\MeasurementUnitInterface;
 
 interface WeightInterface extends MeasurementUnitInterface

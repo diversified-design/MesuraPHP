@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Speed;
@@ -29,14 +30,14 @@ abstract class Speed extends MeasurementUnit implements SpeedInterface
 
     /**
      * @template T of Speed
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Speed
     {
-        /** @var T $unit */
-        $unit = $fqn::fromMeterPerSecondValue($this->toMeterPerSecondValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromMeterPerSecondValue($this->toMeterPerSecondValue());
     }
 }

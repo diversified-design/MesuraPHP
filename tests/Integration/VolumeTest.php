@@ -13,20 +13,21 @@ use MeasurementUnit\Volume\Quart;
 use MeasurementUnit\Volume\TableSpoon;
 
 dataset('volume units', function () {
-    yield CubicInch::class  => [new CubicInch(42.0)];
+    yield CubicInch::class => [new CubicInch(42.0)];
     yield CubicMeter::class => [new CubicMeter(42.0)];
-    yield CubicYard::class  => [new CubicYard(42.0)];
-    yield FluidDram::class  => [new FluidDram(42.0)];
+    yield CubicYard::class => [new CubicYard(42.0)];
+    yield FluidDram::class => [new FluidDram(42.0)];
     yield FluidOunce::class => [new FluidOunce(42.0)];
-    yield Liter::class      => [new Liter(42.0)];
-    yield Pint::class       => [new Pint(42.0)];
-    yield Quart::class      => [new Quart(42.0)];
+    yield Liter::class => [new Liter(42.0)];
+    yield Pint::class => [new Pint(42.0)];
+    yield Quart::class => [new Quart(42.0)];
     yield TableSpoon::class => [new TableSpoon(42.0)];
 });
 
 test('round-trips through cubic meter value', function ($volume) {
     expect($volume::fromCubicMeterValue($volume->toCubicMeterValue()))
-        ->toEqualWithDelta($volume, 0.000001);
+        ->toEqualWithDelta($volume, 0.000001)
+    ;
 })->with('volume units');
 
 test('converts at correct rate', function () {

@@ -9,20 +9,42 @@ use MeasurementUnit\Angle\Radian;
 
 describe('Angle', function () {
     test('stores value on construction', function () {
-        $angle = new class (42.0) extends Angle {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromRadianValue(float $value): AngleInterface { return new self($value); }
-            public function toRadianValue(): float { return 0.733038; }
+        $angle = new class(42.0) extends Angle {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromRadianValue(float $value): AngleInterface
+            {
+                return new self($value);
+            }
+
+            public function toRadianValue(): float
+            {
+                return 0.733038;
+            }
         };
 
         expect($angle->value)->toBe(42.0);
     });
 
     test('converts to all angle units', function () {
-        $angle = new class (42.0) extends Angle {
-            public static function getSymbol(): string { return ''; }
-            public static function fromRadianValue(float $value): AngleInterface { return new self($value); }
-            public function toRadianValue(): float { return 21.0; }
+        $angle = new class(42.0) extends Angle {
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromRadianValue(float $value): AngleInterface
+            {
+                return new self($value);
+            }
+
+            public function toRadianValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($angle->toDegree())->toBeInstanceOf(Degree::class);
@@ -31,10 +53,21 @@ describe('Angle', function () {
     });
 
     test('casts to string', function () {
-        $angle = new class (42.0) extends Angle {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromRadianValue(float $value): AngleInterface { return new self($value); }
-            public function toRadianValue(): float { return 0.733038; }
+        $angle = new class(42.0) extends Angle {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromRadianValue(float $value): AngleInterface
+            {
+                return new self($value);
+            }
+
+            public function toRadianValue(): float
+            {
+                return 0.733038;
+            }
         };
 
         expect($angle->__toString())->toBe('42 unit');

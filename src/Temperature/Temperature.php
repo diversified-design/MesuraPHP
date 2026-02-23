@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Temperature;
@@ -29,14 +30,14 @@ abstract class Temperature extends MeasurementUnit implements TemperatureInterfa
 
     /**
      * @template T of Temperature
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Temperature
     {
-        /** @var T $unit */
-        $unit = $fqn::fromKelvinValue($this->toKelvinValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromKelvinValue($this->toKelvinValue());
     }
 }

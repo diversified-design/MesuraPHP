@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Pressure;
@@ -54,14 +55,14 @@ abstract class Pressure extends MeasurementUnit implements PressureInterface
 
     /**
      * @template T of Pressure
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Pressure
     {
-        /** @var T $unit */
-        $unit = $fqn::fromPascalValue($this->toPascalValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromPascalValue($this->toPascalValue());
     }
 }

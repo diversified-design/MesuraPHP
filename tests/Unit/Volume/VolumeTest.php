@@ -16,20 +16,42 @@ use MeasurementUnit\Volume\VolumeInterface;
 
 describe('Volume', function () {
     test('stores value on construction', function () {
-        $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
-            public function toCubicMeterValue(): float { return 21.0; }
+        $volume = new class(42.0) extends Volume {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromCubicMeterValue(float $value): VolumeInterface
+            {
+                return new self($value);
+            }
+
+            public function toCubicMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($volume->value)->toBe(42.0);
     });
 
     test('converts to all volume units', function () {
-        $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string { return ''; }
-            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
-            public function toCubicMeterValue(): float { return 21.0; }
+        $volume = new class(42.0) extends Volume {
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromCubicMeterValue(float $value): VolumeInterface
+            {
+                return new self($value);
+            }
+
+            public function toCubicMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($volume->toCubicInch())->toBeInstanceOf(CubicInch::class);
@@ -45,10 +67,21 @@ describe('Volume', function () {
     });
 
     test('casts to string', function () {
-        $volume = new class (42.0) extends Volume {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromCubicMeterValue(float $value): VolumeInterface { return new self($value); }
-            public function toCubicMeterValue(): float { return 21.0; }
+        $volume = new class(42.0) extends Volume {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromCubicMeterValue(float $value): VolumeInterface
+            {
+                return new self($value);
+            }
+
+            public function toCubicMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($volume->__toString())->toBe('42 unit');

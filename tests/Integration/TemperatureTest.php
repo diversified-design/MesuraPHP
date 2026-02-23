@@ -8,15 +8,16 @@ use MeasurementUnit\Temperature\Kelvin;
 use MeasurementUnit\Temperature\Rankine;
 
 dataset('temperature units', function () {
-    yield Celsius::class    => [new Celsius(42.0)];
+    yield Celsius::class => [new Celsius(42.0)];
     yield Fahrenheit::class => [new Fahrenheit(42.0)];
-    yield Kelvin::class     => [new Kelvin(42.0)];
-    yield Rankine::class    => [new Rankine(42.0)];
+    yield Kelvin::class => [new Kelvin(42.0)];
+    yield Rankine::class => [new Rankine(42.0)];
 });
 
 test('round-trips through kelvin value', function ($temperature) {
     expect($temperature::fromKelvinValue($temperature->toKelvinValue()))
-        ->toEqualWithDelta($temperature, 0.000001);
+        ->toEqualWithDelta($temperature, 0.000001)
+    ;
 })->with('temperature units');
 
 test('converts at correct rate', function () {

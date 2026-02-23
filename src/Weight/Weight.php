@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Weight;
@@ -24,14 +25,14 @@ abstract class Weight extends MeasurementUnit implements WeightInterface
 
     /**
      * @template T of Weight
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Weight
     {
-        /** @var T $unit */
-        $unit = $fqn::fromKilogramValue($this->toKilogramValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromKilogramValue($this->toKilogramValue());
     }
 }

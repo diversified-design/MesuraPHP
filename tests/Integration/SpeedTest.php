@@ -9,14 +9,15 @@ use MeasurementUnit\Speed\MilesPerHour;
 
 dataset('speed units', function () {
     yield KilometerPerHour::class => [new KilometerPerHour(42.0)];
-    yield Knot::class             => [new Knot(42.0)];
-    yield MeterPerSecond::class   => [new MeterPerSecond(42.0)];
-    yield MilesPerHour::class     => [new MilesPerHour(42.0)];
+    yield Knot::class => [new Knot(42.0)];
+    yield MeterPerSecond::class => [new MeterPerSecond(42.0)];
+    yield MilesPerHour::class => [new MilesPerHour(42.0)];
 });
 
 test('round-trips through meter per second value', function ($speed) {
     expect($speed::fromMeterPerSecondValue($speed->toMeterPerSecondValue()))
-        ->toEqualWithDelta($speed, 0.000001);
+        ->toEqualWithDelta($speed, 0.000001)
+    ;
 })->with('speed units');
 
 test('converts at correct rate', function () {

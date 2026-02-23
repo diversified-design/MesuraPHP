@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Volume;
@@ -54,14 +55,14 @@ abstract class Volume extends MeasurementUnit implements VolumeInterface
 
     /**
      * @template T of Volume
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Volume
     {
-        /** @var T $unit */
-        $unit = $fqn::fromCubicMeterValue($this->toCubicMeterValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromCubicMeterValue($this->toCubicMeterValue());
     }
 }

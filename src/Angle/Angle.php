@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Angle;
@@ -19,14 +20,14 @@ abstract class Angle extends MeasurementUnit implements AngleInterface
 
     /**
      * @template T of Angle
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Angle
     {
-        /** @var T $unit */
-        $unit = $fqn::fromRadianValue($this->toRadianValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromRadianValue($this->toRadianValue());
     }
 }

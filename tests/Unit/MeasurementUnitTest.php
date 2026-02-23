@@ -5,32 +5,44 @@ declare(strict_types=1);
 use MeasurementUnit\MeasurementUnit;
 
 test('getValue returns construction value', function () {
-    $unit = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->getValue())->toBe(42.0);
 });
 
 test('getInstanceSymbol returns class symbol by default', function () {
-    $unit = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->getInstanceSymbol())->toBe('unit');
 });
 
 test('getInstanceSymbol returns custom symbol when provided', function () {
-    $unit = new class (42.0, 'custom') extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0, 'custom') extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->getInstanceSymbol())->toBe('custom');
 });
 
 test('setInstanceSymbol changes instance symbol and returns self', function () {
-    $unit = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->setInstanceSymbol('customSymbol'))->toBe($unit);
@@ -38,11 +50,14 @@ test('setInstanceSymbol changes instance symbol and returns self', function () {
 });
 
 test('setSymbol changes default symbol', function () {
-    $unitClass = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return static::$defaultSymbol; }
+    $unitClass = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return self::$defaultSymbol;
+        }
     };
 
-    $className = get_class($unitClass);
+    $className      = get_class($unitClass);
     $originalSymbol = $className::getSymbol();
 
     expect($className::setSymbol('newSymbol'))->toBe('newSymbol');
@@ -52,11 +67,14 @@ test('setSymbol changes default symbol', function () {
 });
 
 test('setSymbol affects new instances', function () {
-    $unitClass = new class (0.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return static::$defaultSymbol; }
+    $unitClass = new class(0.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return self::$defaultSymbol;
+        }
     };
 
-    $className = get_class($unitClass);
+    $className      = get_class($unitClass);
     $originalSymbol = $className::getSymbol();
 
     $className::setSymbol('changedSymbol');
@@ -70,8 +88,11 @@ test('setSymbol affects new instances', function () {
 });
 
 test('toFormat formats value with symbol', function () {
-    $unit = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->toFormat())->toBe('42.0 unit');
@@ -80,8 +101,11 @@ test('toFormat formats value with symbol', function () {
 });
 
 test('toHtml wraps value and symbol in spans', function () {
-    $unit = new class (42.0) extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->toHtml())->toBe('<span class="value">42.0</span> <span class="symbol">unit</span>');
@@ -91,8 +115,11 @@ test('toHtml wraps value and symbol in spans', function () {
 });
 
 test('formatting uses custom instance symbol', function () {
-    $unit = new class (42.0, 'custom') extends MeasurementUnit {
-        public static function getSymbol(): string { return 'unit'; }
+    $unit = new class(42.0, 'custom') extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
     };
 
     expect($unit->toFormat())->toBe('42.0 custom');

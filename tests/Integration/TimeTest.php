@@ -8,15 +8,16 @@ use MeasurementUnit\Time\Minute;
 use MeasurementUnit\Time\Second;
 
 dataset('time units', function () {
-    yield Day::class    => [new Day(42.0)];
-    yield Hour::class   => [new Hour(42.0)];
+    yield Day::class => [new Day(42.0)];
+    yield Hour::class => [new Hour(42.0)];
     yield Minute::class => [new Minute(42.0)];
     yield Second::class => [new Second(42.0)];
 });
 
 test('round-trips through second value', function ($time) {
     expect($time::fromSecondValue($time->toSecondValue()))
-        ->toEqualWithDelta($time, 0.000001);
+        ->toEqualWithDelta($time, 0.000001)
+    ;
 })->with('time units');
 
 test('converts at correct rate', function () {

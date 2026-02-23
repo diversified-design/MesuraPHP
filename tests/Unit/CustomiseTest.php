@@ -6,7 +6,7 @@ use MeasurementUnit\Customise;
 use MeasurementUnit\Length\Fathom;
 use MeasurementUnit\Length\Meter;
 
-$originalMeterSymbol = Meter::getSymbol();
+$originalMeterSymbol  = Meter::getSymbol();
 $originalFathomSymbol = Fathom::getSymbol();
 
 afterEach(function () use ($originalMeterSymbol, $originalFathomSymbol) {
@@ -30,10 +30,10 @@ test('throws for non-existent class', function () {
     Customise::unitSymbols([ // @phpstan-ignore argument.type (intentionally passing invalid class name)
         'NonExistentClass' => 'SYMBOL',
     ]);
-})->throws(\InvalidArgumentException::class, 'Class NonExistentClass does not exist.');
+})->throws(InvalidArgumentException::class, 'Class NonExistentClass does not exist.');
 
 test('throws for invalid measurement unit class', function () {
     Customise::unitSymbols([
-        \stdClass::class => 'SYMBOL',
+        stdClass::class => 'SYMBOL',
     ]);
-})->throws(\InvalidArgumentException::class, 'Class stdClass does not exist.');
+})->throws(InvalidArgumentException::class, 'Class stdClass does not exist.');

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Centimeter;
 use MeasurementUnit\Length\Fathom;
 use MeasurementUnit\Length\Foot;
 use MeasurementUnit\Length\Furlong;
@@ -12,7 +11,6 @@ use MeasurementUnit\Length\Kilometer;
 use MeasurementUnit\Length\Length;
 use MeasurementUnit\Length\LengthInterface;
 use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Length\Millimeter;
 use MeasurementUnit\Length\NauticalMile;
 use MeasurementUnit\Length\StatuteMile;
 use MeasurementUnit\Length\SurveyMile;
@@ -21,20 +19,42 @@ use MeasurementUnit\Length\Yard;
 
 describe('Length', function () {
     test('stores value on construction', function () {
-        $length = new class (42.0) extends Length {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
-            public function toMeterValue(): float { return 21.0; }
+        $length = new class(42.0) extends Length {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromMeterValue(float $value): LengthInterface
+            {
+                return new self($value);
+            }
+
+            public function toMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($length->value)->toBe(42.0);
     });
 
     test('converts to all length units', function () {
-        $length = new class (42.0) extends Length {
-            public static function getSymbol(): string { return ''; }
-            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
-            public function toMeterValue(): float { return 21.0; }
+        $length = new class(42.0) extends Length {
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromMeterValue(float $value): LengthInterface
+            {
+                return new self($value);
+            }
+
+            public function toMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($length->toFathom())->toBeInstanceOf(Fathom::class);
@@ -53,10 +73,21 @@ describe('Length', function () {
     });
 
     test('casts to string', function () {
-        $length = new class (42.0) extends Length {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromMeterValue(float $value): LengthInterface { return new self($value); }
-            public function toMeterValue(): float { return 21.0; }
+        $length = new class(42.0) extends Length {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromMeterValue(float $value): LengthInterface
+            {
+                return new self($value);
+            }
+
+            public function toMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($length->__toString())->toBe('42 unit');

@@ -16,20 +16,42 @@ use MeasurementUnit\Pressure\Torr;
 
 describe('Pressure', function () {
     test('stores value on construction', function () {
-        $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
-            public function toPascalValue(): float { return 21.0; }
+        $pressure = new class(42.0) extends Pressure {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromPascalValue(float $value): PressureInterface
+            {
+                return new self($value);
+            }
+
+            public function toPascalValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($pressure->value)->toBe(42.0);
     });
 
     test('converts to all pressure units', function () {
-        $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string { return ''; }
-            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
-            public function toPascalValue(): float { return 21.0; }
+        $pressure = new class(42.0) extends Pressure {
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromPascalValue(float $value): PressureInterface
+            {
+                return new self($value);
+            }
+
+            public function toPascalValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($pressure->toBar())->toBeInstanceOf(Bar::class);
@@ -45,10 +67,21 @@ describe('Pressure', function () {
     });
 
     test('casts to string', function () {
-        $pressure = new class (42.0) extends Pressure {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromPascalValue(float $value): PressureInterface { return new self($value); }
-            public function toPascalValue(): float { return 21.0; }
+        $pressure = new class(42.0) extends Pressure {
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromPascalValue(float $value): PressureInterface
+            {
+                return new self($value);
+            }
+
+            public function toPascalValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($pressure->__toString())->toBe('42 unit');

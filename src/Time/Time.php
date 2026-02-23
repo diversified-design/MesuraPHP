@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Time;
@@ -29,14 +30,14 @@ abstract class Time extends MeasurementUnit implements TimeInterface
 
     /**
      * @template T of Time
+     *
      * @param class-string<T> $fqn
+     *
      * @return T
      */
     public function toUnit(string $fqn): Time
     {
-        /** @var T $unit */
-        $unit = $fqn::fromSecondValue($this->toSecondValue());
-
-        return $unit;
+        /* @var T $unit */
+        return $fqn::fromSecondValue($this->toSecondValue());
     }
 }

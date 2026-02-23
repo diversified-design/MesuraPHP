@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MeasurementUnit\Percentage;
@@ -11,7 +12,7 @@ class Percent extends Percentage
 
     /**
      * Returns the percentage as a decimal ratio.
-     * Example: 75% => 0.75 (unitless)
+     * Example: 75% => 0.75 (unitless).
      */
     public function toDecimal(): float
     {
@@ -21,7 +22,7 @@ class Percent extends Percentage
     /**
      * Returns a multiplicative coefficient.
      * Example: 15% => 1.15 (unitless)
-     * Can be useful when representing increase/decrease
+     * Can be useful when representing increase/decrease.
      */
     public function toCoefficient(): float
     {

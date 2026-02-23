@@ -13,20 +13,21 @@ use MeasurementUnit\Pressure\StandardAtmosphere;
 use MeasurementUnit\Pressure\Torr;
 
 dataset('pressure units', function () {
-    yield Pascal::class              => [new Pascal(42.0)];
-    yield Bar::class                 => [new Bar(42.0)];
-    yield Hectopascal::class         => [new Hectopascal(42.0)];
-    yield Kilopascal::class          => [new Kilopascal(42.0)];
-    yield Millibar::class            => [new Millibar(42.0)];
+    yield Pascal::class => [new Pascal(42.0)];
+    yield Bar::class => [new Bar(42.0)];
+    yield Hectopascal::class => [new Hectopascal(42.0)];
+    yield Kilopascal::class => [new Kilopascal(42.0)];
+    yield Millibar::class => [new Millibar(42.0)];
     yield MillimetreOfMercury::class => [new MillimetreOfMercury(42.0)];
-    yield PoundPerSquareInch::class  => [new PoundPerSquareInch(42.0)];
-    yield StandardAtmosphere::class  => [new StandardAtmosphere(42.0)];
-    yield Torr::class                => [new Torr(42.0)];
+    yield PoundPerSquareInch::class => [new PoundPerSquareInch(42.0)];
+    yield StandardAtmosphere::class => [new StandardAtmosphere(42.0)];
+    yield Torr::class => [new Torr(42.0)];
 });
 
 test('round-trips through pascal value', function ($pressure) {
     expect($pressure::fromPascalValue($pressure->toPascalValue()))
-        ->toEqualWithDelta($pressure, 0.000001);
+        ->toEqualWithDelta($pressure, 0.000001)
+    ;
 })->with('pressure units');
 
 test('converts at correct rate', function () {

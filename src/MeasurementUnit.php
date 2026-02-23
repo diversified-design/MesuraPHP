@@ -12,7 +12,7 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
 
     public function __construct(
         public readonly float $value,
-        ?string $symbol = null
+        ?string $symbol = null,
     ) {
         $this->symbol = $symbol ?? static::$defaultSymbol;
     }
@@ -30,6 +30,7 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
     public function setInstanceSymbol(string $symbol): static
     {
         $this->symbol = $symbol;
+
         return $this;
     }
 
@@ -41,26 +42,27 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
     public static function setSymbol(string $symbol): string
     {
         static::$defaultSymbol = $symbol;
+
         return static::$defaultSymbol;
     }
 
     // Formatting Methods
     public function toHtml(string $sprintf_Template = '<span class="value">%1$.1f</span> <span class="symbol">%2$s</span>'): string
     {
-        $HTML = $this->toFormat(sprintf_Template: $sprintf_Template);
-        return $HTML;
+        return $this->toFormat(sprintf_Template: $sprintf_Template);
     }
 
     public function toFormat(string $sprintf_Template = '%.1f %s'): string
     {
         $value  = $this->getValue();
         $symbol = $this->getInstanceSymbol();
+
         return vsprintf($sprintf_Template, [$value, $symbol]);
     }
 
     // Magic Methods
     public function __toString(): string
     {
-        return $this->getValue() . " " . $this->getInstanceSymbol();
+        return $this->getValue() . ' ' . $this->getInstanceSymbol();
     }
 }

@@ -18,25 +18,26 @@ use MeasurementUnit\Length\Thou;
 use MeasurementUnit\Length\Yard;
 
 dataset('length units', function () {
-    yield Centimeter::class   => [new Centimeter(42.0)];
-    yield Fathom::class       => [new Fathom(42.0)];
-    yield Foot::class         => [new Foot(42.0)];
-    yield Furlong::class      => [new Furlong(42.0)];
-    yield HorseLength::class  => [new HorseLength(42.0)];
-    yield Inch::class         => [new Inch(42.0)];
-    yield Kilometer::class    => [new Kilometer(42.0)];
-    yield Meter::class        => [new Meter(42.0)];
-    yield Millimeter::class   => [new Millimeter(42.0)];
-    yield StatuteMile::class  => [new StatuteMile(42.0)];
+    yield Centimeter::class => [new Centimeter(42.0)];
+    yield Fathom::class => [new Fathom(42.0)];
+    yield Foot::class => [new Foot(42.0)];
+    yield Furlong::class => [new Furlong(42.0)];
+    yield HorseLength::class => [new HorseLength(42.0)];
+    yield Inch::class => [new Inch(42.0)];
+    yield Kilometer::class => [new Kilometer(42.0)];
+    yield Meter::class => [new Meter(42.0)];
+    yield Millimeter::class => [new Millimeter(42.0)];
+    yield StatuteMile::class => [new StatuteMile(42.0)];
     yield NauticalMile::class => [new NauticalMile(42.0)];
-    yield SurveyMile::class   => [new SurveyMile(42.0)];
-    yield Thou::class         => [new Thou(42.0)];
-    yield Yard::class         => [new Yard(42.0)];
+    yield SurveyMile::class => [new SurveyMile(42.0)];
+    yield Thou::class => [new Thou(42.0)];
+    yield Yard::class => [new Yard(42.0)];
 });
 
 test('round-trips through meter value', function ($length) {
     expect($length::fromMeterValue($length->toMeterValue()))
-        ->toEqualWithDelta($length, 0.000001);
+        ->toEqualWithDelta($length, 0.000001)
+    ;
 })->with('length units');
 
 test('converts at correct rate', function () {
