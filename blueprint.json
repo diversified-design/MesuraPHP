@@ -8,7 +8,17 @@
         "methods": [
             "toDegree(): MeasurementUnit\\Angle\\Degree",
             "toRadian(): MeasurementUnit\\Angle\\Radian",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Angle\\Angle"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Angle\\AngleInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromRadianValue(float $value): self",
+            "toRadianValue(): float"
         ]
     },
     "MeasurementUnit\\Angle\\Degree": {
@@ -27,7 +37,7 @@
     },
     "MeasurementUnit\\Customise": {
         "methods": [
-            "static unitSymbols(array $units /*An associative array where the keys are unit class names and the values are the symbols to set.*/): void — Set the symbols for the given measurement units. @throws \\InvalidArgumentException"
+            "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\n             e.g.: ['MeasurementUnit\\Length\\Meter' => 'METRE', 'MeasurementUnit\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws \\InvalidArgumentException"
         ]
     },
     "MeasurementUnit\\Length\\Centimeter": {
@@ -100,7 +110,17 @@
             "toSurveyMile(): MeasurementUnit\\Length\\SurveyMile",
             "toThou(): MeasurementUnit\\Length\\Thou",
             "toYard(): MeasurementUnit\\Length\\Yard",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Length\\Length"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Length\\LengthInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromMeterValue(float $value): self",
+            "toMeterValue(): float"
         ]
     },
     "MeasurementUnit\\Length\\Meter": {
@@ -155,13 +175,14 @@
     "MeasurementUnit\\MeasurementUnit": {
         "abstract": true,
         "implements": [
-            "MeasurementUnit\\MeasurementUnitInterface"
+            "MeasurementUnit\\MeasurementUnitInterface",
+            "Stringable"
         ],
         "properties": [
             "readonly float $value"
         ],
         "methods": [
-            "__construct(float $value, ?string $symbol = null)",
+            "__construct(float $value, string|null $symbol = null)",
             "getValue(): float",
             "getInstanceSymbol(): string",
             "setInstanceSymbol(string $symbol): static",
@@ -169,6 +190,19 @@
             "static setSymbol(string $symbol): string",
             "toHtml(string $sprintf_Template = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
             "toFormat(string $sprintf_Template = '%.1f %s'): string"
+        ]
+    },
+    "MeasurementUnit\\MeasurementUnitInterface": {
+        "type": "interface",
+        "implements": [
+            "Stringable"
+        ],
+        "methods": [
+            "getValue(): float",
+            "getInstanceSymbol(): string",
+            "setInstanceSymbol(string $symbol): self",
+            "static getSymbol(): string",
+            "static setSymbol(string $symbol): string"
         ]
     },
     "MeasurementUnit\\Percentage\\Percent": {
@@ -183,6 +217,12 @@
         "extends": "MeasurementUnit\\MeasurementUnit",
         "implements": [
             "MeasurementUnit\\Percentage\\PercentageInterface"
+        ]
+    },
+    "MeasurementUnit\\Percentage\\PercentageInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
         ]
     },
     "MeasurementUnit\\Pressure\\Bar": {
@@ -250,7 +290,17 @@
             "toPoundPerSquareInch(): MeasurementUnit\\Pressure\\PoundPerSquareInch",
             "toStandardAtmosphere(): MeasurementUnit\\Pressure\\StandardAtmosphere",
             "toTorr(): MeasurementUnit\\Pressure\\Torr",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Pressure\\Pressure"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Pressure\\PressureInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromPascalValue(float $value): self",
+            "toPascalValue(): float"
         ]
     },
     "MeasurementUnit\\Pressure\\StandardAtmosphere": {
@@ -306,7 +356,17 @@
             "toKnot(): MeasurementUnit\\Speed\\Knot",
             "toMeterPerSecond(): MeasurementUnit\\Speed\\MeterPerSecond",
             "toMilesPerHour(): MeasurementUnit\\Speed\\MilesPerHour",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Speed\\Speed"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Speed\\SpeedInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromMeterPerSecondValue(float $value): self",
+            "toMeterPerSecondValue(): float"
         ]
     },
     "MeasurementUnit\\Temperature\\Celsius": {
@@ -348,7 +408,17 @@
             "toFahrenheit(): MeasurementUnit\\Temperature\\Fahrenheit",
             "toRankine(): MeasurementUnit\\Temperature\\Rankine",
             "toKelvin(): MeasurementUnit\\Temperature\\Kelvin",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Temperature\\Temperature"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Temperature\\TemperatureInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromKelvinValue(float $value): self",
+            "toKelvinValue(): float"
         ]
     },
     "MeasurementUnit\\Time\\Day": {
@@ -390,7 +460,17 @@
             "toMinute(): MeasurementUnit\\Time\\Minute",
             "toHour(): MeasurementUnit\\Time\\Hour",
             "toDay(): MeasurementUnit\\Time\\Day",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Time\\Time"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Time\\TimeInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromSecondValue(float $value): self",
+            "toSecondValue(): float"
         ]
     },
     "MeasurementUnit\\Torque\\NewtonMeter": {
@@ -408,7 +488,17 @@
         ],
         "methods": [
             "toNewtonMeter(): MeasurementUnit\\Torque\\NewtonMeter",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Torque\\Torque"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Torque\\TorqueInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromNewtonMeterValue(float $value): self",
+            "toNewtonMeterValue(): float"
         ]
     },
     "MeasurementUnit\\Volume\\CubicInch": {
@@ -490,7 +580,17 @@
             "toPint(): MeasurementUnit\\Volume\\Pint",
             "toQuart(): MeasurementUnit\\Volume\\Quart",
             "toTableSpoon(): MeasurementUnit\\Volume\\TableSpoon",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Volume\\Volume"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Volume\\VolumeInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromCubicMeterValue(float $value): self",
+            "toCubicMeterValue(): float"
         ]
     },
     "MeasurementUnit\\Weight\\Kilogram": {
@@ -524,7 +624,17 @@
             "toKilogram(): MeasurementUnit\\Weight\\Kilogram",
             "toMetricTon(): MeasurementUnit\\Weight\\MetricTon",
             "toPound(): MeasurementUnit\\Weight\\Pound",
-            "toUnit(string $fqn /*@return T*/): MeasurementUnit\\Weight\\Weight"
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Weight\\WeightInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromKilogramValue(float $value): self",
+            "toKilogramValue(): float"
         ]
     }
 }
