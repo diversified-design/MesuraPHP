@@ -44,7 +44,8 @@ test('withValue preserves concrete unit type in conversion chain', function () {
     $result = (new Meter(5.0))
         ->toCentimeter()
         ->withValue(fn (float $v) => $v / 2)
-        ->toInch();
+        ->toInch()
+    ;
 
     expect($result)->toBeInstanceOf(Inch::class);
     expect($result)->toEqualWithDelta(new Inch(98.4252), 0.001);
