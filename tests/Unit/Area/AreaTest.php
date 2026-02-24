@@ -14,9 +14,20 @@ use MeasurementUnit\Area\SquareMile;
 describe('Area', function () {
     test('stores value on construction', function () {
         $area = new class(42.0) extends Area {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromSquareMeterValue(float $value): AreaInterface { return new self($value); }
-            public function toSquareMeterValue(): float { return 21.0; }
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromSquareMeterValue(float $value): AreaInterface
+            {
+                return new self($value);
+            }
+
+            public function toSquareMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($area->value)->toBe(42.0);
@@ -24,9 +35,20 @@ describe('Area', function () {
 
     test('converts to all area units', function () {
         $area = new class(42.0) extends Area {
-            public static function getSymbol(): string { return ''; }
-            public static function fromSquareMeterValue(float $value): AreaInterface { return new self($value); }
-            public function toSquareMeterValue(): float { return 21.0; }
+            public static function getSymbol(): string
+            {
+                return '';
+            }
+
+            public static function fromSquareMeterValue(float $value): AreaInterface
+            {
+                return new self($value);
+            }
+
+            public function toSquareMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($area->toSquareMeter())->toBeInstanceOf(SquareMeter::class);
@@ -40,9 +62,20 @@ describe('Area', function () {
 
     test('casts to string', function () {
         $area = new class(42.0) extends Area {
-            public static function getSymbol(): string { return 'unit'; }
-            public static function fromSquareMeterValue(float $value): AreaInterface { return new self($value); }
-            public function toSquareMeterValue(): float { return 21.0; }
+            public static function getSymbol(): string
+            {
+                return 'unit';
+            }
+
+            public static function fromSquareMeterValue(float $value): AreaInterface
+            {
+                return new self($value);
+            }
+
+            public function toSquareMeterValue(): float
+            {
+                return 21.0;
+            }
         };
 
         expect($area->__toString())->toBe('42 unit');
