@@ -62,9 +62,11 @@
         "cs": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix --dry-run",
         "cs:fix": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix",
         "stan": "phpstan analyse",
+        "coverage": "./vendor/bin/pest --type-coverage --min=90",
         "test": "./vendor/bin/pest",
         "pre-release": [
             "@blueprint",
+            "@coverage",
             "@test",
             "@stan"
         ],
