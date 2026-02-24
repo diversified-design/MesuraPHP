@@ -37,7 +37,7 @@
     },
     "MeasurementUnit\\Customise": {
         "methods": [
-            "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\n             e.g.: ['MeasurementUnit\\Length\\Meter' => 'METRE', 'MeasurementUnit\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws \\InvalidArgumentException"
+            "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\n                                          e.g.: ['MeasurementUnit\\Length\\Meter' => 'METRE', 'MeasurementUnit\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
         ]
     },
     "MeasurementUnit\\Length\\Centimeter": {
@@ -188,8 +188,8 @@
             "setInstanceSymbol(string $symbol): static",
             "static getSymbol(): string",
             "static setSymbol(string $symbol): string",
-            "toHtml(string $sprintf_Template = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
-            "toFormat(string $sprintf_Template = '%.1f %s'): string"
+            "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
+            "toFormat(string $sprintfTemplate = '%.1f %s'): string"
         ]
     },
     "MeasurementUnit\\MeasurementUnitInterface": {
@@ -208,8 +208,8 @@
     "MeasurementUnit\\Percentage\\Percent": {
         "extends": "MeasurementUnit\\Percentage\\Percentage",
         "methods": [
-            "toDecimal(): float — Returns the percentage as a decimal ratio.",
-            "toCoefficient(): float — Returns a multiplicative coefficient."
+            "toDecimal(): float — Returns the percentage as a decimal ratio. Example: 75% => 0.75 (unitless).",
+            "toCoefficient(): float — Returns a multiplicative coefficient. Example: 15% => 1.15 (unitless) Can be useful when representing increase/decrease."
         ]
     },
     "MeasurementUnit\\Percentage\\Percentage": {

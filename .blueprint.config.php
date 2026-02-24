@@ -30,8 +30,11 @@ return [
     'include-internal' => false,
 
     // Truncate doc summaries to first sentence
-    'short-docs' => true,
+    'short-docs' => false,
 
     // Truncate large constant/enum lists (>5 entries)
-    'compact-enums' => true,
+    'compact-enums' => false,
+
+    // Output format: 'json', 'toon' (experimental), or 'both'
+    'format' => 'both',
 ];
