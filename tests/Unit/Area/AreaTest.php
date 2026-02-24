@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use MeasurementUnit\Area\Acre;
 use MeasurementUnit\Area\Area;
-use MeasurementUnit\Area\AreaInterface;
 use MeasurementUnit\Area\Hectare;
 use MeasurementUnit\Area\SquareCentimeter;
 use MeasurementUnit\Area\SquareDecimeter;

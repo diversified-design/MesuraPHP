@@ -7,7 +7,6 @@ use MeasurementUnit\Temperature\Fahrenheit;
 use MeasurementUnit\Temperature\Kelvin;
 use MeasurementUnit\Temperature\Rankine;
 use MeasurementUnit\Temperature\Temperature;
-use MeasurementUnit\Temperature\TemperatureInterface;
 
 describe('Temperature', function () {
     test('stores value on construction', function () {

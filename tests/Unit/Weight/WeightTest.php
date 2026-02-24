@@ -15,7 +15,6 @@ use MeasurementUnit\Weight\Milligram;
 use MeasurementUnit\Weight\Nanogram;
 use MeasurementUnit\Weight\Pound;
 use MeasurementUnit\Weight\Weight;
-use MeasurementUnit\Weight\WeightInterface;
 
 describe('Weight', function () {
     test('stores value on construction', function () {

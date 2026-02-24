@@ -7,7 +7,6 @@ use MeasurementUnit\Time\Hour;
 use MeasurementUnit\Time\Minute;
 use MeasurementUnit\Time\Second;
 use MeasurementUnit\Time\Time;
-use MeasurementUnit\Time\TimeInterface;
 
 describe('Time', function () {
     test('stores value on construction', function () {

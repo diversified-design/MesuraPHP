@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use MeasurementUnit\Angle\Angle;
-use MeasurementUnit\Angle\AngleInterface;
 use MeasurementUnit\Angle\Degree;
 use MeasurementUnit\Angle\Radian;
 

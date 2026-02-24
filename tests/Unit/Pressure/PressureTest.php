@@ -10,7 +10,6 @@ use MeasurementUnit\Pressure\MillimetreOfMercury;
 use MeasurementUnit\Pressure\Pascal;
 use MeasurementUnit\Pressure\PoundPerSquareInch;
 use MeasurementUnit\Pressure\Pressure;
-use MeasurementUnit\Pressure\PressureInterface;
 use MeasurementUnit\Pressure\StandardAtmosphere;
 use MeasurementUnit\Pressure\Torr;
 

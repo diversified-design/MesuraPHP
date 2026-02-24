@@ -12,7 +12,6 @@ use MeasurementUnit\Length\HorseLength;
 use MeasurementUnit\Length\Inch;
 use MeasurementUnit\Length\Kilometer;
 use MeasurementUnit\Length\Length;
-use MeasurementUnit\Length\LengthInterface;
 use MeasurementUnit\Length\Megameter;
 use MeasurementUnit\Length\Meter;
 use MeasurementUnit\Length\Micrometer;

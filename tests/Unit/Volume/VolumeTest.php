@@ -18,7 +18,6 @@ use MeasurementUnit\Volume\Pint;
 use MeasurementUnit\Volume\Quart;
 use MeasurementUnit\Volume\TableSpoon;
 use MeasurementUnit\Volume\Volume;
-use MeasurementUnit\Volume\VolumeInterface;
 
 describe('Volume', function () {
     test('stores value on construction', function () {

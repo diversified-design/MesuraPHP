@@ -7,7 +7,6 @@ use MeasurementUnit\Speed\Knot;
 use MeasurementUnit\Speed\MeterPerSecond;
 use MeasurementUnit\Speed\MilesPerHour;
 use MeasurementUnit\Speed\Speed;
-use MeasurementUnit\Speed\SpeedInterface;
 
 describe('Speed', function () {
     test('stores value on construction', function () {
