@@ -46,6 +46,14 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
         return static::$defaultSymbol;
     }
 
+    /**
+     * @param callable(float): (float|int) $callback
+     */
+    public function withValue(callable $callback): static
+    {
+        return new static((float) $callback($this->value));
+    }
+
     // Formatting Methods
     public function toHtml(string $sprintfTemplate = '<span class="value">%1$.1f</span> <span class="symbol">%2$s</span>'): string
     {

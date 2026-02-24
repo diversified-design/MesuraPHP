@@ -17,4 +17,9 @@ interface MeasurementUnitInterface extends Stringable
     public static function getSymbol(): string;
 
     public static function setSymbol(string $symbol): string;
+
+    /**
+     * @param callable(float): (float|int) $callback
+     */
+    public function withValue(callable $callback): static;
 }
