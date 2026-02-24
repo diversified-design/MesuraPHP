@@ -14,7 +14,7 @@ abstract class MetricLength extends Length
     public static function fromMeterValue(float $value): static
     {
         $rational = BigRational::of((string) $value);
-        $exp = static::prefix()->value;
+        $exp      = static::prefix()->value;
 
         // 10^prefix: positive means divide (downscale), negative means multiply (upscale)
         if ($exp >= 0) {
@@ -27,7 +27,7 @@ abstract class MetricLength extends Length
     public function toMeterValue(): float
     {
         $rational = BigRational::of((string) $this->value);
-        $exp = static::prefix()->value;
+        $exp      = static::prefix()->value;
 
         if ($exp >= 0) {
             return $rational->multipliedBy(bcpow('10', (string) $exp))->toFloat();

@@ -15,7 +15,7 @@ abstract class MetricArea extends Area
     {
         // square prefix-meter = 10^(prefix × 2) m²
         $rational = BigRational::of((string) $value);
-        $exp = static::prefix()->value * 2;
+        $exp      = static::prefix()->value * 2;
 
         if ($exp >= 0) {
             return new static($rational->dividedBy(bcpow('10', (string) $exp))->toFloat());
@@ -27,7 +27,7 @@ abstract class MetricArea extends Area
     public function toSquareMeterValue(): float
     {
         $rational = BigRational::of((string) $this->value);
-        $exp = static::prefix()->value * 2;
+        $exp      = static::prefix()->value * 2;
 
         if ($exp >= 0) {
             return $rational->multipliedBy(bcpow('10', (string) $exp))->toFloat();

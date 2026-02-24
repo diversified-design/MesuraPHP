@@ -12,7 +12,7 @@ foreach (glob($volumeDir . '/*.php') as $file) {
 
 $metricLiterClasses = array_filter(
     get_declared_classes(),
-    fn (string $class) => is_subclass_of($class, MetricLiter::class) && ! (new ReflectionClass($class))->isAbstract(),
+    fn (string $class) => is_subclass_of($class, MetricLiter::class) && !(new ReflectionClass($class))->isAbstract(),
 );
 
 dataset('metric liter units', function () use ($metricLiterClasses) {
@@ -23,12 +23,12 @@ dataset('metric liter units', function () use ($metricLiterClasses) {
 
 test('metric liter has correct symbol suffix', function (string $class) {
     $instance = new $class(1.0);
-    $symbol = $instance->getInstanceSymbol();
+    $symbol   = $instance->getInstanceSymbol();
     expect(str_ends_with($symbol, 'l'))->toBeTrue("Symbol '{$symbol}' should end with 'l'");
 })->with('metric liter units');
 
 test('metric liter round-trips through cubic meter value', function (string $class) {
-    $original = new $class(42.0);
+    $original     = new $class(42.0);
     $roundTripped = $class::fromCubicMeterValue($original->toCubicMeterValue());
     expect($roundTripped->getValue())->toEqualWithDelta(42.0, 1e-6);
 })->with('metric liter units');
@@ -39,7 +39,7 @@ test('metric liter conversion factor matches expected power of 10', function (st
     $expectedM3 = 10 ** ($prefix->value - 3);
 
     $instance = new $class(1.0);
-    $m3Value = $instance->toCubicMeterValue();
+    $m3Value  = $instance->toCubicMeterValue();
 
     expect($m3Value)->toEqualWithDelta($expectedM3, abs($expectedM3) * 1e-10);
 })->with('metric liter units');

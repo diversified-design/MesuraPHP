@@ -15,7 +15,7 @@ abstract class MetricWeight extends Weight
     {
         // gram = 10^-3 kg, so prefix-gram = 10^(prefix - 3) kg
         $rational = BigRational::of((string) $value);
-        $exp = static::prefix()->value - 3;
+        $exp      = static::prefix()->value - 3;
 
         if ($exp >= 0) {
             return new static($rational->dividedBy(bcpow('10', (string) $exp))->toFloat());
@@ -27,7 +27,7 @@ abstract class MetricWeight extends Weight
     public function toKilogramValue(): float
     {
         $rational = BigRational::of((string) $this->value);
-        $exp = static::prefix()->value - 3;
+        $exp      = static::prefix()->value - 3;
 
         if ($exp >= 0) {
             return $rational->multipliedBy(bcpow('10', (string) $exp))->toFloat();

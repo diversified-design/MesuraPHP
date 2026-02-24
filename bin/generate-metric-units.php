@@ -8,7 +8,6 @@ declare(strict_types=1);
  *
  * Usage: php bin/generate-metric-units.php
  */
-
 $projectRoot = dirname(__DIR__);
 
 // All 24 SI metric prefixes: name => [exponent, symbol]
@@ -41,28 +40,28 @@ $prefixes = [
 
 $dimensions = [
     'Length' => [
-        'namespace'    => 'MeasurementUnit\\Length',
+        'namespace'    => 'MeasurementUnit\Length',
         'abstract'     => 'MetricLength',
         'classPattern' => '{Prefix}meter',
         'symbolUnit'   => 'm',
         'skip'         => [], // Meter is the base, not a prefixed unit
     ],
     'Weight' => [
-        'namespace'    => 'MeasurementUnit\\Weight',
+        'namespace'    => 'MeasurementUnit\Weight',
         'abstract'     => 'MetricWeight',
         'classPattern' => '{Prefix}gram',
         'symbolUnit'   => 'g',
         'skip'         => [], // Kilogram is refactored separately
     ],
     'Volume' => [
-        'namespace'    => 'MeasurementUnit\\Volume',
+        'namespace'    => 'MeasurementUnit\Volume',
         'abstract'     => 'MetricLiter',
         'classPattern' => '{Prefix}liter',
         'symbolUnit'   => 'l',
         'skip'         => [], // Liter is the reference, not prefixed
     ],
     'Area' => [
-        'namespace'    => 'MeasurementUnit\\Area',
+        'namespace'    => 'MeasurementUnit\Area',
         'abstract'     => 'MetricArea',
         'classPattern' => 'Square{Prefix}meter',
         'symbolUnit'   => 'm²',
@@ -81,16 +80,16 @@ $created = 0;
 $skipped = 0;
 
 foreach ($dimensions as $dimName => $config) {
-    $srcDir = $projectRoot . '/src/' . $dimName;
+    $srcDir  = $projectRoot . '/src/' . $dimName;
     $testDir = $projectRoot . '/tests/Unit/' . $dimName;
 
-    if (! is_dir($testDir)) {
+    if (!is_dir($testDir)) {
         mkdir($testDir, 0755, true);
     }
 
     foreach ($prefixes as $prefixName => [$exponent, $prefixSymbol]) {
         $className = str_replace('{Prefix}', $prefixName, $config['classPattern']);
-        $symbol = $prefixSymbol . $config['symbolUnit'];
+        $symbol    = $prefixSymbol . $config['symbolUnit'];
 
         // Skip classes that already exist and will be refactored manually
         if (in_array($className, $existingClasses, true)) {
@@ -109,7 +108,7 @@ foreach ($dimensions as $dimName => $config) {
         }
 
         // Generate the class file
-        $classFile = $srcDir . '/' . $className . '.php';
+        $classFile    = $srcDir . '/' . $className . '.php';
         $classContent = generateClassFile(
             $config['namespace'],
             $config['abstract'],
