@@ -116,7 +116,8 @@ foreach ($dimensions as $dimName => $config) {
             $prefixName,
             $symbol,
         );
-        file_put_contents($classFile, $classContent);
+        // file_put_contents($classFile, $classContent);
+        echo "FILE WRITING IS DISABLED FOR SAFETY. WOULD CREATE: {$classFile}\n";
         echo "  CREATE {$config['namespace']}\\{$className}\n";
         $created++;
     }
