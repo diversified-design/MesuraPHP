@@ -63,6 +63,11 @@
         "cs:fix": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix",
         "stan": "phpstan analyse",
         "test": "./vendor/bin/pest",
+        "pre-release": [
+            "@blueprint",
+            "@test",
+            "@stan"
+        ],
         "post-update-cmd": [
             "composer dump-autoload -o"
         ],
