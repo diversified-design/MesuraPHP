@@ -35,6 +35,74 @@
             "toRadianValue(): float"
         ]
     },
+    "MeasurementUnit\\Area\\Acre": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\Area": {
+        "abstract": true,
+        "extends": "MeasurementUnit\\MeasurementUnit",
+        "implements": [
+            "MeasurementUnit\\Area\\AreaInterface"
+        ],
+        "methods": [
+            "toSquareMeter(): MeasurementUnit\\Area\\SquareMeter",
+            "toSquareKilometer(): MeasurementUnit\\Area\\SquareKilometer",
+            "toSquareFoot(): MeasurementUnit\\Area\\SquareFoot",
+            "toSquareMile(): MeasurementUnit\\Area\\SquareMile",
+            "toHectare(): MeasurementUnit\\Area\\Hectare",
+            "toAcre(): MeasurementUnit\\Area\\Acre",
+            "toUnit(class-string<T> $fqn): T"
+        ]
+    },
+    "MeasurementUnit\\Area\\AreaInterface": {
+        "type": "interface",
+        "implements": [
+            "MeasurementUnit\\MeasurementUnitInterface"
+        ],
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\Hectare": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\SquareFoot": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\SquareKilometer": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\SquareMeter": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
+    "MeasurementUnit\\Area\\SquareMile": {
+        "extends": "MeasurementUnit\\Area\\Area",
+        "methods": [
+            "static fromSquareMeterValue(float $value): self",
+            "toSquareMeterValue(): float"
+        ]
+    },
     "MeasurementUnit\\Customise": {
         "methods": [
             "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\n                                          e.g.: ['MeasurementUnit\\Length\\Meter' => 'METRE', 'MeasurementUnit\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
@@ -188,6 +256,7 @@
             "setInstanceSymbol(string $symbol): static",
             "static getSymbol(): string",
             "static setSymbol(string $symbol): string",
+            "withValue(callable(float): (float | int) $callback): static",
             "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
             "toFormat(string $sprintfTemplate = '%.1f %s'): string"
         ]
@@ -202,7 +271,8 @@
             "getInstanceSymbol(): string",
             "setInstanceSymbol(string $symbol): self",
             "static getSymbol(): string",
-            "static setSymbol(string $symbol): string"
+            "static setSymbol(string $symbol): string",
+            "withValue(callable(float): (float | int) $callback): static"
         ]
     },
     "MeasurementUnit\\Percentage\\Percent": {
