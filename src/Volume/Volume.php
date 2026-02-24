@@ -53,6 +53,36 @@ abstract class Volume extends MeasurementUnit implements VolumeInterface
         return $this->toUnit(TableSpoon::class);
     }
 
+    public function toMilliliter(): Milliliter
+    {
+        return $this->toUnit(Milliliter::class);
+    }
+
+    public function toCentiliter(): Centiliter
+    {
+        return $this->toUnit(Centiliter::class);
+    }
+
+    public function toDeciliter(): Deciliter
+    {
+        return $this->toUnit(Deciliter::class);
+    }
+
+    public function toDecaliter(): Decaliter
+    {
+        return $this->toUnit(Decaliter::class);
+    }
+
+    public function toHectoliter(): Hectoliter
+    {
+        return $this->toUnit(Hectoliter::class);
+    }
+
+    public function toKiloliter(): Kiloliter
+    {
+        return $this->toUnit(Kiloliter::class);
+    }
+
     /**
      * @template T of Volume
      *

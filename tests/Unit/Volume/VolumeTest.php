@@ -2,12 +2,18 @@
 
 declare(strict_types=1);
 
+use MeasurementUnit\Volume\Centiliter;
 use MeasurementUnit\Volume\CubicInch;
 use MeasurementUnit\Volume\CubicMeter;
 use MeasurementUnit\Volume\CubicYard;
+use MeasurementUnit\Volume\Decaliter;
+use MeasurementUnit\Volume\Deciliter;
 use MeasurementUnit\Volume\FluidDram;
 use MeasurementUnit\Volume\FluidOunce;
+use MeasurementUnit\Volume\Hectoliter;
+use MeasurementUnit\Volume\Kiloliter;
 use MeasurementUnit\Volume\Liter;
+use MeasurementUnit\Volume\Milliliter;
 use MeasurementUnit\Volume\Pint;
 use MeasurementUnit\Volume\Quart;
 use MeasurementUnit\Volume\TableSpoon;
@@ -64,6 +70,12 @@ describe('Volume', function () {
         expect($volume->toPint())->toBeInstanceOf(Pint::class);
         expect($volume->toQuart())->toBeInstanceOf(Quart::class);
         expect($volume->toTableSpoon())->toBeInstanceOf(TableSpoon::class);
+        expect($volume->toMilliliter())->toBeInstanceOf(Milliliter::class);
+        expect($volume->toCentiliter())->toBeInstanceOf(Centiliter::class);
+        expect($volume->toDeciliter())->toBeInstanceOf(Deciliter::class);
+        expect($volume->toDecaliter())->toBeInstanceOf(Decaliter::class);
+        expect($volume->toHectoliter())->toBeInstanceOf(Hectoliter::class);
+        expect($volume->toKiloliter())->toBeInstanceOf(Kiloliter::class);
     });
 
     test('casts to string', function () {

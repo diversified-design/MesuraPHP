@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace MeasurementUnit\Weight;
 
-class Kilogram extends Weight
+use MeasurementUnit\MetricPrefix;
+
+class Kilogram extends MetricWeight
 {
     protected static string $defaultSymbol = 'kg';
 
-    public static function fromKilogramValue(float $value): self
+    protected static function prefix(): MetricPrefix
     {
-        return new self($value);
-    }
-
-    public function toKilogramValue(): float
-    {
-        return $this->value;
+        return MetricPrefix::Kilo;
     }
 }

@@ -2,17 +2,29 @@
 
 declare(strict_types=1);
 
+use MeasurementUnit\Volume\Centiliter;
 use MeasurementUnit\Volume\CubicInch;
 use MeasurementUnit\Volume\CubicMeter;
 use MeasurementUnit\Volume\CubicYard;
+use MeasurementUnit\Volume\Decaliter;
+use MeasurementUnit\Volume\Deciliter;
 use MeasurementUnit\Volume\FluidDram;
 use MeasurementUnit\Volume\FluidOunce;
+use MeasurementUnit\Volume\Hectoliter;
+use MeasurementUnit\Volume\Kiloliter;
 use MeasurementUnit\Volume\Liter;
+use MeasurementUnit\Volume\Milliliter;
 use MeasurementUnit\Volume\Pint;
 use MeasurementUnit\Volume\Quart;
 use MeasurementUnit\Volume\TableSpoon;
 
 dataset('volume units', function () {
+    yield Milliliter::class => [new Milliliter(42.0)];
+    yield Centiliter::class => [new Centiliter(42.0)];
+    yield Deciliter::class => [new Deciliter(42.0)];
+    yield Decaliter::class => [new Decaliter(42.0)];
+    yield Hectoliter::class => [new Hectoliter(42.0)];
+    yield Kiloliter::class => [new Kiloliter(42.0)];
     yield CubicInch::class => [new CubicInch(42.0)];
     yield CubicMeter::class => [new CubicMeter(42.0)];
     yield CubicYard::class => [new CubicYard(42.0)];

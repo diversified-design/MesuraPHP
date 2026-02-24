@@ -4,21 +4,14 @@ declare(strict_types=1);
 
 namespace MeasurementUnit\Length;
 
-use Brick\Math\BigRational;
+use MeasurementUnit\MetricPrefix;
 
-class Kilometer extends Length
+class Kilometer extends MetricLength
 {
     protected static string $defaultSymbol = 'km';
 
-    public static function fromMeterValue(float $value): self
+    protected static function prefix(): MetricPrefix
     {
-        return new self(
-            BigRational::of((string) $value)->dividedBy('1000')->toFloat()
-        );
-    }
-
-    public function toMeterValue(): float
-    {
-        return BigRational::of((string) $this->value)->multipliedBy('1000')->toFloat();
+        return MetricPrefix::Kilo;
     }
 }

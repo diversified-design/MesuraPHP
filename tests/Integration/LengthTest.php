@@ -3,14 +3,20 @@
 declare(strict_types=1);
 
 use MeasurementUnit\Length\Centimeter;
+use MeasurementUnit\Length\Decameter;
+use MeasurementUnit\Length\Decimeter;
 use MeasurementUnit\Length\Fathom;
 use MeasurementUnit\Length\Foot;
 use MeasurementUnit\Length\Furlong;
+use MeasurementUnit\Length\Hectometer;
 use MeasurementUnit\Length\HorseLength;
 use MeasurementUnit\Length\Inch;
 use MeasurementUnit\Length\Kilometer;
+use MeasurementUnit\Length\Megameter;
 use MeasurementUnit\Length\Meter;
+use MeasurementUnit\Length\Micrometer;
 use MeasurementUnit\Length\Millimeter;
+use MeasurementUnit\Length\Nanometer;
 use MeasurementUnit\Length\NauticalMile;
 use MeasurementUnit\Length\StatuteMile;
 use MeasurementUnit\Length\SurveyMile;
@@ -19,6 +25,12 @@ use MeasurementUnit\Length\Yard;
 
 dataset('length units', function () {
     yield Centimeter::class => [new Centimeter(42.0)];
+    yield Decimeter::class => [new Decimeter(42.0)];
+    yield Decameter::class => [new Decameter(42.0)];
+    yield Hectometer::class => [new Hectometer(42.0)];
+    yield Megameter::class => [new Megameter(42.0)];
+    yield Micrometer::class => [new Micrometer(42.0)];
+    yield Nanometer::class => [new Nanometer(42.0)];
     yield Fathom::class => [new Fathom(42.0)];
     yield Foot::class => [new Foot(42.0)];
     yield Furlong::class => [new Furlong(42.0)];

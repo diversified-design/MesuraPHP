@@ -38,6 +38,21 @@ abstract class Area extends MeasurementUnit implements AreaInterface
         return $this->toUnit(Acre::class);
     }
 
+    public function toSquareMillimeter(): SquareMillimeter
+    {
+        return $this->toUnit(SquareMillimeter::class);
+    }
+
+    public function toSquareCentimeter(): SquareCentimeter
+    {
+        return $this->toUnit(SquareCentimeter::class);
+    }
+
+    public function toSquareDecimeter(): SquareDecimeter
+    {
+        return $this->toUnit(SquareDecimeter::class);
+    }
+
     /**
      * @template T of Area
      *

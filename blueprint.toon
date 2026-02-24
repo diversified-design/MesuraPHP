@@ -20,7 +20,7 @@
     abstract: true
     extends: "MeasurementUnit\\MeasurementUnit"
     implements[1]: "MeasurementUnit\\Area\\AreaInterface"
-    methods[7]: "toSquareMeter(): MeasurementUnit\\Area\\SquareMeter","toSquareKilometer(): MeasurementUnit\\Area\\SquareKilometer","toSquareFoot(): MeasurementUnit\\Area\\SquareFoot","toSquareMile(): MeasurementUnit\\Area\\SquareMile","toHectare(): MeasurementUnit\\Area\\Hectare","toAcre(): MeasurementUnit\\Area\\Acre","toUnit(class-string<T> $fqn): T"
+    methods[10]: "toSquareMeter(): MeasurementUnit\\Area\\SquareMeter","toSquareKilometer(): MeasurementUnit\\Area\\SquareKilometer","toSquareFoot(): MeasurementUnit\\Area\\SquareFoot","toSquareMile(): MeasurementUnit\\Area\\SquareMile","toHectare(): MeasurementUnit\\Area\\Hectare","toAcre(): MeasurementUnit\\Area\\Acre","toSquareMillimeter(): MeasurementUnit\\Area\\SquareMillimeter","toSquareCentimeter(): MeasurementUnit\\Area\\SquareCentimeter","toSquareDecimeter(): MeasurementUnit\\Area\\SquareDecimeter","toUnit(class-string<T> $fqn): T"
 "MeasurementUnit\\Area\\AreaInterface":
     type: interface
     implements[1]: "MeasurementUnit\\MeasurementUnitInterface"
@@ -28,32 +28,94 @@
 "MeasurementUnit\\Area\\Hectare":
     extends: "MeasurementUnit\\Area\\Area"
     methods[2]: "static fromSquareMeterValue(float $value): self","toSquareMeterValue(): float"
+"MeasurementUnit\\Area\\MetricArea":
+    abstract: true
+    extends: "MeasurementUnit\\Area\\Area"
+    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+"MeasurementUnit\\Area\\SquareAttometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareCentimeter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareDecameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareDecimeter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareExameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareFemtometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
 "MeasurementUnit\\Area\\SquareFoot":
     extends: "MeasurementUnit\\Area\\Area"
     methods[2]: "static fromSquareMeterValue(float $value): self","toSquareMeterValue(): float"
+"MeasurementUnit\\Area\\SquareGigameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareHectometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
 "MeasurementUnit\\Area\\SquareKilometer":
-    extends: "MeasurementUnit\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): self","toSquareMeterValue(): float"
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareMegameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
 "MeasurementUnit\\Area\\SquareMeter":
     extends: "MeasurementUnit\\Area\\Area"
     methods[2]: "static fromSquareMeterValue(float $value): self","toSquareMeterValue(): float"
+"MeasurementUnit\\Area\\SquareMicrometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
 "MeasurementUnit\\Area\\SquareMile":
     extends: "MeasurementUnit\\Area\\Area"
     methods[2]: "static fromSquareMeterValue(float $value): self","toSquareMeterValue(): float"
+"MeasurementUnit\\Area\\SquareMillimeter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareNanometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquarePetameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquarePicometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareQuectometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareQuettameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareRonnameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareRontometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareTerameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareYoctometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareYottameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareZeptometer":
+    extends: "MeasurementUnit\\Area\\MetricArea"
+"MeasurementUnit\\Area\\SquareZettameter":
+    extends: "MeasurementUnit\\Area\\MetricArea"
 "MeasurementUnit\\Customise":
     methods[1]: "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\\n                                          e.g.: ['MeasurementUnit\\Length\\Meter' => 'METRE', 'MeasurementUnit\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
+"MeasurementUnit\\Length\\Attometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Centimeter":
-    extends: "MeasurementUnit\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Decameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Decimeter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Exameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Fathom":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Femtometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Foot":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
 "MeasurementUnit\\Length\\Furlong":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Gigameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Hectometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\HorseLength":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
@@ -61,38 +123,68 @@
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
 "MeasurementUnit\\Length\\Kilometer":
-    extends: "MeasurementUnit\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Length":
     abstract: true
     extends: "MeasurementUnit\\MeasurementUnit"
     implements[1]: "MeasurementUnit\\Length\\LengthInterface"
-    methods[15]: "toCentimeter(): MeasurementUnit\\Length\\Centimeter","toFathom(): MeasurementUnit\\Length\\Fathom","toFoot(): MeasurementUnit\\Length\\Foot","toFurlong(): MeasurementUnit\\Length\\Furlong","toHorseLength(): MeasurementUnit\\Length\\HorseLength","toInch(): MeasurementUnit\\Length\\Inch","toKilometer(): MeasurementUnit\\Length\\Kilometer","toMeter(): MeasurementUnit\\Length\\Meter","toMillimeter(): MeasurementUnit\\Length\\Millimeter","toStatuteMile(): MeasurementUnit\\Length\\StatuteMile","toNauticalMile(): MeasurementUnit\\Length\\NauticalMile","toSurveyMile(): MeasurementUnit\\Length\\SurveyMile","toThou(): MeasurementUnit\\Length\\Thou","toYard(): MeasurementUnit\\Length\\Yard","toUnit(class-string<T> $fqn): T"
+    methods[21]: "toCentimeter(): MeasurementUnit\\Length\\Centimeter","toFathom(): MeasurementUnit\\Length\\Fathom","toFoot(): MeasurementUnit\\Length\\Foot","toFurlong(): MeasurementUnit\\Length\\Furlong","toHorseLength(): MeasurementUnit\\Length\\HorseLength","toInch(): MeasurementUnit\\Length\\Inch","toKilometer(): MeasurementUnit\\Length\\Kilometer","toMeter(): MeasurementUnit\\Length\\Meter","toMillimeter(): MeasurementUnit\\Length\\Millimeter","toStatuteMile(): MeasurementUnit\\Length\\StatuteMile","toNauticalMile(): MeasurementUnit\\Length\\NauticalMile","toSurveyMile(): MeasurementUnit\\Length\\SurveyMile","toThou(): MeasurementUnit\\Length\\Thou","toYard(): MeasurementUnit\\Length\\Yard","toDecimeter(): MeasurementUnit\\Length\\Decimeter","toDecameter(): MeasurementUnit\\Length\\Decameter","toHectometer(): MeasurementUnit\\Length\\Hectometer","toMegameter(): MeasurementUnit\\Length\\Megameter","toMicrometer(): MeasurementUnit\\Length\\Micrometer","toNanometer(): MeasurementUnit\\Length\\Nanometer","toUnit(class-string<T> $fqn): T"
 "MeasurementUnit\\Length\\LengthInterface":
     type: interface
     implements[1]: "MeasurementUnit\\MeasurementUnitInterface"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Megameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Meter":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
-"MeasurementUnit\\Length\\Millimeter":
+"MeasurementUnit\\Length\\MetricLength":
+    abstract: true
     extends: "MeasurementUnit\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+"MeasurementUnit\\Length\\Micrometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Millimeter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Nanometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\NauticalMile":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Petameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Picometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Quectometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Quettameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Ronnameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Rontometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\StatuteMile":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
 "MeasurementUnit\\Length\\SurveyMile":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Terameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\Length\\Thou":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
 "MeasurementUnit\\Length\\Yard":
     extends: "MeasurementUnit\\Length\\Length"
     methods[2]: "static fromMeterValue(float $value): self","toMeterValue(): float"
+"MeasurementUnit\\Length\\Yoctometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Yottameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Zeptometer":
+    extends: "MeasurementUnit\\Length\\MetricLength"
+"MeasurementUnit\\Length\\Zettameter":
+    extends: "MeasurementUnit\\Length\\MetricLength"
 "MeasurementUnit\\MeasurementUnit":
     abstract: true
     implements[2]: "MeasurementUnit\\MeasurementUnitInterface",Stringable
@@ -102,6 +194,35 @@
     type: interface
     implements[1]: Stringable
     methods[6]: "getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): self","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static"
+"MeasurementUnit\\MetricPrefix":
+    type: enum
+    final: true
+    constants:
+        Quetta: 30
+        Ronna: 27
+        Yotta: 24
+        Zetta: 21
+        Exa: 18
+        Peta: 15
+        Tera: 12
+        Giga: 9
+        Mega: 6
+        Kilo: 3
+        Hecto: 2
+        Deca: 1
+        Deci: -1
+        Centi: -2
+        Milli: -3
+        Micro: -6
+        Nano: -9
+        Pico: -12
+        Femto: -15
+        Atto: -18
+        Zepto: -21
+        Yocto: -24
+        Ronto: -27
+        Quecto: -30
+    methods[2]: "symbol(): string","prefixName(): string"
 "MeasurementUnit\\Percentage\\Percent":
     extends: "MeasurementUnit\\Percentage\\Percentage"
     methods[2]: "toDecimal(): float — Returns the percentage as a decimal ratio. Example: 75% => 0.75 (unitless).","toCoefficient(): float — Returns a multiplicative coefficient. Example: 15% => 1.15 (unitless) Can be useful when representing increase/decrease."
@@ -223,6 +344,10 @@
     type: interface
     implements[1]: "MeasurementUnit\\MeasurementUnitInterface"
     methods[2]: "static fromNewtonMeterValue(float $value): self","toNewtonMeterValue(): float"
+"MeasurementUnit\\Volume\\Attoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Centiliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\CubicInch":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
@@ -232,48 +357,148 @@
 "MeasurementUnit\\Volume\\CubicYard":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Decaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Deciliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Exaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Femtoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\FluidDram":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
 "MeasurementUnit\\Volume\\FluidOunce":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Gigaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Hectoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Kiloliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\Liter":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Megaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\MetricLiter":
+    abstract: true
+    extends: "MeasurementUnit\\Volume\\Volume"
+    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Microliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Milliliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Nanoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Petaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Picoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\Pint":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
 "MeasurementUnit\\Volume\\Quart":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Quectoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Quettaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Ronnaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Rontoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\TableSpoon":
     extends: "MeasurementUnit\\Volume\\Volume"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
+"MeasurementUnit\\Volume\\Teraliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
 "MeasurementUnit\\Volume\\Volume":
     abstract: true
     extends: "MeasurementUnit\\MeasurementUnit"
     implements[1]: "MeasurementUnit\\Volume\\VolumeInterface"
-    methods[10]: "toCubicInch(): MeasurementUnit\\Volume\\CubicInch","toCubicMeter(): MeasurementUnit\\Volume\\CubicMeter","toCubicYard(): MeasurementUnit\\Volume\\CubicYard","toFluidDram(): MeasurementUnit\\Volume\\FluidDram","toFluidOunce(): MeasurementUnit\\Volume\\FluidOunce","toLiter(): MeasurementUnit\\Volume\\Liter","toPint(): MeasurementUnit\\Volume\\Pint","toQuart(): MeasurementUnit\\Volume\\Quart","toTableSpoon(): MeasurementUnit\\Volume\\TableSpoon","toUnit(class-string<T> $fqn): T"
+    methods[16]: "toCubicInch(): MeasurementUnit\\Volume\\CubicInch","toCubicMeter(): MeasurementUnit\\Volume\\CubicMeter","toCubicYard(): MeasurementUnit\\Volume\\CubicYard","toFluidDram(): MeasurementUnit\\Volume\\FluidDram","toFluidOunce(): MeasurementUnit\\Volume\\FluidOunce","toLiter(): MeasurementUnit\\Volume\\Liter","toPint(): MeasurementUnit\\Volume\\Pint","toQuart(): MeasurementUnit\\Volume\\Quart","toTableSpoon(): MeasurementUnit\\Volume\\TableSpoon","toMilliliter(): MeasurementUnit\\Volume\\Milliliter","toCentiliter(): MeasurementUnit\\Volume\\Centiliter","toDeciliter(): MeasurementUnit\\Volume\\Deciliter","toDecaliter(): MeasurementUnit\\Volume\\Decaliter","toHectoliter(): MeasurementUnit\\Volume\\Hectoliter","toKiloliter(): MeasurementUnit\\Volume\\Kiloliter","toUnit(class-string<T> $fqn): T"
 "MeasurementUnit\\Volume\\VolumeInterface":
     type: interface
     implements[1]: "MeasurementUnit\\MeasurementUnitInterface"
     methods[2]: "static fromCubicMeterValue(float $value): self","toCubicMeterValue(): float"
-"MeasurementUnit\\Weight\\Kilogram":
+"MeasurementUnit\\Volume\\Yoctoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Yottaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Zeptoliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Volume\\Zettaliter":
+    extends: "MeasurementUnit\\Volume\\MetricLiter"
+"MeasurementUnit\\Weight\\Attogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Centigram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Decagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Decigram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Exagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Femtogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Gigagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Gram":
     extends: "MeasurementUnit\\Weight\\Weight"
     methods[2]: "static fromKilogramValue(float $value): self","toKilogramValue(): float"
+"MeasurementUnit\\Weight\\Hectogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Kilogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Megagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
 "MeasurementUnit\\Weight\\MetricTon":
     extends: "MeasurementUnit\\Weight\\Weight"
     methods[2]: "static fromKilogramValue(float $value): self","toKilogramValue(): float"
+"MeasurementUnit\\Weight\\MetricWeight":
+    abstract: true
+    extends: "MeasurementUnit\\Weight\\Weight"
+    methods[2]: "static fromKilogramValue(float $value): static","toKilogramValue(): float"
+"MeasurementUnit\\Weight\\Microgram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Milligram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Nanogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Petagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Picogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
 "MeasurementUnit\\Weight\\Pound":
     extends: "MeasurementUnit\\Weight\\Weight"
     methods[2]: "static fromKilogramValue(float $value): self","toKilogramValue(): float"
+"MeasurementUnit\\Weight\\Quectogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Quettagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Ronnagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Rontogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Teragram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
 "MeasurementUnit\\Weight\\Weight":
     abstract: true
     extends: "MeasurementUnit\\MeasurementUnit"
     implements[1]: "MeasurementUnit\\Weight\\WeightInterface"
-    methods[4]: "toKilogram(): MeasurementUnit\\Weight\\Kilogram","toMetricTon(): MeasurementUnit\\Weight\\MetricTon","toPound(): MeasurementUnit\\Weight\\Pound","toUnit(class-string<T> $fqn): T"
+    methods[13]: "toKilogram(): MeasurementUnit\\Weight\\Kilogram","toMetricTon(): MeasurementUnit\\Weight\\MetricTon","toPound(): MeasurementUnit\\Weight\\Pound","toGram(): MeasurementUnit\\Weight\\Gram","toMilligram(): MeasurementUnit\\Weight\\Milligram","toMicrogram(): MeasurementUnit\\Weight\\Microgram","toNanogram(): MeasurementUnit\\Weight\\Nanogram","toDecigram(): MeasurementUnit\\Weight\\Decigram","toCentigram(): MeasurementUnit\\Weight\\Centigram","toDecagram(): MeasurementUnit\\Weight\\Decagram","toHectogram(): MeasurementUnit\\Weight\\Hectogram","toMegagram(): MeasurementUnit\\Weight\\Megagram","toUnit(class-string<T> $fqn): T"
 "MeasurementUnit\\Weight\\WeightInterface":
     type: interface
     implements[1]: "MeasurementUnit\\MeasurementUnitInterface"
     methods[2]: "static fromKilogramValue(float $value): self","toKilogramValue(): float"
+"MeasurementUnit\\Weight\\Yoctogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Yottagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Zeptogram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"
+"MeasurementUnit\\Weight\\Zettagram":
+    extends: "MeasurementUnit\\Weight\\MetricWeight"

@@ -4,18 +4,24 @@ declare(strict_types=1);
 
 use MeasurementUnit\Area\Acre;
 use MeasurementUnit\Area\Hectare;
+use MeasurementUnit\Area\SquareCentimeter;
+use MeasurementUnit\Area\SquareDecimeter;
 use MeasurementUnit\Area\SquareFoot;
 use MeasurementUnit\Area\SquareKilometer;
 use MeasurementUnit\Area\SquareMeter;
 use MeasurementUnit\Area\SquareMile;
+use MeasurementUnit\Area\SquareMillimeter;
 
 dataset('area units', function () {
-    yield SquareMeter::class     => [new SquareMeter(42.0)];
-    yield SquareKilometer::class => [new SquareKilometer(42.0)];
-    yield SquareFoot::class      => [new SquareFoot(42.0)];
-    yield SquareMile::class      => [new SquareMile(42.0)];
-    yield Hectare::class         => [new Hectare(42.0)];
-    yield Acre::class            => [new Acre(42.0)];
+    yield SquareMeter::class      => [new SquareMeter(42.0)];
+    yield SquareKilometer::class  => [new SquareKilometer(42.0)];
+    yield SquareMillimeter::class => [new SquareMillimeter(42.0)];
+    yield SquareCentimeter::class => [new SquareCentimeter(42.0)];
+    yield SquareDecimeter::class  => [new SquareDecimeter(42.0)];
+    yield SquareFoot::class       => [new SquareFoot(42.0)];
+    yield SquareMile::class       => [new SquareMile(42.0)];
+    yield Hectare::class          => [new Hectare(42.0)];
+    yield Acre::class             => [new Acre(42.0)];
 });
 
 test('round-trips through square meter value', function ($area) {

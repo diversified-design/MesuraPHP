@@ -4,21 +4,14 @@ declare(strict_types=1);
 
 namespace MeasurementUnit\Length;
 
-use Brick\Math\BigRational;
+use MeasurementUnit\MetricPrefix;
 
-class Millimeter extends Length
+class Millimeter extends MetricLength
 {
     protected static string $defaultSymbol = 'mm';
 
-    public static function fromMeterValue(float $value): self
+    protected static function prefix(): MetricPrefix
     {
-        return new self(
-            BigRational::of((string) $value)->dividedBy('0.001')->toFloat()
-        );
-    }
-
-    public function toMeterValue(): float
-    {
-        return BigRational::of((string) $this->value)->multipliedBy('0.001')->toFloat();
+        return MetricPrefix::Milli;
     }
 }

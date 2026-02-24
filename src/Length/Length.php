@@ -78,6 +78,36 @@ abstract class Length extends MeasurementUnit implements LengthInterface
         return $this->toUnit(Yard::class);
     }
 
+    public function toDecimeter(): Decimeter
+    {
+        return $this->toUnit(Decimeter::class);
+    }
+
+    public function toDecameter(): Decameter
+    {
+        return $this->toUnit(Decameter::class);
+    }
+
+    public function toHectometer(): Hectometer
+    {
+        return $this->toUnit(Hectometer::class);
+    }
+
+    public function toMegameter(): Megameter
+    {
+        return $this->toUnit(Megameter::class);
+    }
+
+    public function toMicrometer(): Micrometer
+    {
+        return $this->toUnit(Micrometer::class);
+    }
+
+    public function toNanometer(): Nanometer
+    {
+        return $this->toUnit(Nanometer::class);
+    }
+
     /**
      * @template T of Length
      *

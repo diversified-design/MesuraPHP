@@ -2,15 +2,21 @@
 
 declare(strict_types=1);
 
+use MeasurementUnit\Length\Decameter;
+use MeasurementUnit\Length\Decimeter;
 use MeasurementUnit\Length\Fathom;
 use MeasurementUnit\Length\Foot;
 use MeasurementUnit\Length\Furlong;
+use MeasurementUnit\Length\Hectometer;
 use MeasurementUnit\Length\HorseLength;
 use MeasurementUnit\Length\Inch;
 use MeasurementUnit\Length\Kilometer;
 use MeasurementUnit\Length\Length;
 use MeasurementUnit\Length\LengthInterface;
+use MeasurementUnit\Length\Megameter;
 use MeasurementUnit\Length\Meter;
+use MeasurementUnit\Length\Micrometer;
+use MeasurementUnit\Length\Nanometer;
 use MeasurementUnit\Length\NauticalMile;
 use MeasurementUnit\Length\StatuteMile;
 use MeasurementUnit\Length\SurveyMile;
@@ -70,6 +76,12 @@ describe('Length', function () {
         expect($length->toThou())->toBeInstanceOf(Thou::class);
         expect($length->toYard())->toBeInstanceOf(Yard::class);
         expect($length->toKilometer())->toBeInstanceOf(Kilometer::class);
+        expect($length->toDecimeter())->toBeInstanceOf(Decimeter::class);
+        expect($length->toDecameter())->toBeInstanceOf(Decameter::class);
+        expect($length->toHectometer())->toBeInstanceOf(Hectometer::class);
+        expect($length->toMegameter())->toBeInstanceOf(Megameter::class);
+        expect($length->toMicrometer())->toBeInstanceOf(Micrometer::class);
+        expect($length->toNanometer())->toBeInstanceOf(Nanometer::class);
     });
 
     test('casts to string', function () {

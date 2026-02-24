@@ -23,6 +23,51 @@ abstract class Weight extends MeasurementUnit implements WeightInterface
         return $this->toUnit(Pound::class);
     }
 
+    public function toGram(): Gram
+    {
+        return $this->toUnit(Gram::class);
+    }
+
+    public function toMilligram(): Milligram
+    {
+        return $this->toUnit(Milligram::class);
+    }
+
+    public function toMicrogram(): Microgram
+    {
+        return $this->toUnit(Microgram::class);
+    }
+
+    public function toNanogram(): Nanogram
+    {
+        return $this->toUnit(Nanogram::class);
+    }
+
+    public function toDecigram(): Decigram
+    {
+        return $this->toUnit(Decigram::class);
+    }
+
+    public function toCentigram(): Centigram
+    {
+        return $this->toUnit(Centigram::class);
+    }
+
+    public function toDecagram(): Decagram
+    {
+        return $this->toUnit(Decagram::class);
+    }
+
+    public function toHectogram(): Hectogram
+    {
+        return $this->toUnit(Hectogram::class);
+    }
+
+    public function toMegagram(): Megagram
+    {
+        return $this->toUnit(Megagram::class);
+    }
+
     /**
      * @template T of Weight
      *
