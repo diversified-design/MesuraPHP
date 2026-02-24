@@ -7,6 +7,7 @@ namespace MeasurementUnit\Volume;
 use Brick\Math\BigRational;
 use MeasurementUnit\MetricPrefix;
 
+/** @phpstan-consistent-constructor */
 abstract class MetricLiter extends Volume
 {
     abstract protected static function prefix(): MetricPrefix;

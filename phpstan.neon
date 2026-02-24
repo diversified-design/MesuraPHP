@@ -13,6 +13,7 @@ parameters:
         - identifier: argument.templateType
           paths:
               - tests/*
+        - identifier: new.staticInAbstractClassStaticMethod
 includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - vendor/pestphp/pest/extension.neon

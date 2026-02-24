@@ -11,7 +11,7 @@ $metricLengthClasses = array_filter(
 
 // Ensure all generated classes are loaded
 $lengthDir = dirname(__DIR__, 3) . '/src/Length';
-foreach (glob($lengthDir . '/*.php') as $file) {
+foreach (glob($lengthDir . '/*.php') ?: [] as $file) {
     require_once $file;
 }
 
@@ -40,6 +40,7 @@ test('metric length round-trips through meter value', function (string $class) {
 
 test('metric length conversion factor matches expected power of 10', function (string $class) {
     $prefix         = (new ReflectionMethod($class, 'prefix'))->invoke(null);
+    \assert($prefix instanceof \MeasurementUnit\MetricPrefix);
     $expectedFactor = 10 ** $prefix->value;
 
     $instance   = new $class(1.0);

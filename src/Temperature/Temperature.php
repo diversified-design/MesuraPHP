@@ -37,7 +37,9 @@ abstract class Temperature extends MeasurementUnit implements TemperatureInterfa
      */
     public function toUnit(string $fqn): Temperature
     {
-        /* @var T $unit */
-        return $fqn::fromKelvinValue($this->toKelvinValue());
+        /** @var T $unit */
+        $unit = $fqn::fromKelvinValue($this->toKelvinValue());
+
+        return $unit;
     }
 }

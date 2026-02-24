@@ -7,6 +7,7 @@ namespace MeasurementUnit\Length;
 use Brick\Math\BigRational;
 use MeasurementUnit\MetricPrefix;
 
+/** @phpstan-consistent-constructor */
 abstract class MetricLength extends Length
 {
     abstract protected static function prefix(): MetricPrefix;

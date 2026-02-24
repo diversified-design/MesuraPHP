@@ -22,7 +22,9 @@ abstract class Torque extends MeasurementUnit implements TorqueInterface
      */
     public function toUnit(string $fqn): Torque
     {
-        /* @var T $unit */
-        return $fqn::fromNewtonMeterValue($this->toNewtonMeterValue());
+        /** @var T $unit */
+        $unit = $fqn::fromNewtonMeterValue($this->toNewtonMeterValue());
+
+        return $unit;
     }
 }

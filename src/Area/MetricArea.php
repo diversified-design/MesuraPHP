@@ -7,6 +7,7 @@ namespace MeasurementUnit\Area;
 use Brick\Math\BigRational;
 use MeasurementUnit\MetricPrefix;
 
+/** @phpstan-consistent-constructor */
 abstract class MetricArea extends Area
 {
     abstract protected static function prefix(): MetricPrefix;

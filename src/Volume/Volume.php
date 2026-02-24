@@ -92,7 +92,9 @@ abstract class Volume extends MeasurementUnit implements VolumeInterface
      */
     public function toUnit(string $fqn): Volume
     {
-        /* @var T $unit */
-        return $fqn::fromCubicMeterValue($this->toCubicMeterValue());
+        /** @var T $unit */
+        $unit = $fqn::fromCubicMeterValue($this->toCubicMeterValue());
+
+        return $unit;
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MeasurementUnit;
 
+/** @phpstan-consistent-constructor */
 abstract class MeasurementUnit implements MeasurementUnitInterface
 {
     protected static string $defaultSymbol = 'unit';

@@ -7,6 +7,7 @@ namespace MeasurementUnit\Weight;
 use Brick\Math\BigRational;
 use MeasurementUnit\MetricPrefix;
 
+/** @phpstan-consistent-constructor */
 abstract class MetricWeight extends Weight
 {
     abstract protected static function prefix(): MetricPrefix;

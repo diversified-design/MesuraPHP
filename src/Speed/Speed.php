@@ -37,7 +37,9 @@ abstract class Speed extends MeasurementUnit implements SpeedInterface
      */
     public function toUnit(string $fqn): Speed
     {
-        /* @var T $unit */
-        return $fqn::fromMeterPerSecondValue($this->toMeterPerSecondValue());
+        /** @var T $unit */
+        $unit = $fqn::fromMeterPerSecondValue($this->toMeterPerSecondValue());
+
+        return $unit;
     }
 }

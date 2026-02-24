@@ -62,6 +62,9 @@ abstract class Area extends MeasurementUnit implements AreaInterface
      */
     public function toUnit(string $fqn): Area
     {
-        return $fqn::fromSquareMeterValue($this->toSquareMeterValue());
+        /** @var T $unit */
+        $unit = $fqn::fromSquareMeterValue($this->toSquareMeterValue());
+
+        return $unit;
     }
 }

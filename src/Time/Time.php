@@ -37,7 +37,9 @@ abstract class Time extends MeasurementUnit implements TimeInterface
      */
     public function toUnit(string $fqn): Time
     {
-        /* @var T $unit */
-        return $fqn::fromSecondValue($this->toSecondValue());
+        /** @var T $unit */
+        $unit = $fqn::fromSecondValue($this->toSecondValue());
+
+        return $unit;
     }
 }
