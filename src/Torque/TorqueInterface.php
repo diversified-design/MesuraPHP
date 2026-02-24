@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Torque;
+namespace Mesura\Torque;
 
-use MeasurementUnit\MeasurementUnitInterface;
+use Mesura\MeasurementUnitInterface;
 
 interface TorqueInterface extends MeasurementUnitInterface
 {

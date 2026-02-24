@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\SurveyMile;
+use Mesura\Length\SurveyMile;
 
 test(
     'symbol is mi',

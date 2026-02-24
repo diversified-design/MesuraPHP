@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Torque\NewtonMeter;
+use Mesura\Torque\NewtonMeter;
 
 test(
     'symbol is N⋅m',

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Angle\Degree;
-use MeasurementUnit\Angle\Radian;
+use Mesura\Angle\Degree;
+use Mesura\Angle\Radian;
 
 dataset('angle units', function () {
     yield Radian::class => [new Radian(42.0)];

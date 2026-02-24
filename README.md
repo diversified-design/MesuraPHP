@@ -1,11 +1,11 @@
-# Measurement-unit
+# MesuraPHP
 
 A PHP library for representing, converting, and formatting physical measurements — from temperature and pressure to length, weight, and volume — with full SI metric prefix support and a fluent, type-safe API.  
 
 ## Installation
 
 ```shell
-composer require diversified-design/measurement-unit
+composer require diversified-design/mesura-php
 ```
 
 
@@ -61,14 +61,14 @@ Common prefixed units have dedicated convenience methods (e.g. `->toNanometer()`
 Set the value of the measurement unit directly
 ```php
 $celsius = new Celsius(28);
-# $celsius = (MeasurementUnit\Temperature\Celsius) 28
+# $celsius = (Mesura\Temperature\Celsius) 28
 ```
 
 Convert to another unit in the same domain:
 
 ```php
 $fahrenheit = $celsius->toFahrenheit();
-# $fahrenheit = (MeasurementUnit\Temperature\Fahrenheit) 82.4
+# $fahrenheit = (Mesura\Temperature\Fahrenheit) 82.4
 ```
 
 **See many more examples in `./examples/fluent_conversions.php` & `./examples/complete_example.php`**

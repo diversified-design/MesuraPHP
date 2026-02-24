@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Day;
-use MeasurementUnit\Time\Hour;
-use MeasurementUnit\Time\Minute;
-use MeasurementUnit\Time\Second;
-use MeasurementUnit\Time\Time;
+use Mesura\Time\Day;
+use Mesura\Time\Hour;
+use Mesura\Time\Minute;
+use Mesura\Time\Second;
+use Mesura\Time\Time;
 
 describe('Time', function () {
     test('stores value on construction', function () {

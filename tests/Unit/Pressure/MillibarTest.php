@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Millibar;
+use Mesura\Pressure\Millibar;
 
 test(
     'symbol is mbar',

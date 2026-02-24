@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\MetricLength;
+use Mesura\Length\MetricLength;
 
 $metricLengthClasses = array_filter(
     get_declared_classes(),
@@ -40,7 +40,7 @@ test('metric length round-trips through meter value', function (string $class) {
 
 test('metric length conversion factor matches expected power of 10', function (string $class) {
     $prefix         = (new ReflectionMethod($class, 'prefix'))->invoke(null);
-    \assert($prefix instanceof MeasurementUnit\MetricPrefix);
+    \assert($prefix instanceof Mesura\MetricPrefix);
     $expectedFactor = 10 ** $prefix->value;
 
     $instance   = new $class(1.0);

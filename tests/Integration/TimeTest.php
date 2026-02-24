@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Day;
-use MeasurementUnit\Time\Hour;
-use MeasurementUnit\Time\Minute;
-use MeasurementUnit\Time\Second;
+use Mesura\Time\Day;
+use Mesura\Time\Hour;
+use Mesura\Time\Minute;
+use Mesura\Time\Second;
 
 dataset('time units', function () {
     yield Day::class => [new Day(42.0)];

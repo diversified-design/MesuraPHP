@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Pascal;
+use Mesura\Pressure\Pascal;
 
 test(
     'symbol is Pa',

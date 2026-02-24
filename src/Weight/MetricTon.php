@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Weight;
+namespace Mesura\Weight;
 
 use Brick\Math\BigRational;
 

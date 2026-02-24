@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Weight;
+namespace Mesura\Weight;
 
-use MeasurementUnit\MeasurementUnitInterface;
+use Mesura\MeasurementUnitInterface;
 
 interface WeightInterface extends MeasurementUnitInterface
 {

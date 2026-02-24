@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Speed;
+namespace Mesura\Speed;
 
-use MeasurementUnit\MeasurementUnitInterface;
+use Mesura\MeasurementUnitInterface;
 
 interface SpeedInterface extends MeasurementUnitInterface
 {

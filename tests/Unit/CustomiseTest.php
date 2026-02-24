@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Customise;
-use MeasurementUnit\Length\Fathom;
-use MeasurementUnit\Length\Meter;
+use Mesura\Customise;
+use Mesura\Length\Fathom;
+use Mesura\Length\Meter;
 
 $originalMeterSymbol  = Meter::getSymbol();
 $originalFathomSymbol = Fathom::getSymbol();

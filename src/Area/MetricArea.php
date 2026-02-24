@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Area;
+namespace Mesura\Area;
 
 use Brick\Math\BigRational;
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricArea extends Area

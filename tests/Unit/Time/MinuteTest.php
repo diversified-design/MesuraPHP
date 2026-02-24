@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Minute;
+use Mesura\Time\Minute;
 
 test(
     'symbol is min',

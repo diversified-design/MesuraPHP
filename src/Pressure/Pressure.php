@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Pressure;
+namespace Mesura\Pressure;
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 abstract class Pressure extends MeasurementUnit implements PressureInterface
 {

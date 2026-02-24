@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\MillimetreOfMercury;
+use Mesura\Pressure\MillimetreOfMercury;
 
 test(
     'symbol is mmHg',

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Yard;
+use Mesura\Length\Yard;
 
 test(
     'symbol is yd',

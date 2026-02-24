@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Kilometer;
+use Mesura\Length\Kilometer;
 
 test(
     'symbol is km',

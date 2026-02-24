@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Time;
+namespace Mesura\Time;
 
-use MeasurementUnit\MeasurementUnitInterface;
+use Mesura\MeasurementUnitInterface;
 
 interface TimeInterface extends MeasurementUnitInterface
 {

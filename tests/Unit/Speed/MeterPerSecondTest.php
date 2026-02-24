@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Speed\MeterPerSecond;
+use Mesura\Speed\MeterPerSecond;
 
 test(
     'symbol is m/s',

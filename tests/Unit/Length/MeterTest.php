@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Meter;
+use Mesura\Length\Meter;
 
 test(
     'symbol is m',

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Speed\KilometerPerHour;
-use MeasurementUnit\Speed\Knot;
-use MeasurementUnit\Speed\MeterPerSecond;
-use MeasurementUnit\Speed\MilesPerHour;
+use Mesura\Speed\KilometerPerHour;
+use Mesura\Speed\Knot;
+use Mesura\Speed\MeterPerSecond;
+use Mesura\Speed\MilesPerHour;
 
 dataset('speed units', function () {
     yield KilometerPerHour::class => [new KilometerPerHour(42.0)];

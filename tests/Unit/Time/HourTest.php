@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Hour;
+use Mesura\Time\Hour;
 
 test(
     'symbol is h',

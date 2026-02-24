@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\SquareKilometer;
+use Mesura\Area\SquareKilometer;
 
 test(
     'symbol is km²',

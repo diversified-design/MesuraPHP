@@ -16,11 +16,11 @@ return [
     'output' => 'blueprint.json',
 
     // Include only classes under this namespace prefix
-    'namespace' => 'MeasurementUnit\\',
+    'namespace' => 'Mesura\\',
 
     // Exclude specific namespace prefixes (applied after namespace filter)
     'exclude' => [
-        // 'MeasurementUnit\\Constants\\',
+        // 'Mesura\\Constants\\',
     ],
 
     // Include private/protected members (default: false — public only)

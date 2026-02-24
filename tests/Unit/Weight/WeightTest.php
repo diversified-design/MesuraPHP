@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Weight\Centigram;
-use MeasurementUnit\Weight\Decagram;
-use MeasurementUnit\Weight\Decigram;
-use MeasurementUnit\Weight\Gram;
-use MeasurementUnit\Weight\Hectogram;
-use MeasurementUnit\Weight\Kilogram;
-use MeasurementUnit\Weight\Megagram;
-use MeasurementUnit\Weight\MetricTon;
-use MeasurementUnit\Weight\Microgram;
-use MeasurementUnit\Weight\Milligram;
-use MeasurementUnit\Weight\Nanogram;
-use MeasurementUnit\Weight\Pound;
-use MeasurementUnit\Weight\Weight;
+use Mesura\Weight\Centigram;
+use Mesura\Weight\Decagram;
+use Mesura\Weight\Decigram;
+use Mesura\Weight\Gram;
+use Mesura\Weight\Hectogram;
+use Mesura\Weight\Kilogram;
+use Mesura\Weight\Megagram;
+use Mesura\Weight\MetricTon;
+use Mesura\Weight\Microgram;
+use Mesura\Weight\Milligram;
+use Mesura\Weight\Nanogram;
+use Mesura\Weight\Pound;
+use Mesura\Weight\Weight;
 
 describe('Weight', function () {
     test('stores value on construction', function () {

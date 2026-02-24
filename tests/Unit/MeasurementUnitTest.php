@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 test('getValue returns construction value', function () {
     $unit = new class(42.0) extends MeasurementUnit {

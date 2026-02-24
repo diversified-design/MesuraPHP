@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\SquareFoot;
+use Mesura\Area\SquareFoot;
 
 test(
     'symbol is ft²',

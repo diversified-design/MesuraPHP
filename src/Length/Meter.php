@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Length;
+namespace Mesura\Length;
 
 class Meter extends Length
 {

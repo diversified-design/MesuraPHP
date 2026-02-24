@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Rankine;
+use Mesura\Temperature\Rankine;
 
 test(
     'symbol is °R',

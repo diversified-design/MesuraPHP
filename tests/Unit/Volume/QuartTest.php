@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\Quart;
+use Mesura\Volume\Quart;
 
 test(
     'symbol is qt',

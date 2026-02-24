@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Percentage\Percentage;
+use Mesura\Percentage\Percentage;
 
 describe('Percentage', function () {
     test('stores value on construction', function () {

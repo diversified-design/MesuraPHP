@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\CubicYard;
+use Mesura\Volume\CubicYard;
 
 test(
     'symbol is yd³',

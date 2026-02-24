@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Length\Meter;
+use Mesura\Length\Meter;
 
 $meter = new Meter(12.478665487653984756);
 

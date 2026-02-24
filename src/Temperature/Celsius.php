@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Temperature;
+namespace Mesura\Temperature;
 
 use Brick\Math\BigRational;
 

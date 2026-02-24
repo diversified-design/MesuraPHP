@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\HorseLength;
+use Mesura\Length\HorseLength;
 
 test(
     'symbol is hl',

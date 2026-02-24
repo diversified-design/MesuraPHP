@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Length\Kilometer;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Weight\Kilogram;
+use Mesura\Length\Kilometer;
+use Mesura\Length\Meter;
+use Mesura\Temperature\Celsius;
+use Mesura\Weight\Kilogram;
 
 echo 'Default symbols:' . PHP_EOL;
 echo 'Meter: ' . Meter::getSymbol() . PHP_EOL;

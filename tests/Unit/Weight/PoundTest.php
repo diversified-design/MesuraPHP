@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Weight\Pound;
+use Mesura\Weight\Pound;
 
 test(
     'symbol is lb',

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Volume;
+namespace Mesura\Volume;
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 abstract class Volume extends MeasurementUnit implements VolumeInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\NauticalMile;
+use Mesura\Length\NauticalMile;
 
 test(
     'symbol is nmi',

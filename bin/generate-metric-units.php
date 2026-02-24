@@ -40,28 +40,28 @@ $prefixes = [
 
 $dimensions = [
     'Length' => [
-        'namespace'    => 'MeasurementUnit\Length',
+        'namespace'    => 'Mesura\Length',
         'abstract'     => 'MetricLength',
         'classPattern' => '{Prefix}meter',
         'symbolUnit'   => 'm',
         'skip'         => [], // Meter is the base, not a prefixed unit
     ],
     'Weight' => [
-        'namespace'    => 'MeasurementUnit\Weight',
+        'namespace'    => 'Mesura\Weight',
         'abstract'     => 'MetricWeight',
         'classPattern' => '{Prefix}gram',
         'symbolUnit'   => 'g',
         'skip'         => [], // Kilogram is refactored separately
     ],
     'Volume' => [
-        'namespace'    => 'MeasurementUnit\Volume',
+        'namespace'    => 'Mesura\Volume',
         'abstract'     => 'MetricLiter',
         'classPattern' => '{Prefix}liter',
         'symbolUnit'   => 'l',
         'skip'         => [], // Liter is the reference, not prefixed
     ],
     'Area' => [
-        'namespace'    => 'MeasurementUnit\Area',
+        'namespace'    => 'Mesura\Area',
         'abstract'     => 'MetricArea',
         'classPattern' => 'Square{Prefix}meter',
         'symbolUnit'   => 'm²',
@@ -141,7 +141,7 @@ declare(strict_types=1);
 
 namespace {$namespace};
 
-use MeasurementUnit\\MetricPrefix;
+use Mesura\\MetricPrefix;
 
 class {$className} extends {$abstract}
 {

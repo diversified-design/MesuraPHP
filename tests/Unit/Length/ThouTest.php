@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Thou;
+use Mesura\Length\Thou;
 
 test(
     'symbol is thou',

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Inch;
+use Mesura\Length\Inch;
 
 test(
     'symbol is in',

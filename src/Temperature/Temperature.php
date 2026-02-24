@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Temperature;
+namespace Mesura\Temperature;
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 abstract class Temperature extends MeasurementUnit implements TemperatureInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Furlong;
+use Mesura\Length\Furlong;
 
 test(
     'symbol is fur',

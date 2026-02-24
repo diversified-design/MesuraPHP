@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Hectopascal;
+use Mesura\Pressure\Hectopascal;
 
 test(
     'symbol is hPa',

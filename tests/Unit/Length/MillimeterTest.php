@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Millimeter;
+use Mesura\Length\Millimeter;
 
 test(
     'symbol is mm',

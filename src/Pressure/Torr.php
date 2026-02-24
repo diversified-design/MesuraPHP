@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Pressure;
+namespace Mesura\Pressure;
 
 use Brick\Math\BigRational;
 

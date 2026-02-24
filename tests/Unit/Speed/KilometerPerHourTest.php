@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Speed\KilometerPerHour;
+use Mesura\Speed\KilometerPerHour;
 
 test(
     'symbol is km/h',

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Bar;
-use MeasurementUnit\Pressure\Hectopascal;
-use MeasurementUnit\Pressure\Kilopascal;
-use MeasurementUnit\Pressure\Millibar;
-use MeasurementUnit\Pressure\MillimetreOfMercury;
-use MeasurementUnit\Pressure\Pascal;
-use MeasurementUnit\Pressure\PoundPerSquareInch;
-use MeasurementUnit\Pressure\StandardAtmosphere;
-use MeasurementUnit\Pressure\Torr;
+use Mesura\Pressure\Bar;
+use Mesura\Pressure\Hectopascal;
+use Mesura\Pressure\Kilopascal;
+use Mesura\Pressure\Millibar;
+use Mesura\Pressure\MillimetreOfMercury;
+use Mesura\Pressure\Pascal;
+use Mesura\Pressure\PoundPerSquareInch;
+use Mesura\Pressure\StandardAtmosphere;
+use Mesura\Pressure\Torr;
 
 dataset('pressure units', function () {
     yield Pascal::class => [new Pascal(42.0)];

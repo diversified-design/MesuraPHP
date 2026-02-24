@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\Acre;
-use MeasurementUnit\Area\Area;
-use MeasurementUnit\Area\Hectare;
-use MeasurementUnit\Area\SquareCentimeter;
-use MeasurementUnit\Area\SquareDecimeter;
-use MeasurementUnit\Area\SquareFoot;
-use MeasurementUnit\Area\SquareKilometer;
-use MeasurementUnit\Area\SquareMeter;
-use MeasurementUnit\Area\SquareMile;
-use MeasurementUnit\Area\SquareMillimeter;
+use Mesura\Area\Acre;
+use Mesura\Area\Area;
+use Mesura\Area\Hectare;
+use Mesura\Area\SquareCentimeter;
+use Mesura\Area\SquareDecimeter;
+use Mesura\Area\SquareFoot;
+use Mesura\Area\SquareKilometer;
+use Mesura\Area\SquareMeter;
+use Mesura\Area\SquareMile;
+use Mesura\Area\SquareMillimeter;
 
 describe('Area', function () {
     test('stores value on construction', function () {

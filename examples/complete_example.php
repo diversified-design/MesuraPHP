@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Area\SquareMeter;
-use MeasurementUnit\Length\Foot;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Volume\CubicMeter;
-use MeasurementUnit\Weight\Kilogram;
+use Mesura\Area\SquareMeter;
+use Mesura\Length\Foot;
+use Mesura\Length\Meter;
+use Mesura\Temperature\Celsius;
+use Mesura\Volume\CubicMeter;
+use Mesura\Weight\Kilogram;
 
 // Custom formatter function
 function formatUnit($unit): string

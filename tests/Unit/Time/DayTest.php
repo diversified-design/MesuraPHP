@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Day;
+use Mesura\Time\Day;
 
 test(
     'symbol is d',

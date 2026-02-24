@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Temperature\Fahrenheit;
-use MeasurementUnit\Temperature\Kelvin;
-use MeasurementUnit\Temperature\Rankine;
+use Mesura\Temperature\Celsius;
+use Mesura\Temperature\Fahrenheit;
+use Mesura\Temperature\Kelvin;
+use Mesura\Temperature\Rankine;
 
 dataset('temperature units', function () {
     yield Celsius::class => [new Celsius(42.0)];

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Percentage\Percent;
+use Mesura\Percentage\Percent;
 
 test(
     'symbol is %',

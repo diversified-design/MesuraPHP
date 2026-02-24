@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Time;
+namespace Mesura\Time;
 
 use Brick\Math\BigRational;
 

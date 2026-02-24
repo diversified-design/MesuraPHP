@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\Pint;
+use Mesura\Volume\Pint;
 
 test(
     'symbol is pt',

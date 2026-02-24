@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Weight\MetricWeight;
+use Mesura\Weight\MetricWeight;
 
 // Ensure all generated classes are loaded
 $weightDir = dirname(__DIR__, 3) . '/src/Weight';
@@ -35,7 +35,7 @@ test('metric weight round-trips through kilogram value', function (string $class
 
 test('metric weight conversion factor matches expected power of 10', function (string $class) {
     $prefix = (new ReflectionMethod($class, 'prefix'))->invoke(null);
-    \assert($prefix instanceof MeasurementUnit\MetricPrefix);
+    \assert($prefix instanceof Mesura\MetricPrefix);
     // prefix-gram = 10^(prefix - 3) kg, so 1 prefix-gram = 10^(prefix-3) kg
     $expectedKg = 10 ** ($prefix->value - 3);
 

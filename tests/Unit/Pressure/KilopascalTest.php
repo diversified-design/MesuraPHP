@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Kilopascal;
+use Mesura\Pressure\Kilopascal;
 
 test(
     'symbol is kPa',

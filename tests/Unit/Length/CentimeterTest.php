@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Centimeter;
+use Mesura\Length\Centimeter;
 
 test(
     'symbol is cm',

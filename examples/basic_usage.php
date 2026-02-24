@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Length\Centimeter;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Weight\Kilogram;
+use Mesura\Length\Centimeter;
+use Mesura\Length\Meter;
+use Mesura\Weight\Kilogram;
 
 // Creating measurement units
 $meter      = new Meter(1.0);

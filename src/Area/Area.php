@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Area;
+namespace Mesura\Area;
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 abstract class Area extends MeasurementUnit implements AreaInterface
 {

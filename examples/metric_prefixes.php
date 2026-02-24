@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Area\SquareCentimeter;
-use MeasurementUnit\Area\SquareKilometer;
-use MeasurementUnit\Length\Gigameter;
-use MeasurementUnit\Length\Kilometer;
-use MeasurementUnit\Length\Megameter;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Length\Micrometer;
-use MeasurementUnit\Length\Nanometer;
-use MeasurementUnit\Length\Picometer;
-use MeasurementUnit\Length\Yottameter;
-use MeasurementUnit\Volume\Kiloliter;
-use MeasurementUnit\Volume\Liter;
-use MeasurementUnit\Volume\Milliliter;
-use MeasurementUnit\Weight\Kilogram;
-use MeasurementUnit\Weight\Milligram;
-use MeasurementUnit\Weight\Nanogram;
+use Mesura\Area\SquareCentimeter;
+use Mesura\Area\SquareKilometer;
+use Mesura\Length\Gigameter;
+use Mesura\Length\Kilometer;
+use Mesura\Length\Megameter;
+use Mesura\Length\Meter;
+use Mesura\Length\Micrometer;
+use Mesura\Length\Nanometer;
+use Mesura\Length\Picometer;
+use Mesura\Length\Yottameter;
+use Mesura\Volume\Kiloliter;
+use Mesura\Volume\Liter;
+use Mesura\Volume\Milliliter;
+use Mesura\Weight\Kilogram;
+use Mesura\Weight\Milligram;
+use Mesura\Weight\Nanogram;
 
 echo 'METRIC PREFIX EXAMPLES' . PHP_EOL;
 echo '======================' . PHP_EOL;

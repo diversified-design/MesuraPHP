@@ -1,5 +1,5 @@
 {
-    "name": "diversified-design/measurement-unit",
+    "name": "diversified-design/mesura-php",
     "type": "library",
     "license": "MIT",
     "description": "Strongly-typed measurement units and conversions for PHP.",
@@ -38,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "MeasurementUnit\\": "src/"
+            "Mesura\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "MeasurementUnit\\Tests\\": "tests/"
+            "Mesura\\Tests\\": "tests/"
         }
     },
     "require": {

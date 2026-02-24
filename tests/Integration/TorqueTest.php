@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Torque\NewtonMeter;
+use Mesura\Torque\NewtonMeter;
 
 dataset('torque units', function () {
     yield NewtonMeter::class => [new NewtonMeter(42.0)];

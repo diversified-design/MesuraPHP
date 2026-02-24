@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Temperature\Fahrenheit;
-use MeasurementUnit\Temperature\Kelvin;
+use Mesura\Temperature\Celsius;
+use Mesura\Temperature\Fahrenheit;
+use Mesura\Temperature\Kelvin;
 
 // Create instances of different temperature units
 $celsius    = new Celsius(25);

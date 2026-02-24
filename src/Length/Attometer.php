@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Length;
+namespace Mesura\Length;
 
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 class Attometer extends MetricLength
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\CubicInch;
+use Mesura\Volume\CubicInch;
 
 test(
     'symbol is in³',

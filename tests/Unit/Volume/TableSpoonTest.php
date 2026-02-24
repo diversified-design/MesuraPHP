@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\TableSpoon;
+use Mesura\Volume\TableSpoon;
 
 test(
     'symbol is tbsp',

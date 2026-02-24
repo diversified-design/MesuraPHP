@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Length\Centimeter;
-use MeasurementUnit\Length\Foot;
-use MeasurementUnit\Length\Inch;
-use MeasurementUnit\Length\Kilometer;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Length\Mile;
-use MeasurementUnit\Length\Millimeter;
-use MeasurementUnit\Length\Yard;
+use Mesura\Length\Centimeter;
+use Mesura\Length\Foot;
+use Mesura\Length\Inch;
+use Mesura\Length\Kilometer;
+use Mesura\Length\Meter;
+use Mesura\Length\Mile;
+use Mesura\Length\Millimeter;
+use Mesura\Length\Yard;
 
 // Create instances of different length units
 $meter = new Meter(1);

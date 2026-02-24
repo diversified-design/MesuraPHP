@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Foot;
+use Mesura\Length\Foot;
 
 test(
     'symbol is ft',

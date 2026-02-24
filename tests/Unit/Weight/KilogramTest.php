@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Weight\Kilogram;
+use Mesura\Weight\Kilogram;
 
 test(
     'symbol is kg',

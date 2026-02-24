@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\StatuteMile;
+use Mesura\Length\StatuteMile;
 
 test(
     'symbol is mi',

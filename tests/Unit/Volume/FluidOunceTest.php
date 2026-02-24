@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\FluidOunce;
+use Mesura\Volume\FluidOunce;
 
 test(
     'symbol is fl oz',

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Weight\MetricTon;
+use Mesura\Weight\MetricTon;
 
 test(
     'symbol is t',

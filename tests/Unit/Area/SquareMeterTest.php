@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\SquareMeter;
+use Mesura\Area\SquareMeter;
 
 test(
     'symbol is m²',

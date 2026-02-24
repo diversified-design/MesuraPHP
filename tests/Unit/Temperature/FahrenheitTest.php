@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Fahrenheit;
+use Mesura\Temperature\Fahrenheit;
 
 test(
     'symbol is °F',

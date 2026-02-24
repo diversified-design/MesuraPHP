@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Length\Centimeter;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Temperature\Fahrenheit;
-use MeasurementUnit\Temperature\Kelvin;
-use MeasurementUnit\Weight\Kilogram;
-use MeasurementUnit\Weight\Pound;
+use Mesura\Length\Centimeter;
+use Mesura\Length\Meter;
+use Mesura\Temperature\Celsius;
+use Mesura\Temperature\Fahrenheit;
+use Mesura\Temperature\Kelvin;
+use Mesura\Weight\Kilogram;
+use Mesura\Weight\Pound;
 
 // Example 1: Converting between multiple length units
 echo 'Example 1: Multiple length conversions' . PHP_EOL;

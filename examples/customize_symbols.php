@@ -7,11 +7,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // ----------------------------------------------------
 // Example showing how to use the Customise class to change the unit symbols
 // ----------------------------------------------------
-use MeasurementUnit\Customise;
-use MeasurementUnit\Length\Fathom;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Temperature\Fahrenheit;
+use Mesura\Customise;
+use Mesura\Length\Fathom;
+use Mesura\Length\Meter;
+use Mesura\Temperature\Celsius;
+use Mesura\Temperature\Fahrenheit;
 
 // Customise the unit symbols directly
 // Customise::unitSymbols([

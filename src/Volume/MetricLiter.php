@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Volume;
+namespace Mesura\Volume;
 
 use Brick\Math\BigRational;
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricLiter extends Volume

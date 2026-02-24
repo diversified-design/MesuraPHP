@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\Centiliter;
-use MeasurementUnit\Volume\CubicInch;
-use MeasurementUnit\Volume\CubicMeter;
-use MeasurementUnit\Volume\CubicYard;
-use MeasurementUnit\Volume\Decaliter;
-use MeasurementUnit\Volume\Deciliter;
-use MeasurementUnit\Volume\FluidDram;
-use MeasurementUnit\Volume\FluidOunce;
-use MeasurementUnit\Volume\Hectoliter;
-use MeasurementUnit\Volume\Kiloliter;
-use MeasurementUnit\Volume\Liter;
-use MeasurementUnit\Volume\Milliliter;
-use MeasurementUnit\Volume\Pint;
-use MeasurementUnit\Volume\Quart;
-use MeasurementUnit\Volume\TableSpoon;
-use MeasurementUnit\Volume\Volume;
+use Mesura\Volume\Centiliter;
+use Mesura\Volume\CubicInch;
+use Mesura\Volume\CubicMeter;
+use Mesura\Volume\CubicYard;
+use Mesura\Volume\Decaliter;
+use Mesura\Volume\Deciliter;
+use Mesura\Volume\FluidDram;
+use Mesura\Volume\FluidOunce;
+use Mesura\Volume\Hectoliter;
+use Mesura\Volume\Kiloliter;
+use Mesura\Volume\Liter;
+use Mesura\Volume\Milliliter;
+use Mesura\Volume\Pint;
+use Mesura\Volume\Quart;
+use Mesura\Volume\TableSpoon;
+use Mesura\Volume\Volume;
 
 describe('Volume', function () {
     test('stores value on construction', function () {

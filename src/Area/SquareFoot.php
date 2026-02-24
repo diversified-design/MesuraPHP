@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Area;
+namespace Mesura\Area;
 
 use Brick\Math\BigRational;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\Liter;
+use Mesura\Volume\Liter;
 
 test(
     'symbol is l',

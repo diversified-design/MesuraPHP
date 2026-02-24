@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\CubicMeter;
+use Mesura\Volume\CubicMeter;
 
 test(
     'symbol is m³',

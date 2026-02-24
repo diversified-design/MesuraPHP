@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\Acre;
-use MeasurementUnit\Area\Hectare;
-use MeasurementUnit\Area\SquareCentimeter;
-use MeasurementUnit\Area\SquareDecimeter;
-use MeasurementUnit\Area\SquareFoot;
-use MeasurementUnit\Area\SquareKilometer;
-use MeasurementUnit\Area\SquareMeter;
-use MeasurementUnit\Area\SquareMile;
-use MeasurementUnit\Area\SquareMillimeter;
+use Mesura\Area\Acre;
+use Mesura\Area\Hectare;
+use Mesura\Area\SquareCentimeter;
+use Mesura\Area\SquareDecimeter;
+use Mesura\Area\SquareFoot;
+use Mesura\Area\SquareKilometer;
+use Mesura\Area\SquareMeter;
+use Mesura\Area\SquareMile;
+use Mesura\Area\SquareMillimeter;
 
 dataset('area units', function () {
     yield SquareMeter::class      => [new SquareMeter(42.0)];

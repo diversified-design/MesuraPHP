@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Torque\NewtonMeter;
-use MeasurementUnit\Torque\Torque;
+use Mesura\Torque\NewtonMeter;
+use Mesura\Torque\Torque;
 
 describe('Torque', function () {
     test('stores value on construction', function () {

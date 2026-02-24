@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Time;
+namespace Mesura\Time;
 
-use MeasurementUnit\MeasurementUnit;
+use Mesura\MeasurementUnit;
 
 abstract class Time extends MeasurementUnit implements TimeInterface
 {

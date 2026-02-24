@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\StandardAtmosphere;
+use Mesura\Pressure\StandardAtmosphere;
 
 test(
     'symbol is atm',

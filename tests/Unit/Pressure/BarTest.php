@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Bar;
+use Mesura\Pressure\Bar;
 
 test(
     'symbol is bar',

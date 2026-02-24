@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Speed;
+namespace Mesura\Speed;
 
 use Brick\Math\BigRational;
 

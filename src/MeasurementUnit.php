@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit;
+namespace Mesura;
 
 /** @phpstan-consistent-constructor */
 abstract class MeasurementUnit implements MeasurementUnitInterface

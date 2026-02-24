@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Volume;
+namespace Mesura\Volume;
 
 class CubicMeter extends Volume
 {

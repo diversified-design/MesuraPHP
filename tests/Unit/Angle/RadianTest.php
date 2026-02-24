@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Angle\Radian;
+use Mesura\Angle\Radian;
 
 test(
     'symbol is rad',

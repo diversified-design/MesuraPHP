@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\Hectare;
+use Mesura\Area\Hectare;
 
 test(
     'symbol is ha',

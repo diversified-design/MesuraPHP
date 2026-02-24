@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Length;
+namespace Mesura\Length;
 
 use Brick\Math\BigRational;
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricLength extends Length

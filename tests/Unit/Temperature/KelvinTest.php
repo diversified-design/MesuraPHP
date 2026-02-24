@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Kelvin;
+use Mesura\Temperature\Kelvin;
 
 test(
     'symbol is K',

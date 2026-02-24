@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Speed\MilesPerHour;
+use Mesura\Speed\MilesPerHour;
 
 test(
     'symbol is mph',

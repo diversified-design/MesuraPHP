@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\PoundPerSquareInch;
+use Mesura\Pressure\PoundPerSquareInch;
 
 test(
     'symbol is psi',

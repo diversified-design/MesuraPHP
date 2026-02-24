@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Celsius;
+use Mesura\Temperature\Celsius;
 
 test(
     'symbol is °C',

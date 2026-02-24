@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Weight;
+namespace Mesura\Weight;
 
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 class Hectogram extends MetricWeight
 {

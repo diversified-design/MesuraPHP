@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Angle\Angle;
-use MeasurementUnit\Angle\Degree;
-use MeasurementUnit\Angle\Radian;
+use Mesura\Angle\Angle;
+use Mesura\Angle\Degree;
+use Mesura\Angle\Radian;
 
 describe('Angle', function () {
     test('stores value on construction', function () {

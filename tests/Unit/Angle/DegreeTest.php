@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Angle\Degree;
+use Mesura\Angle\Degree;
 
 test(
     'symbol is °',

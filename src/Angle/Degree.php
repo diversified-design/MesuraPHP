@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Angle;
+namespace Mesura\Angle;
 
 class Degree extends Angle
 {

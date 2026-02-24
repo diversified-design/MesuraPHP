@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Percentage;
+namespace Mesura\Percentage;
 
 use Brick\Math\BigRational;
 

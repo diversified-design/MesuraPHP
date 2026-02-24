@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Fathom;
+use Mesura\Length\Fathom;
 
 test(
     'symbol is ftm',

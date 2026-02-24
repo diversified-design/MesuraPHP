@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Time\Second;
+use Mesura\Time\Second;
 
 test(
     'symbol is s',

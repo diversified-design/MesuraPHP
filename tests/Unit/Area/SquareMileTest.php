@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\SquareMile;
+use Mesura\Area\SquareMile;
 
 test(
     'symbol is mi²',

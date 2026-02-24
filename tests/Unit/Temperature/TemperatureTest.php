@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Temperature\Celsius;
-use MeasurementUnit\Temperature\Fahrenheit;
-use MeasurementUnit\Temperature\Kelvin;
-use MeasurementUnit\Temperature\Rankine;
-use MeasurementUnit\Temperature\Temperature;
+use Mesura\Temperature\Celsius;
+use Mesura\Temperature\Fahrenheit;
+use Mesura\Temperature\Kelvin;
+use Mesura\Temperature\Rankine;
+use Mesura\Temperature\Temperature;
 
 describe('Temperature', function () {
     test('stores value on construction', function () {

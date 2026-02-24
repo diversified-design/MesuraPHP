@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Area\Acre;
+use Mesura\Area\Acre;
 
 test(
     'symbol is ac',

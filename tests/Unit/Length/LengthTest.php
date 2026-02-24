@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Length\Decameter;
-use MeasurementUnit\Length\Decimeter;
-use MeasurementUnit\Length\Fathom;
-use MeasurementUnit\Length\Foot;
-use MeasurementUnit\Length\Furlong;
-use MeasurementUnit\Length\Hectometer;
-use MeasurementUnit\Length\HorseLength;
-use MeasurementUnit\Length\Inch;
-use MeasurementUnit\Length\Kilometer;
-use MeasurementUnit\Length\Length;
-use MeasurementUnit\Length\Megameter;
-use MeasurementUnit\Length\Meter;
-use MeasurementUnit\Length\Micrometer;
-use MeasurementUnit\Length\Nanometer;
-use MeasurementUnit\Length\NauticalMile;
-use MeasurementUnit\Length\StatuteMile;
-use MeasurementUnit\Length\SurveyMile;
-use MeasurementUnit\Length\Thou;
-use MeasurementUnit\Length\Yard;
+use Mesura\Length\Decameter;
+use Mesura\Length\Decimeter;
+use Mesura\Length\Fathom;
+use Mesura\Length\Foot;
+use Mesura\Length\Furlong;
+use Mesura\Length\Hectometer;
+use Mesura\Length\HorseLength;
+use Mesura\Length\Inch;
+use Mesura\Length\Kilometer;
+use Mesura\Length\Length;
+use Mesura\Length\Megameter;
+use Mesura\Length\Meter;
+use Mesura\Length\Micrometer;
+use Mesura\Length\Nanometer;
+use Mesura\Length\NauticalMile;
+use Mesura\Length\StatuteMile;
+use Mesura\Length\SurveyMile;
+use Mesura\Length\Thou;
+use Mesura\Length\Yard;
 
 describe('Length', function () {
     test('stores value on construction', function () {

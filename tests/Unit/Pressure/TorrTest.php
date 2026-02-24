@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Pressure\Torr;
+use Mesura\Pressure\Torr;
 
 test(
     'symbol is Torr',

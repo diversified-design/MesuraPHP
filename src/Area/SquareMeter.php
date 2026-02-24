@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Area;
+namespace Mesura\Area;
 
 class SquareMeter extends Area
 {

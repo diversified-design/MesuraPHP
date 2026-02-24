@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Speed\Knot;
+use Mesura\Speed\Knot;
 
 test(
     'symbol is kn',

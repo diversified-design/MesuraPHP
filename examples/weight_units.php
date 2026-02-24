@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use MeasurementUnit\Weight\Gram;
-use MeasurementUnit\Weight\Kilogram;
-use MeasurementUnit\Weight\Milligram;
-use MeasurementUnit\Weight\Ounce;
-use MeasurementUnit\Weight\Pound;
-use MeasurementUnit\Weight\Stone;
-use MeasurementUnit\Weight\Ton;
+use Mesura\Weight\Gram;
+use Mesura\Weight\Kilogram;
+use Mesura\Weight\Milligram;
+use Mesura\Weight\Ounce;
+use Mesura\Weight\Pound;
+use Mesura\Weight\Stone;
+use Mesura\Weight\Ton;
 
 // Create instances of different weight units
 $gram  = new Gram(1);

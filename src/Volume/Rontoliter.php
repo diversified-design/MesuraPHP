@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Volume;
+namespace Mesura\Volume;
 
-use MeasurementUnit\MetricPrefix;
+use Mesura\MetricPrefix;
 
 class Rontoliter extends MetricLiter
 {

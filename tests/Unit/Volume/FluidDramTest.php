@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MeasurementUnit\Volume\FluidDram;
+use Mesura\Volume\FluidDram;
 
 test(
     'symbol is fl dr',

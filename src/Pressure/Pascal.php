@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MeasurementUnit\Pressure;
+namespace Mesura\Pressure;
 
 class Pascal extends Pressure
 {
