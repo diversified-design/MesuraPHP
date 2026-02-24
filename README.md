@@ -36,26 +36,6 @@ Common prefixed units have dedicated convenience methods (e.g. `->toNanometer()`
 
 ---
 
-## Available Methods on all Units
-
-### ->getValue()
-
-### ->getInstanceSymbol()
-
-### ->setInstanceSymbol()
-
-### ::getSymbol()
-
-### ::setSymbol()
-
-### ->withValue()
-
-### ->toHtml($sprintfTemplate)
-
-### ->toFormat($sprintfTemplate)
-
----
-
 ## Basic Usage
 
 Set the value of the measurement unit directly
