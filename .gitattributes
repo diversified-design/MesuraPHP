@@ -11,6 +11,7 @@ CLAUDE.md               export-ignore
 phpunit.xml             export-ignore
 phpstan.neon            export-ignore
 
+bin/                    export-ignore
 docs/                   export-ignore
 examples/               export-ignore
 tests/                  export-ignore
