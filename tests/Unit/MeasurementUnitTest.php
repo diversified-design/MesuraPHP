@@ -114,6 +114,48 @@ test('toHtml wraps value and symbol in spans', function () {
     expect($unit->toHtml($customTemplate))->toBe('<div class="measurement"><strong>42.00</strong><em>unit</em></div>');
 });
 
+test('withValue transforms value and preserves type', function () {
+    $unit = new class(10.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
+    };
+
+    $result = $unit->withValue(fn (float $v) => $v * 3);
+
+    expect($result)->toBeInstanceOf(get_class($unit));
+    expect($result->getValue())->toBe(30.0);
+    expect($result)->not->toBe($unit);
+});
+
+test('withValue returns a new instance', function () {
+    $unit = new class(5.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
+    };
+
+    $result = $unit->withValue(fn (float $v) => $v);
+
+    expect($result)->not->toBe($unit);
+    expect($result->getValue())->toBe(5.0);
+});
+
+test('withValue casts integer return to float', function () {
+    $unit = new class(4.0) extends MeasurementUnit {
+        public static function getSymbol(): string
+        {
+            return 'unit';
+        }
+    };
+
+    $result = $unit->withValue(fn (float $v) => (int) ($v * 2));
+
+    expect($result->getValue())->toBe(8.0);
+});
+
 test('formatting uses custom instance symbol', function () {
     $unit = new class(42.0, 'custom') extends MeasurementUnit {
         public static function getSymbol(): string
