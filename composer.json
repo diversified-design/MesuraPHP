@@ -2,11 +2,28 @@
     "name": "diversified-design/measurement-unit",
     "type": "library",
     "license": "MIT",
-    "description": "A collection of measurement units for easy conversion",
+    "description": "Strongly-typed measurement units and conversions for PHP.",
+    "keywords": [
+        "measurement",
+        "units",
+        "conversion",
+        "unit-conversion",
+        "metric",
+        "SI",
+        "imperial",
+        "length",
+        "weight",
+        "volume",
+        "area",
+        "temperature",
+        "pressure",
+        "speed",
+        "strongly-typed"
+    ],
     "authors": [
         {
             "name": "Boris Anthony",
-            "email": "boris@anthony.net"
+            "email": "contact@diversified.design"
         }
     ],
     "minimum-stability": "dev",
@@ -30,7 +47,7 @@
         }
     },
     "require": {
-        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "php": "^8.2",
         "brick/math": "^0.15"
     },
     "require-dev": {
