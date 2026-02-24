@@ -3,6 +3,22 @@
     "type": "library",
     "license": "MIT",
     "description": "A collection of measurement units for easy conversion",
+    "authors": [
+        {
+            "name": "Boris Anthony",
+            "email": "boris@anthony.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "apcu-autoloader": true
+    },
     "autoload": {
         "psr-4": {
             "MeasurementUnit\\": "src/"
@@ -14,8 +30,8 @@
         }
     },
     "require": {
-        "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
-        "brick/math": "^0.14.8"
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+        "brick/math": "^0.15"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.94",
@@ -29,17 +45,12 @@
         "cs": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix --dry-run",
         "cs:fix": "export PHP_CS_FIXER_IGNORE_ENV=1 php; php-cs-fixer fix",
         "stan": "phpstan analyse",
+        "test": "./vendor/bin/pest",
         "post-update-cmd": [
             "composer dump-autoload -o"
         ],
         "post-install-cmd": [
             "composer dump-autoload -o"
-        ],
-        "test": "./vendor/bin/pest"
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        ]
     }
 }
