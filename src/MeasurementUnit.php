@@ -47,17 +47,17 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
     }
 
     // Formatting Methods
-    public function toHtml(string $sprintf_Template = '<span class="value">%1$.1f</span> <span class="symbol">%2$s</span>'): string
+    public function toHtml(string $sprintfTemplate = '<span class="value">%1$.1f</span> <span class="symbol">%2$s</span>'): string
     {
-        return $this->toFormat(sprintf_Template: $sprintf_Template);
+        return $this->toFormat(sprintfTemplate: $sprintfTemplate);
     }
 
-    public function toFormat(string $sprintf_Template = '%.1f %s'): string
+    public function toFormat(string $sprintfTemplate = '%.1f %s'): string
     {
         $value  = $this->getValue();
         $symbol = $this->getInstanceSymbol();
 
-        return vsprintf($sprintf_Template, [$value, $symbol]);
+        return vsprintf($sprintfTemplate, [$value, $symbol]);
     }
 
     // Magic Methods
