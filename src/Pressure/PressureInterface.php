@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface PressureInterface extends MeasurementUnitInterface
 {
-    public static function fromPascalValue(float $value): self;
+    public static function fromPascalValue(float $value): static;
 
     public function toPascalValue(): float;
 }

@@ -8,9 +8,9 @@ class Degree extends Angle
 {
     protected static string $defaultSymbol = '°';
 
-    public static function fromRadianValue(float $value): self
+    public static function fromRadianValue(float $value): static
     {
-        return new self(rad2deg($value));
+        return new static(rad2deg($value));
     }
 
     public function toRadianValue(): float

@@ -8,9 +8,9 @@ class Second extends Time
 {
     protected static string $defaultSymbol = 's';
 
-    public static function fromSecondValue(float $value): self
+    public static function fromSecondValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toSecondValue(): float

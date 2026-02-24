@@ -25,7 +25,7 @@ describe('Weight', function () {
                 return 'unit';
             }
 
-            public static function fromKilogramValue(float $value): WeightInterface
+            public static function fromKilogramValue(float $value): static
             {
                 return new self($value);
             }
@@ -46,7 +46,7 @@ describe('Weight', function () {
                 return '';
             }
 
-            public static function fromKilogramValue(float $value): WeightInterface
+            public static function fromKilogramValue(float $value): static
             {
                 return new self($value);
             }
@@ -79,7 +79,7 @@ describe('Weight', function () {
                 return 'unit';
             }
 
-            public static function fromKilogramValue(float $value): WeightInterface
+            public static function fromKilogramValue(float $value): static
             {
                 return new self($value);
             }

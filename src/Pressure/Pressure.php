@@ -62,9 +62,6 @@ abstract class Pressure extends MeasurementUnit implements PressureInterface
      */
     public function toUnit(string $fqn): Pressure
     {
-        /** @var T $unit */
-        $unit = $fqn::fromPascalValue($this->toPascalValue());
-
-        return $unit;
+        return $fqn::fromPascalValue($this->toPascalValue());
     }
 }

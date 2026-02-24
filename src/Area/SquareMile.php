@@ -10,9 +10,9 @@ class SquareMile extends Area
 {
     protected static string $defaultSymbol = 'mi²';
 
-    public static function fromSquareMeterValue(float $value): self
+    public static function fromSquareMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('2589988.110336')->toFloat()
         );
     }

@@ -10,9 +10,9 @@ class SquareFoot extends Area
 {
     protected static string $defaultSymbol = 'ft²';
 
-    public static function fromSquareMeterValue(float $value): self
+    public static function fromSquareMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.09290304')->toFloat()
         );
     }

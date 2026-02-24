@@ -10,9 +10,9 @@ class Hectare extends Area
 {
     protected static string $defaultSymbol = 'ha';
 
-    public static function fromSquareMeterValue(float $value): self
+    public static function fromSquareMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('10000')->toFloat()
         );
     }

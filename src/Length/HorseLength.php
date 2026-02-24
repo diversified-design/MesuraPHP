@@ -10,9 +10,9 @@ class HorseLength extends Length
 {
     protected static string $defaultSymbol = 'hl';
 
-    public static function fromMeterValue(float $value): self
+    public static function fromMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('2.4')->toFloat()
         );
     }

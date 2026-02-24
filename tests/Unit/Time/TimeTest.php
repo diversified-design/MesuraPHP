@@ -17,7 +17,7 @@ describe('Time', function () {
                 return 'unit';
             }
 
-            public static function fromSecondValue(float $value): TimeInterface
+            public static function fromSecondValue(float $value): static
             {
                 return new self($value);
             }
@@ -38,7 +38,7 @@ describe('Time', function () {
                 return '';
             }
 
-            public static function fromSecondValue(float $value): TimeInterface
+            public static function fromSecondValue(float $value): static
             {
                 return new self($value);
             }
@@ -63,7 +63,7 @@ describe('Time', function () {
                 return 'unit';
             }
 
-            public static function fromSecondValue(float $value): TimeInterface
+            public static function fromSecondValue(float $value): static
             {
                 return new self($value);
             }

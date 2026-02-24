@@ -10,9 +10,9 @@ class Kilopascal extends Pressure
 {
     protected static string $defaultSymbol = 'kPa';
 
-    public static function fromPascalValue(float $value): self
+    public static function fromPascalValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('1000')->toFloat()
         );
     }

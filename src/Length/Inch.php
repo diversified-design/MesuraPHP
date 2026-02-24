@@ -10,9 +10,9 @@ class Inch extends Length
 {
     protected static string $defaultSymbol = 'in';
 
-    public static function fromMeterValue(float $value): self
+    public static function fromMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.0254')->toFloat()
         );
     }

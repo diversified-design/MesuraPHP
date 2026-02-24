@@ -10,9 +10,9 @@ class Fahrenheit extends Temperature
 {
     protected static string $defaultSymbol = '°F';
 
-    public static function fromKelvinValue(float $value): self
+    public static function fromKelvinValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy(5)->multipliedBy(9)->minus('459.67')->toFloat()
         );
     }

@@ -8,9 +8,9 @@ class Meter extends Length
 {
     protected static string $defaultSymbol = 'm';
 
-    public static function fromMeterValue(float $value): self
+    public static function fromMeterValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toMeterValue(): float

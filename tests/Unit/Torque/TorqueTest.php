@@ -14,7 +14,7 @@ describe('Torque', function () {
                 return 'unit';
             }
 
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
+            public static function fromNewtonMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -35,7 +35,7 @@ describe('Torque', function () {
                 return '';
             }
 
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
+            public static function fromNewtonMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -57,7 +57,7 @@ describe('Torque', function () {
                 return 'unit';
             }
 
-            public static function fromNewtonMeterValue(float $value): TorqueInterface
+            public static function fromNewtonMeterValue(float $value): static
             {
                 return new self($value);
             }

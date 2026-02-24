@@ -10,9 +10,9 @@ class Hectopascal extends Pressure
 {
     protected static string $defaultSymbol = 'hPa';
 
-    public static function fromPascalValue(float $value): self
+    public static function fromPascalValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('100')->toFloat()
         );
     }

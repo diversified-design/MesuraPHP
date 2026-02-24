@@ -6,8 +6,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use MeasurementUnit\Area\SquareCentimeter;
 use MeasurementUnit\Area\SquareKilometer;
-use MeasurementUnit\Area\SquareMeter;
-use MeasurementUnit\Area\SquareMillimeter;
 use MeasurementUnit\Length\Gigameter;
 use MeasurementUnit\Length\Kilometer;
 use MeasurementUnit\Length\Megameter;
@@ -16,15 +14,10 @@ use MeasurementUnit\Length\Micrometer;
 use MeasurementUnit\Length\Nanometer;
 use MeasurementUnit\Length\Picometer;
 use MeasurementUnit\Length\Yottameter;
-use MeasurementUnit\Volume\Centiliter;
-use MeasurementUnit\Volume\Deciliter;
 use MeasurementUnit\Volume\Kiloliter;
 use MeasurementUnit\Volume\Liter;
 use MeasurementUnit\Volume\Milliliter;
-use MeasurementUnit\Weight\Gram;
 use MeasurementUnit\Weight\Kilogram;
-use MeasurementUnit\Weight\Megagram;
-use MeasurementUnit\Weight\Microgram;
 use MeasurementUnit\Weight\Milligram;
 use MeasurementUnit\Weight\Nanogram;
 

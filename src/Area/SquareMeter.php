@@ -8,9 +8,9 @@ class SquareMeter extends Area
 {
     protected static string $defaultSymbol = 'm²';
 
-    public static function fromSquareMeterValue(float $value): self
+    public static function fromSquareMeterValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toSquareMeterValue(): float

@@ -10,9 +10,9 @@ class CubicInch extends Volume
 {
     protected static string $defaultSymbol = 'in³';
 
-    public static function fromCubicMeterValue(float $value): self
+    public static function fromCubicMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.0000163871')->toFloat()
         );
     }

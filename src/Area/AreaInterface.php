@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface AreaInterface extends MeasurementUnitInterface
 {
-    public static function fromSquareMeterValue(float $value): self;
+    public static function fromSquareMeterValue(float $value): static;
 
     public function toSquareMeterValue(): float;
 }

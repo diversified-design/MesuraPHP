@@ -8,9 +8,9 @@ class MeterPerSecond extends Speed
 {
     protected static string $defaultSymbol = 'm/s';
 
-    public static function fromMeterPerSecondValue(float $value): self
+    public static function fromMeterPerSecondValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toMeterPerSecondValue(): float

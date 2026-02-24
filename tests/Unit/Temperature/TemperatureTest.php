@@ -17,7 +17,7 @@ describe('Temperature', function () {
                 return 'unit';
             }
 
-            public static function fromKelvinValue(float $value): TemperatureInterface
+            public static function fromKelvinValue(float $value): static
             {
                 return new self($value);
             }
@@ -38,7 +38,7 @@ describe('Temperature', function () {
                 return '';
             }
 
-            public static function fromKelvinValue(float $value): TemperatureInterface
+            public static function fromKelvinValue(float $value): static
             {
                 return new self($value);
             }
@@ -63,7 +63,7 @@ describe('Temperature', function () {
                 return 'unit';
             }
 
-            public static function fromKelvinValue(float $value): TemperatureInterface
+            public static function fromKelvinValue(float $value): static
             {
                 return new self($value);
             }

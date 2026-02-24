@@ -22,7 +22,7 @@ describe('Pressure', function () {
                 return 'unit';
             }
 
-            public static function fromPascalValue(float $value): PressureInterface
+            public static function fromPascalValue(float $value): static
             {
                 return new self($value);
             }
@@ -43,7 +43,7 @@ describe('Pressure', function () {
                 return '';
             }
 
-            public static function fromPascalValue(float $value): PressureInterface
+            public static function fromPascalValue(float $value): static
             {
                 return new self($value);
             }
@@ -73,7 +73,7 @@ describe('Pressure', function () {
                 return 'unit';
             }
 
-            public static function fromPascalValue(float $value): PressureInterface
+            public static function fromPascalValue(float $value): static
             {
                 return new self($value);
             }

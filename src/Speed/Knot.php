@@ -10,9 +10,9 @@ class Knot extends Speed
 {
     protected static string $defaultSymbol = 'kn';
 
-    public static function fromMeterPerSecondValue(float $value): self
+    public static function fromMeterPerSecondValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.514444')->toFloat()
         );
     }

@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface WeightInterface extends MeasurementUnitInterface
 {
-    public static function fromKilogramValue(float $value): self;
+    public static function fromKilogramValue(float $value): static;
 
     public function toKilogramValue(): float;
 }

@@ -35,7 +35,7 @@ test('metric liter round-trips through cubic meter value', function (string $cla
 
 test('metric liter conversion factor matches expected power of 10', function (string $class) {
     $prefix = (new ReflectionMethod($class, 'prefix'))->invoke(null);
-    \assert($prefix instanceof \MeasurementUnit\MetricPrefix);
+    \assert($prefix instanceof MeasurementUnit\MetricPrefix);
     // prefix-liter = 10^(prefix - 3) m³, so 1 prefix-liter = 10^(prefix-3) m³
     $expectedM3 = 10 ** ($prefix->value - 3);
 

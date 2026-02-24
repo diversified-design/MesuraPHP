@@ -8,9 +8,9 @@ class NewtonMeter extends Torque
 {
     protected static string $defaultSymbol = 'N⋅m';
 
-    public static function fromNewtonMeterValue(float $value): self
+    public static function fromNewtonMeterValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toNewtonMeterValue(): float

@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface TorqueInterface extends MeasurementUnitInterface
 {
-    public static function fromNewtonMeterValue(float $value): self;
+    public static function fromNewtonMeterValue(float $value): static;
 
     public function toNewtonMeterValue(): float;
 }

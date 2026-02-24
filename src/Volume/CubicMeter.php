@@ -8,9 +8,9 @@ class CubicMeter extends Volume
 {
     protected static string $defaultSymbol = 'm³';
 
-    public static function fromCubicMeterValue(float $value): self
+    public static function fromCubicMeterValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toCubicMeterValue(): float

@@ -10,9 +10,9 @@ class Quart extends Volume
 {
     protected static string $defaultSymbol = 'qt';
 
-    public static function fromCubicMeterValue(float $value): self
+    public static function fromCubicMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.000946353')->toFloat()
         );
     }

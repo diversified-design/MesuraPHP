@@ -28,7 +28,7 @@ describe('Volume', function () {
                 return 'unit';
             }
 
-            public static function fromCubicMeterValue(float $value): VolumeInterface
+            public static function fromCubicMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -49,7 +49,7 @@ describe('Volume', function () {
                 return '';
             }
 
-            public static function fromCubicMeterValue(float $value): VolumeInterface
+            public static function fromCubicMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -85,7 +85,7 @@ describe('Volume', function () {
                 return 'unit';
             }
 
-            public static function fromCubicMeterValue(float $value): VolumeInterface
+            public static function fromCubicMeterValue(float $value): static
             {
                 return new self($value);
             }

@@ -10,9 +10,9 @@ class MetricTon extends Weight
 {
     protected static string $defaultSymbol = 't';
 
-    public static function fromKilogramValue(float $value): self
+    public static function fromKilogramValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('1000')->toFloat()
         );
     }

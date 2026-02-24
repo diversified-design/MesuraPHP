@@ -27,9 +27,6 @@ abstract class Angle extends MeasurementUnit implements AngleInterface
      */
     public function toUnit(string $fqn): Angle
     {
-        /** @var T $unit */
-        $unit = $fqn::fromRadianValue($this->toRadianValue());
-
-        return $unit;
+        return $fqn::fromRadianValue($this->toRadianValue());
     }
 }

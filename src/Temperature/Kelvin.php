@@ -8,9 +8,9 @@ class Kelvin extends Temperature
 {
     protected static string $defaultSymbol = 'K';
 
-    public static function fromKelvinValue(float $value): self
+    public static function fromKelvinValue(float $value): static
     {
-        return new self($value);
+        return new static($value);
     }
 
     public function toKelvinValue(): float

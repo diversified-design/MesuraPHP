@@ -10,9 +10,9 @@ class KilometerPerHour extends Speed
 {
     protected static string $defaultSymbol = 'km/h';
 
-    public static function fromMeterPerSecondValue(float $value): self
+    public static function fromMeterPerSecondValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.277778')->toFloat()
         );
     }

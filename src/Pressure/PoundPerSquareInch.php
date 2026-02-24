@@ -10,9 +10,9 @@ class PoundPerSquareInch extends Pressure
 {
     protected static string $defaultSymbol = 'psi';
 
-    public static function fromPascalValue(float $value): self
+    public static function fromPascalValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('6894.757293168')->toFloat()
         );
     }

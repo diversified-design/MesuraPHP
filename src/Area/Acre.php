@@ -10,9 +10,9 @@ class Acre extends Area
 {
     protected static string $defaultSymbol = 'ac';
 
-    public static function fromSquareMeterValue(float $value): self
+    public static function fromSquareMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('4046.8564224')->toFloat()
         );
     }

@@ -117,9 +117,6 @@ abstract class Length extends MeasurementUnit implements LengthInterface
      */
     public function toUnit(string $fqn): Length
     {
-        /** @var T $unit */
-        $unit = $fqn::fromMeterValue($this->toMeterValue());
-
-        return $unit;
+        return $fqn::fromMeterValue($this->toMeterValue());
     }
 }

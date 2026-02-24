@@ -10,9 +10,9 @@ class Minute extends Time
 {
     protected static string $defaultSymbol = 'min';
 
-    public static function fromSecondValue(float $value): self
+    public static function fromSecondValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('60')->toFloat()
         );
     }

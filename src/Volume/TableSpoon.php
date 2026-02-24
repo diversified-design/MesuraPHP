@@ -10,9 +10,9 @@ class TableSpoon extends Volume
 {
     protected static string $defaultSymbol = 'tbsp';
 
-    public static function fromCubicMeterValue(float $value): self
+    public static function fromCubicMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.0000147868')->toFloat()
         );
     }

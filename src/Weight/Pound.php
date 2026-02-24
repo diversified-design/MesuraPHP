@@ -10,9 +10,9 @@ class Pound extends Weight
 {
     protected static string $defaultSymbol = 'lb';
 
-    public static function fromKilogramValue(float $value): self
+    public static function fromKilogramValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.453592')->toFloat()
         );
     }

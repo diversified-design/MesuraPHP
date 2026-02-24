@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface SpeedInterface extends MeasurementUnitInterface
 {
-    public static function fromMeterPerSecondValue(float $value): self;
+    public static function fromMeterPerSecondValue(float $value): static;
 
     public function toMeterPerSecondValue(): float;
 }

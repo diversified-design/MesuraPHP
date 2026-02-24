@@ -22,7 +22,7 @@ describe('Area', function () {
                 return 'unit';
             }
 
-            public static function fromSquareMeterValue(float $value): AreaInterface
+            public static function fromSquareMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -43,7 +43,7 @@ describe('Area', function () {
                 return '';
             }
 
-            public static function fromSquareMeterValue(float $value): AreaInterface
+            public static function fromSquareMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -73,7 +73,7 @@ describe('Area', function () {
                 return 'unit';
             }
 
-            public static function fromSquareMeterValue(float $value): AreaInterface
+            public static function fromSquareMeterValue(float $value): static
             {
                 return new self($value);
             }

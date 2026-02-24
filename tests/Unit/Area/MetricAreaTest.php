@@ -35,7 +35,7 @@ test('metric area round-trips through square meter value', function (string $cla
 
 test('metric area conversion factor matches expected power of 10', function (string $class) {
     $prefix = (new ReflectionMethod($class, 'prefix'))->invoke(null);
-    \assert($prefix instanceof \MeasurementUnit\MetricPrefix);
+    \assert($prefix instanceof MeasurementUnit\MetricPrefix);
     // square prefix-meter = 10^(prefix × 2) m²
     $expectedM2 = 10 ** ($prefix->value * 2);
 

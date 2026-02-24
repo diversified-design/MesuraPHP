@@ -10,9 +10,9 @@ class Day extends Time
 {
     protected static string $defaultSymbol = 'd';
 
-    public static function fromSecondValue(float $value): self
+    public static function fromSecondValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('86400')->toFloat()
         );
     }

@@ -10,9 +10,9 @@ class Hour extends Time
 {
     protected static string $defaultSymbol = 'h';
 
-    public static function fromSecondValue(float $value): self
+    public static function fromSecondValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('3600')->toFloat()
         );
     }

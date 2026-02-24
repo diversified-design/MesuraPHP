@@ -15,7 +15,7 @@ describe('Angle', function () {
                 return 'unit';
             }
 
-            public static function fromRadianValue(float $value): AngleInterface
+            public static function fromRadianValue(float $value): static
             {
                 return new self($value);
             }
@@ -36,7 +36,7 @@ describe('Angle', function () {
                 return '';
             }
 
-            public static function fromRadianValue(float $value): AngleInterface
+            public static function fromRadianValue(float $value): static
             {
                 return new self($value);
             }
@@ -59,7 +59,7 @@ describe('Angle', function () {
                 return 'unit';
             }
 
-            public static function fromRadianValue(float $value): AngleInterface
+            public static function fromRadianValue(float $value): static
             {
                 return new self($value);
             }

@@ -10,9 +10,9 @@ class Gram extends Weight
 {
     protected static string $defaultSymbol = 'g';
 
-    public static function fromKilogramValue(float $value): self
+    public static function fromKilogramValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.001')->toFloat()
         );
     }

@@ -10,9 +10,9 @@ class Yard extends Length
 {
     protected static string $defaultSymbol = 'yd';
 
-    public static function fromMeterValue(float $value): self
+    public static function fromMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.9144')->toFloat()
         );
     }

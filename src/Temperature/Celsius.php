@@ -10,9 +10,9 @@ class Celsius extends Temperature
 {
     protected static string $defaultSymbol = '°C';
 
-    public static function fromKelvinValue(float $value): self
+    public static function fromKelvinValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->minus('273.15')->toFloat()
         );
     }

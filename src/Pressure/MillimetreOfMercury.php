@@ -10,9 +10,9 @@ class MillimetreOfMercury extends Pressure
 {
     protected static string $defaultSymbol = 'mmHg';
 
-    public static function fromPascalValue(float $value): self
+    public static function fromPascalValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('133.322387415')->toFloat()
         );
     }

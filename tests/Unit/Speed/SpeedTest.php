@@ -17,7 +17,7 @@ describe('Speed', function () {
                 return 'unit';
             }
 
-            public static function fromMeterPerSecondValue(float $value): SpeedInterface
+            public static function fromMeterPerSecondValue(float $value): static
             {
                 return new self($value);
             }
@@ -38,7 +38,7 @@ describe('Speed', function () {
                 return '';
             }
 
-            public static function fromMeterPerSecondValue(float $value): SpeedInterface
+            public static function fromMeterPerSecondValue(float $value): static
             {
                 return new self($value);
             }
@@ -63,7 +63,7 @@ describe('Speed', function () {
                 return 'unit';
             }
 
-            public static function fromMeterPerSecondValue(float $value): SpeedInterface
+            public static function fromMeterPerSecondValue(float $value): static
             {
                 return new self($value);
             }

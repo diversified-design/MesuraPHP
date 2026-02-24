@@ -77,9 +77,6 @@ abstract class Weight extends MeasurementUnit implements WeightInterface
      */
     public function toUnit(string $fqn): Weight
     {
-        /** @var T $unit */
-        $unit = $fqn::fromKilogramValue($this->toKilogramValue());
-
-        return $unit;
+        return $fqn::fromKilogramValue($this->toKilogramValue());
     }
 }

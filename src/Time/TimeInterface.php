@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface TimeInterface extends MeasurementUnitInterface
 {
-    public static function fromSecondValue(float $value): self;
+    public static function fromSecondValue(float $value): static;
 
     public function toSecondValue(): float;
 }

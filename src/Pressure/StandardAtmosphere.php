@@ -10,9 +10,9 @@ class StandardAtmosphere extends Pressure
 {
     protected static string $defaultSymbol = 'atm';
 
-    public static function fromPascalValue(float $value): self
+    public static function fromPascalValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('101325')->toFloat()
         );
     }

@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface VolumeInterface extends MeasurementUnitInterface
 {
-    public static function fromCubicMeterValue(float $value): self;
+    public static function fromCubicMeterValue(float $value): static;
 
     public function toCubicMeterValue(): float;
 }

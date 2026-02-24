@@ -31,7 +31,7 @@ describe('Length', function () {
                 return 'unit';
             }
 
-            public static function fromMeterValue(float $value): LengthInterface
+            public static function fromMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -52,7 +52,7 @@ describe('Length', function () {
                 return '';
             }
 
-            public static function fromMeterValue(float $value): LengthInterface
+            public static function fromMeterValue(float $value): static
             {
                 return new self($value);
             }
@@ -91,7 +91,7 @@ describe('Length', function () {
                 return 'unit';
             }
 
-            public static function fromMeterValue(float $value): LengthInterface
+            public static function fromMeterValue(float $value): static
             {
                 return new self($value);
             }

@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface TemperatureInterface extends MeasurementUnitInterface
 {
-    public static function fromKelvinValue(float $value): self;
+    public static function fromKelvinValue(float $value): static;
 
     public function toKelvinValue(): float;
 }

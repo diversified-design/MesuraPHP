@@ -10,9 +10,9 @@ class FluidOunce extends Volume
 {
     protected static string $defaultSymbol = 'fl oz';
 
-    public static function fromCubicMeterValue(float $value): self
+    public static function fromCubicMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('0.00002957532596')->toFloat()
         );
     }

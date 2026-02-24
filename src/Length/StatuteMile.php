@@ -10,9 +10,9 @@ class StatuteMile extends Length
 {
     protected static string $defaultSymbol = 'mi';
 
-    public static function fromMeterValue(float $value): self
+    public static function fromMeterValue(float $value): static
     {
-        return new self(
+        return new static(
             BigRational::of((string) $value)->dividedBy('1609.344')->toFloat()
         );
     }

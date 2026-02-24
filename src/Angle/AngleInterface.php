@@ -8,7 +8,7 @@ use MeasurementUnit\MeasurementUnitInterface;
 
 interface AngleInterface extends MeasurementUnitInterface
 {
-    public static function fromRadianValue(float $value): self;
+    public static function fromRadianValue(float $value): static;
 
     public function toRadianValue(): float;
 }
