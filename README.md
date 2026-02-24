@@ -16,19 +16,27 @@ composer require diversified-design/measurement-unit
 
 | Domain          | Available unit                                                                                                    |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| **Angle**       | **Degree**, Radian                                                                                                    |
-| **Area**        | Acre, Hectare, SquareFoot, SquareKilometer, **SquareMeter**, SqaureMile
-| **Length**      | **Centimeter**, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard     |
-| **Percentage**  | **Percent** ( *as value between 0-100, as decimal between 0-1, to coefficent* )
+| **Angle**       | **Degree**, Radian                                                                                                |
+| **Area**        | Acre, Hectare, SquareFoot, SquareKilometer, **SquareMeter**, SquareMile + all metric prefixes (see below) |
+| **Length**      | **Centimeter**, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard + all metric prefixes (see below) |
+| **Percentage**  | **Percent** ( *as value between 0-100, as decimal between 0-1, to coefficent* )                                       |
 | **Pressure**    | Bar, Hectopascal, Kilopascal, Millibar, MillimetreOfMercury, **Pascal**, PoundPerSquareInch, StandardAtmosphere, Torr | 
 | **Speed**       | KilometerPerHour, Knot, **MeterPerSecond**, MilesPerHour                                                              |
 | **Temperature** | Celsius, Fahrenheit, **Kelvin**, Rankine                                                                              |
 | **Time**        | Day, Hour, Minute, **Second**                                                                                         |
 | **Torque**      | **NewtonMeter**                                                                                                       |
-| **Volume**      | CubicInch, **CubicMeter**, CubicYard, FluidDram, FluidOunce, Liter, Pint, Quart, TableSpoon                           |
-| **Weight**      | **Kilogram**, MetricTon, Pound                                                                                        |
+| **Volume**      | CubicInch, **CubicMeter**, CubicYard, FluidDram, FluidOunce, Liter, Pint, Quart, TableSpoon + all metric prefixes (see below) |
+| **Weight**      | Gram, **Kilogram**, MetricTon, Pound + all metric prefixes (see below)                                                |
 
 All the units of a type can be converted to each other with corresponding methods.
+
+### Full SI Metric Prefix Support
+
+Length, Weight, Volume (liters), and Area (square meters) support all 24 SI metric prefixes — from Quetta (10^30) down to Quecto (10^-30). For example, Length includes Quettameter, Megameter, Kilometer, Centimeter, Nanometer, Quectometer, and everything in between. The same applies to the other metric dimensions (e.g. Milligram, Kiloliter, SquareCentimeter).
+
+Common prefixed units have dedicated convenience methods (e.g. `->toNanometer()`, `->toMilligram()`). All others are accessible via `->toUnit(Yottameter::class)`.
+
+
 
 ---
 
