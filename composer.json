@@ -1,5 +1,5 @@
 {
-    "name": "diversified-design/mesura-php",
+    "name": "diversified-design/mesuraphp",
     "type": "library",
     "license": "MIT",
     "description": "Strongly-typed measurement units and conversions for PHP.",
