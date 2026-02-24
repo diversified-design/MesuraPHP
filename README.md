@@ -1,16 +1,12 @@
 # Measurement-unit
 
 
-## Setup
-
-> **Note**
-> Make sure you are running PHP 8.1 or higher to use this package
-
-To use this package in your project, run the following command:
+## Installation
 
 ```shell
 composer require diversified-design/measurement-unit
 ```
+
 
 ## Available Units
 
@@ -28,14 +24,13 @@ composer require diversified-design/measurement-unit
 | **Volume**      | CubicInch, **CubicMeter**, CubicYard, FluidDram, FluidOunce, Liter, Pint, Quart, TableSpoon + all metric prefixes (see below) |
 | **Weight**      | Gram, **Kilogram**, MetricTon, Pound + all metric prefixes (see below)                                                |
 
-All the units of a type can be converted to each other with corresponding methods.
+All the units of a domain can be converted to each other with corresponding methods.
 
 ### Full SI Metric Prefix Support
 
 Length, Weight, Volume (liters), and Area (square meters) support all 24 SI metric prefixes — from Quetta (10^30) down to Quecto (10^-30). For example, Length includes Quettameter, Megameter, Kilometer, Centimeter, Nanometer, Quectometer, and everything in between. The same applies to the other metric dimensions (e.g. Milligram, Kiloliter, SquareCentimeter).
 
 Common prefixed units have dedicated convenience methods (e.g. `->toNanometer()`, `->toMilligram()`). All others are accessible via `->toUnit(Yottameter::class)`.
-
 
 
 ---
@@ -106,3 +101,32 @@ You can also customize all units up-front in one go using the Customize class' `
 
 **See the examples in `./examples/customize_units.php`**
 
+
+---
+
+# Credit Due
+
+This codebase is a much expanded and heavily modified "hard" fork of the excellent [PrinsFrank/measurement-unit](https://github.com/PrinsFrank/measurement-unit).
+
+It adds several utility methods, many more units across more domains, and relies on [Brick\Math](https://github.com/brick/math) for all conversions.
+
+
+---
+
+# LLMs, Coding Agents, etc…
+
+Yes, this work relies heavily on such tools. It is however not "vibe coded" nor "one-shotted."
+
+As an artisan, I use the tools available *as tools*: to help me make better things, and learn faster.
+
+Did I write every line of code? No.
+Do I understand every single part of it. No, but most of it.
+
+I did (re)architect and (re)design it with my own knowledge, experience and needs, discussing with and instructing agents as I would have with a team of engineers. 
+
+**Issues and Pull Requests from fellow humans are always welcome.**
+
+
+---
+
+I hope you find this library as useful and pleasurable to use as I do.
