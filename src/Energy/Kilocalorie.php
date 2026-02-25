@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Energy;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Kilocalorie extends Energy
 {
@@ -23,5 +24,10 @@ class Kilocalorie extends Energy
     public function toJouleValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy(self::JOULES_PER_KILOCALORIE)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

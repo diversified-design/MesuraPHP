@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Irradiance;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class BtuPerHourPerSquareFoot extends Irradiance
 {
@@ -40,5 +41,10 @@ class BtuPerHourPerSquareFoot extends Irradiance
             ->dividedBy(self::SQ_M_PER_SQ_FT)
             ->toFloat()
         ;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

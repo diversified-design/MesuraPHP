@@ -6,11 +6,17 @@ namespace Mesura\Energy;
 
 use Brick\Math\BigRational;
 use Mesura\MetricPrefix;
+use Mesura\UnitSystem;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricJoule extends Energy
 {
     abstract protected static function prefix(): MetricPrefix;
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
+    }
 
     public static function fromJouleValue(float $value): static
     {

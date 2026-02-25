@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Volume;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class CubicYard extends Volume
 {
@@ -20,5 +21,10 @@ class CubicYard extends Volume
     public function toCubicMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.764555')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

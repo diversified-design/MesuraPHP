@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Area;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Acre extends Area
 {
@@ -20,5 +21,10 @@ class Acre extends Area
     public function toSquareMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('4046.8564224')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

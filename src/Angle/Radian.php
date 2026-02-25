@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Angle;
 
+use Mesura\UnitSystem;
+
 class Radian extends Angle
 {
     protected static string $defaultSymbol = 'rad';
@@ -16,5 +18,10 @@ class Radian extends Angle
     public function toRadianValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

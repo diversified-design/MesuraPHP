@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Temperature;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Celsius extends Temperature
 {
@@ -20,5 +21,10 @@ class Celsius extends Temperature
     public function toKelvinValue(): float
     {
         return BigRational::of((string) $this->value)->plus('273.15')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

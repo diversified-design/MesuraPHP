@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Area;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class SquareMile extends Area
 {
@@ -20,5 +21,10 @@ class SquareMile extends Area
     public function toSquareMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('2589988.110336')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

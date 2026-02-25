@@ -17,12 +17,17 @@ describe('MassConcentration', function () {
 
             public static function fromKilogramPerCubicMeterValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toKilogramPerCubicMeterValue(): float
             {
                 return $this->value;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

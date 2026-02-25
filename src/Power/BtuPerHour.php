@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Power;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class BtuPerHour extends Power
 {
@@ -35,5 +36,10 @@ class BtuPerHour extends Power
             ->dividedBy(self::SECONDS_PER_HOUR)
             ->toFloat()
         ;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

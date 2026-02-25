@@ -6,11 +6,17 @@ namespace Mesura\Length;
 
 use Brick\Math\BigRational;
 use Mesura\MetricPrefix;
+use Mesura\UnitSystem;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricLength extends Length
 {
     abstract protected static function prefix(): MetricPrefix;
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
+    }
 
     public static function fromMeterValue(float $value): static
     {

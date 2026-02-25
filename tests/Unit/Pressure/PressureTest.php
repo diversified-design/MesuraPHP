@@ -30,6 +30,11 @@ describe('Pressure', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($pressure->value)->toBe(42.0);
@@ -50,6 +55,11 @@ describe('Pressure', function () {
             public function toPascalValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -80,6 +90,11 @@ describe('Pressure', function () {
             public function toPascalValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

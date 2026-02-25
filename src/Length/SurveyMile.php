@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Length;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class SurveyMile extends Length
 {
@@ -20,5 +21,10 @@ class SurveyMile extends Length
     public function toMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('1609.3472')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::USCustomary;
     }
 }

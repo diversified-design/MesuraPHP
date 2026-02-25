@@ -31,6 +31,11 @@ describe('Energy', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($energy->value)->toBe(42.0);

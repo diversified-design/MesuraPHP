@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Percentage;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Percent extends Percentage
 {
@@ -39,5 +40,10 @@ class Percent extends Percentage
     public function toCoefficient(): float
     {
         return 1 + $this->toRatioValue();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Dimensionless;
     }
 }

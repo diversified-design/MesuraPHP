@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Length;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Thou extends Length
 {
@@ -20,5 +21,10 @@ class Thou extends Length
     public function toMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.0000254')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

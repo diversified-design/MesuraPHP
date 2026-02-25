@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Volume;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class FluidDram extends Volume
 {
@@ -20,5 +21,10 @@ class FluidDram extends Volume
     public function toCubicMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.0000036966912')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::USCustomary;
     }
 }

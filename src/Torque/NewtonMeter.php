@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Torque;
 
+use Mesura\UnitSystem;
+
 class NewtonMeter extends Torque
 {
     protected static string $defaultSymbol = 'N⋅m';
@@ -16,5 +18,10 @@ class NewtonMeter extends Torque
     public function toNewtonMeterValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

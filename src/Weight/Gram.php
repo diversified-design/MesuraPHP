@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Weight;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Gram extends Weight
 {
@@ -20,5 +21,10 @@ class Gram extends Weight
     public function toKilogramValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.001')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

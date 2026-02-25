@@ -23,6 +23,11 @@ describe('Angle', function () {
             {
                 return 0.733038;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($angle->value)->toBe(42.0);
@@ -43,6 +48,11 @@ describe('Angle', function () {
             public function toRadianValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -66,6 +76,11 @@ describe('Angle', function () {
             public function toRadianValue(): float
             {
                 return 0.733038;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

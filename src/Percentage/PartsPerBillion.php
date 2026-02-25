@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Percentage;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class PartsPerBillion extends Percentage
 {
@@ -20,5 +21,10 @@ class PartsPerBillion extends Percentage
     public function toRatioValue(): float
     {
         return BigRational::of((string) $this->value)->dividedBy(1_000_000_000)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Dimensionless;
     }
 }

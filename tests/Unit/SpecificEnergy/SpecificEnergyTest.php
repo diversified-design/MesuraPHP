@@ -23,6 +23,11 @@ describe('SpecificEnergy', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($se->value)->toBe(42.0);

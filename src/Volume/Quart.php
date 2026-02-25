@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Volume;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Quart extends Volume
 {
@@ -20,5 +21,10 @@ class Quart extends Volume
     public function toCubicMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.000946353')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::USCustomary;
     }
 }

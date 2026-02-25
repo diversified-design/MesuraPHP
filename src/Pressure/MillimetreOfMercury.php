@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Pressure;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class MillimetreOfMercury extends Pressure
 {
@@ -20,5 +21,10 @@ class MillimetreOfMercury extends Pressure
     public function toPascalValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('133.322387415')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Other;
     }
 }

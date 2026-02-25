@@ -6,11 +6,17 @@ namespace Mesura\Power;
 
 use Brick\Math\BigRational;
 use Mesura\MetricPrefix;
+use Mesura\UnitSystem;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricWatt extends Power
 {
     abstract protected static function prefix(): MetricPrefix;
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
+    }
 
     public static function fromWattValue(float $value): static
     {

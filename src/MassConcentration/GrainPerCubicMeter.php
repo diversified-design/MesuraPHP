@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\MassConcentration;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class GrainPerCubicMeter extends MassConcentration
 {
@@ -23,5 +24,10 @@ class GrainPerCubicMeter extends MassConcentration
     public function toKilogramPerCubicMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy(self::GRAIN_TO_KG)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

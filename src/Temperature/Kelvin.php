@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Temperature;
 
+use Mesura\UnitSystem;
+
 class Kelvin extends Temperature
 {
     protected static string $defaultSymbol = 'K';
@@ -16,5 +18,10 @@ class Kelvin extends Temperature
     public function toKelvinValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

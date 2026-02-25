@@ -74,4 +74,7 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
     {
         return $this->getValue() . ' ' . $this->getInstanceSymbol();
     }
+
+    // Abstract Methods
+    abstract public static function unitSystem(): UnitSystem;
 }

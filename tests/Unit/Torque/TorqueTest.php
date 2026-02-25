@@ -22,6 +22,11 @@ describe('Torque', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($torque->value)->toBe(42.0);
@@ -42,6 +47,11 @@ describe('Torque', function () {
             public function toNewtonMeterValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -64,6 +74,11 @@ describe('Torque', function () {
             public function toNewtonMeterValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

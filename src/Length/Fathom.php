@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Length;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Fathom extends Length
 {
@@ -20,5 +21,10 @@ class Fathom extends Length
     public function toMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('1.8288')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Nautical;
     }
 }

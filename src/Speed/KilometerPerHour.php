@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Speed;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class KilometerPerHour extends Speed
 {
@@ -20,5 +21,10 @@ class KilometerPerHour extends Speed
     public function toMeterPerSecondValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('0.277778')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

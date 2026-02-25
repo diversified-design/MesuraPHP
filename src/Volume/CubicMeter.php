@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Volume;
 
+use Mesura\UnitSystem;
+
 class CubicMeter extends Volume
 {
     protected static string $defaultSymbol = 'm³';
@@ -16,5 +18,10 @@ class CubicMeter extends Volume
     public function toCubicMeterValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

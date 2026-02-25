@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\ArealDensity;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class OuncePerSquareYard extends ArealDensity
 {
@@ -35,5 +36,10 @@ class OuncePerSquareYard extends ArealDensity
             ->dividedBy(self::SQ_M_PER_SQ_YD)
             ->toFloat()
         ;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

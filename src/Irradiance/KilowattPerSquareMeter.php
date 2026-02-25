@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Irradiance;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class KilowattPerSquareMeter extends Irradiance
 {
@@ -20,5 +21,10 @@ class KilowattPerSquareMeter extends Irradiance
     public function toWattPerSquareMeterValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy(1000)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

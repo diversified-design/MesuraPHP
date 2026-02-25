@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Power;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class CaloriePerSecond extends Power
 {
@@ -23,5 +24,10 @@ class CaloriePerSecond extends Power
     public function toWattValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy(self::WATTS_PER_CAL_S)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\ArealDensity;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class PoundPerSquareFoot extends ArealDensity
 {
@@ -35,5 +36,10 @@ class PoundPerSquareFoot extends ArealDensity
             ->dividedBy(self::SQ_M_PER_SQ_FT)
             ->toFloat()
         ;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

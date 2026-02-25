@@ -25,6 +25,11 @@ describe('Speed', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($speed->value)->toBe(42.0);
@@ -45,6 +50,11 @@ describe('Speed', function () {
             public function toMeterPerSecondValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -70,6 +80,11 @@ describe('Speed', function () {
             public function toMeterPerSecondValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

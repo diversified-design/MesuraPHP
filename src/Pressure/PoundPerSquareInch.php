@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Pressure;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class PoundPerSquareInch extends Pressure
 {
@@ -20,5 +21,10 @@ class PoundPerSquareInch extends Pressure
     public function toPascalValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('6894.757293168')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

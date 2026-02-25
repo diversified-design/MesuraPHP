@@ -33,6 +33,11 @@ describe('Weight', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($weight->value)->toBe(42.0);
@@ -53,6 +58,11 @@ describe('Weight', function () {
             public function toKilogramValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -86,6 +96,11 @@ describe('Weight', function () {
             public function toKilogramValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

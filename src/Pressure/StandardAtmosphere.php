@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Pressure;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class StandardAtmosphere extends Pressure
 {
@@ -20,5 +21,10 @@ class StandardAtmosphere extends Pressure
     public function toPascalValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('101325')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Other;
     }
 }

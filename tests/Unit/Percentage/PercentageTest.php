@@ -18,6 +18,11 @@ describe('Percentage', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($percentage->value)->toBe(42.0);
@@ -36,6 +41,11 @@ describe('Percentage', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($percentage->getSymbol())->toBe('unit');
@@ -53,6 +63,11 @@ describe('Percentage', function () {
             public function toRatioValue(): float
             {
                 return $this->value;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

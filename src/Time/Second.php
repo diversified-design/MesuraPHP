@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Time;
 
+use Mesura\UnitSystem;
+
 class Second extends Time
 {
     protected static string $defaultSymbol = 's';
@@ -16,5 +18,10 @@ class Second extends Time
     public function toSecondValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

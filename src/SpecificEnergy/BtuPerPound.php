@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\SpecificEnergy;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class BtuPerPound extends SpecificEnergy
 {
@@ -35,5 +36,10 @@ class BtuPerPound extends SpecificEnergy
             ->dividedBy(self::KG_PER_POUND)
             ->toFloat()
         ;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

@@ -25,6 +25,11 @@ describe('Temperature', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($temperature->value)->toBe(42.0);
@@ -45,6 +50,11 @@ describe('Temperature', function () {
             public function toKelvinValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -70,6 +80,11 @@ describe('Temperature', function () {
             public function toKelvinValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

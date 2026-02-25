@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Area;
 
+use Mesura\UnitSystem;
+
 class SquareMeter extends Area
 {
     protected static string $defaultSymbol = 'm²';
@@ -16,5 +18,10 @@ class SquareMeter extends Area
     public function toSquareMeterValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

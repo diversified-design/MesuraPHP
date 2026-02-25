@@ -9,13 +9,13 @@
     methods[2]: "static fromRadianValue(float $value): static","toRadianValue(): float"
 "Mesura\\Angle\\Degree":
     extends: "Mesura\\Angle\\Angle"
-    methods[2]: "static fromRadianValue(float $value): static","toRadianValue(): float"
+    methods[3]: "static fromRadianValue(float $value): static","toRadianValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Angle\\Radian":
     extends: "Mesura\\Angle\\Angle"
-    methods[2]: "static fromRadianValue(float $value): static","toRadianValue(): float"
+    methods[3]: "static fromRadianValue(float $value): static","toRadianValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\Acre":
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\Area":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -27,12 +27,12 @@
     methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
 "Mesura\\Area\\Hectare":
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\MetricArea":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
 "Mesura\\Area\\SquareAttometer":
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareCentimeter":
@@ -47,7 +47,7 @@
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareFoot":
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\SquareGigameter":
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareHectometer":
@@ -58,12 +58,12 @@
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareMeter":
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\SquareMicrometer":
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareMile":
     extends: "Mesura\\Area\\Area"
-    methods[2]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float"
+    methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\SquareMillimeter":
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\Area\\SquareNanometer":
@@ -101,26 +101,26 @@
     methods[2]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float"
 "Mesura\\ArealDensity\\GramPerSquareMeter":
     extends: "Mesura\\ArealDensity\\ArealDensity"
-    methods[2]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float"
+    methods[3]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\ArealDensity\\KilogramPerSquareMeter":
     extends: "Mesura\\ArealDensity\\ArealDensity"
-    methods[2]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float"
+    methods[3]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\ArealDensity\\OuncePerSquareYard":
     extends: "Mesura\\ArealDensity\\ArealDensity"
-    methods[2]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float"
+    methods[3]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\ArealDensity\\PoundPerSquareFoot":
     extends: "Mesura\\ArealDensity\\ArealDensity"
-    methods[2]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float"
+    methods[3]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Customise":
     methods[1]: "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\\n                                          e.g.: ['Mesura\\Length\\Meter' => 'METRE', 'Mesura\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
 "Mesura\\Energy\\Attojoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\BritishThermalUnit":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Calorie":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Centijoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Decajoule":
@@ -142,29 +142,29 @@
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\FootPound":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Gigajoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Hectojoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Joule":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Kilocalorie":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Kilojoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\KilowattHour":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Megajoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\MetricJoule":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromJouleValue(float $value): static","toJouleValue(): float"
 "Mesura\\Energy\\Microjoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Millijoule":
@@ -187,7 +187,7 @@
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\WattHour":
     extends: "Mesura\\Energy\\Energy"
-    methods[2]: "static fromJouleValue(float $value): static","toJouleValue(): float"
+    methods[3]: "static fromJouleValue(float $value): static","toJouleValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Energy\\Yoctojoule":
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Yottajoule":
@@ -198,7 +198,7 @@
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Irradiance\\BtuPerHourPerSquareFoot":
     extends: "Mesura\\Irradiance\\Irradiance"
-    methods[2]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float"
+    methods[3]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Irradiance\\Irradiance":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -210,10 +210,10 @@
     methods[2]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float"
 "Mesura\\Irradiance\\KilowattPerSquareMeter":
     extends: "Mesura\\Irradiance\\Irradiance"
-    methods[2]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float"
+    methods[3]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Irradiance\\WattPerSquareMeter":
     extends: "Mesura\\Irradiance\\Irradiance"
-    methods[2]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float"
+    methods[3]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Attometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Centimeter":
@@ -226,25 +226,25 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Fathom":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Femtometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Foot":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Furlong":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Gigameter":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Hectometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\HorseLength":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Inch":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Kilometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Length":
@@ -260,12 +260,12 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Meter":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\MetricLength":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromMeterValue(float $value): static","toMeterValue(): float"
 "Mesura\\Length\\Micrometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Millimeter":
@@ -274,7 +274,7 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\NauticalMile":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Petameter":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Picometer":
@@ -289,18 +289,18 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\StatuteMile":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\SurveyMile":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Terameter":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Thou":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Yard":
     extends: "Mesura\\Length\\Length"
-    methods[2]: "static fromMeterValue(float $value): static","toMeterValue(): float"
+    methods[3]: "static fromMeterValue(float $value): static","toMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Length\\Yoctometer":
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Yottameter":
@@ -309,16 +309,43 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Zettameter":
     extends: "Mesura\\Length\\MetricLength"
+"Mesura\\MassConcentration\\GrainPerCubicFoot":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\MassConcentration\\GrainPerCubicMeter":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\MassConcentration\\GramPerCubicMeter":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\MassConcentration\\KilogramPerCubicMeter":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\MassConcentration\\MassConcentration":
+    abstract: true
+    extends: "Mesura\\MeasurementUnit"
+    implements[1]: "Mesura\\MassConcentration\\MassConcentrationInterface"
+    methods[7]: "toKilogramPerCubicMeter(): Mesura\\MassConcentration\\KilogramPerCubicMeter","toGramPerCubicMeter(): Mesura\\MassConcentration\\GramPerCubicMeter","toMilligramPerCubicMeter(): Mesura\\MassConcentration\\MilligramPerCubicMeter","toMicrogramPerCubicMeter(): Mesura\\MassConcentration\\MicrogramPerCubicMeter","toGrainPerCubicMeter(): Mesura\\MassConcentration\\GrainPerCubicMeter","toGrainPerCubicFoot(): Mesura\\MassConcentration\\GrainPerCubicFoot","toUnit(class-string<T> $fqn): T"
+"Mesura\\MassConcentration\\MassConcentrationInterface":
+    type: interface
+    implements[1]: "Mesura\\MeasurementUnitInterface"
+    methods[2]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float"
+"Mesura\\MassConcentration\\MicrogramPerCubicMeter":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\MassConcentration\\MilligramPerCubicMeter":
+    extends: "Mesura\\MassConcentration\\MassConcentration"
+    methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\MeasurementUnit":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     implements[2]: "Mesura\\MeasurementUnitInterface",Stringable
     properties[1]: readonly float $value
-    methods[9]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string"
+    methods[10]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","static unitSystem(): Mesura\\UnitSystem","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string"
 "Mesura\\MeasurementUnitInterface":
     type: interface
     implements[1]: Stringable
-    methods[6]: "getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): self","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static"
+    methods[7]: "getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): self","static getSymbol(): string","static setSymbol(string $symbol): string","static unitSystem(): Mesura\\UnitSystem","withValue(callable(float): (float | int) $callback): static"
 "Mesura\\MetricPrefix":
     type: enum
     final: true
@@ -350,13 +377,13 @@
     methods[2]: "symbol(): string","prefixName(): string"
 "Mesura\\Percentage\\PartsPerBillion":
     extends: "Mesura\\Percentage\\Percentage"
-    methods[2]: "static fromRatioValue(float $value): static","toRatioValue(): float"
+    methods[3]: "static fromRatioValue(float $value): static","toRatioValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Percentage\\PartsPerMillion":
     extends: "Mesura\\Percentage\\Percentage"
-    methods[2]: "static fromRatioValue(float $value): static","toRatioValue(): float"
+    methods[3]: "static fromRatioValue(float $value): static","toRatioValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Percentage\\Percent":
     extends: "Mesura\\Percentage\\Percentage"
-    methods[4]: "static fromRatioValue(float $value): static","toRatioValue(): float","toDecimal(): float — Returns the percentage as a decimal ratio. Example: 75% => 0.75 (unitless).","toCoefficient(): float — Returns a multiplicative coefficient. Example: 15% => 1.15 (unitless) Can be useful when representing increase/decrease."
+    methods[5]: "static fromRatioValue(float $value): static","toRatioValue(): float","toDecimal(): float — Returns the percentage as a decimal ratio. Example: 75% => 0.75 (unitless).","toCoefficient(): float — Returns a multiplicative coefficient. Example: 15% => 1.15 (unitless) Can be useful when representing increase/decrease.","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Percentage\\Percentage":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -370,10 +397,10 @@
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\BtuPerHour":
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static fromWattValue(float $value): static","toWattValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Power\\CaloriePerSecond":
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static fromWattValue(float $value): static","toWattValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Power\\Centiwatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Decawatt":
@@ -386,14 +413,14 @@
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\FootPoundPerSecond":
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static fromWattValue(float $value): static","toWattValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Power\\Gigawatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Hectowatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Horsepower":
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static fromWattValue(float $value): static","toWattValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Power\\Kilowatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Megawatt":
@@ -402,7 +429,7 @@
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromWattValue(float $value): static","toWattValue(): float"
 "Mesura\\Power\\Microwatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Milliwatt":
@@ -434,7 +461,7 @@
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Watt":
     extends: "Mesura\\Power\\Power"
-    methods[2]: "static fromWattValue(float $value): static","toWattValue(): float"
+    methods[3]: "static fromWattValue(float $value): static","toWattValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Power\\Yoctowatt":
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Yottawatt":
@@ -445,25 +472,25 @@
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Pressure\\Bar":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Hectopascal":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Kilopascal":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Millibar":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\MillimetreOfMercury":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Pascal":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\PoundPerSquareInch":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Pressure":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -475,25 +502,25 @@
     methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
 "Mesura\\Pressure\\StandardAtmosphere":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Torr":
     extends: "Mesura\\Pressure\\Pressure"
-    methods[2]: "static fromPascalValue(float $value): static","toPascalValue(): float"
+    methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\BtuPerPound":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
-    methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
+    methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\CaloriePerGram":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
-    methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
+    methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\JoulePerKilogram":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
-    methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
+    methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\KilojoulePerKilogram":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
-    methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
+    methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\MegajoulePerKilogram":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
-    methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
+    methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\SpecificEnergy":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -505,16 +532,16 @@
     methods[2]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float"
 "Mesura\\Speed\\KilometerPerHour":
     extends: "Mesura\\Speed\\Speed"
-    methods[2]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float"
+    methods[3]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Speed\\Knot":
     extends: "Mesura\\Speed\\Speed"
-    methods[2]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float"
+    methods[3]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Speed\\MeterPerSecond":
     extends: "Mesura\\Speed\\Speed"
-    methods[2]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float"
+    methods[3]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Speed\\MilesPerHour":
     extends: "Mesura\\Speed\\Speed"
-    methods[2]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float"
+    methods[3]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Speed\\Speed":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -526,16 +553,16 @@
     methods[2]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float"
 "Mesura\\Temperature\\Celsius":
     extends: "Mesura\\Temperature\\Temperature"
-    methods[2]: "static fromKelvinValue(float $value): static","toKelvinValue(): float"
+    methods[3]: "static fromKelvinValue(float $value): static","toKelvinValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Temperature\\Fahrenheit":
     extends: "Mesura\\Temperature\\Temperature"
-    methods[2]: "static fromKelvinValue(float $value): static","toKelvinValue(): float"
+    methods[3]: "static fromKelvinValue(float $value): static","toKelvinValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Temperature\\Kelvin":
     extends: "Mesura\\Temperature\\Temperature"
-    methods[2]: "static fromKelvinValue(float $value): static","toKelvinValue(): float"
+    methods[3]: "static fromKelvinValue(float $value): static","toKelvinValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Temperature\\Rankine":
     extends: "Mesura\\Temperature\\Temperature"
-    methods[2]: "static fromKelvinValue(float $value): static","toKelvinValue(): float"
+    methods[3]: "static fromKelvinValue(float $value): static","toKelvinValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Temperature\\Temperature":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -547,16 +574,16 @@
     methods[2]: "static fromKelvinValue(float $value): static","toKelvinValue(): float"
 "Mesura\\Time\\Day":
     extends: "Mesura\\Time\\Time"
-    methods[2]: "static fromSecondValue(float $value): static","toSecondValue(): float"
+    methods[3]: "static fromSecondValue(float $value): static","toSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Time\\Hour":
     extends: "Mesura\\Time\\Time"
-    methods[2]: "static fromSecondValue(float $value): static","toSecondValue(): float"
+    methods[3]: "static fromSecondValue(float $value): static","toSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Time\\Minute":
     extends: "Mesura\\Time\\Time"
-    methods[2]: "static fromSecondValue(float $value): static","toSecondValue(): float"
+    methods[3]: "static fromSecondValue(float $value): static","toSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Time\\Second":
     extends: "Mesura\\Time\\Time"
-    methods[2]: "static fromSecondValue(float $value): static","toSecondValue(): float"
+    methods[3]: "static fromSecondValue(float $value): static","toSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Time\\Time":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -568,7 +595,7 @@
     methods[2]: "static fromSecondValue(float $value): static","toSecondValue(): float"
 "Mesura\\Torque\\NewtonMeter":
     extends: "Mesura\\Torque\\Torque"
-    methods[2]: "static fromNewtonMeterValue(float $value): static","toNewtonMeterValue(): float"
+    methods[3]: "static fromNewtonMeterValue(float $value): static","toNewtonMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Torque\\Torque":
     abstract: true
     extends: "Mesura\\MeasurementUnit"
@@ -578,19 +605,23 @@
     type: interface
     implements[1]: "Mesura\\MeasurementUnitInterface"
     methods[2]: "static fromNewtonMeterValue(float $value): static","toNewtonMeterValue(): float"
+"Mesura\\UnitSystem":
+    type: enum
+    final: true
+    constants[7]: SI,Metric,Imperial,USCustomary,Nautical,Dimensionless,Other
 "Mesura\\Volume\\Attoliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Centiliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\CubicInch":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\CubicMeter":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\CubicYard":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Decaliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Deciliter":
@@ -601,10 +632,10 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\FluidDram":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\FluidOunce":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Gigaliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Hectoliter":
@@ -613,14 +644,14 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Liter":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Megaliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\MetricLiter":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
 "Mesura\\Volume\\Microliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Milliliter":
@@ -633,10 +664,10 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Pint":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Quart":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Quectoliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Quettaliter":
@@ -647,7 +678,7 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\TableSpoon":
     extends: "Mesura\\Volume\\Volume"
-    methods[2]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Teraliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Volume":
@@ -683,7 +714,7 @@
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Gram":
     extends: "Mesura\\Weight\\Weight"
-    methods[2]: "static fromKilogramValue(float $value): static","toKilogramValue(): float"
+    methods[3]: "static fromKilogramValue(float $value): static","toKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Weight\\Hectogram":
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Kilogram":
@@ -692,12 +723,12 @@
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\MetricTon":
     extends: "Mesura\\Weight\\Weight"
-    methods[2]: "static fromKilogramValue(float $value): static","toKilogramValue(): float"
+    methods[3]: "static fromKilogramValue(float $value): static","toKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Weight\\MetricWeight":
     abstract: true
     doc: /** @phpstan-consistent-constructor */
     extends: "Mesura\\Weight\\Weight"
-    methods[2]: "static fromKilogramValue(float $value): static","toKilogramValue(): float"
+    methods[3]: "static unitSystem(): Mesura\\UnitSystem","static fromKilogramValue(float $value): static","toKilogramValue(): float"
 "Mesura\\Weight\\Microgram":
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Milligram":
@@ -710,7 +741,7 @@
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Pound":
     extends: "Mesura\\Weight\\Weight"
-    methods[2]: "static fromKilogramValue(float $value): static","toKilogramValue(): float"
+    methods[3]: "static fromKilogramValue(float $value): static","toKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Weight\\Quectogram":
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Quettagram":

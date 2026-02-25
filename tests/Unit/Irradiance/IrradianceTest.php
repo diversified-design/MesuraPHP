@@ -21,6 +21,11 @@ describe('Irradiance', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($irr->value)->toBe(42.0);

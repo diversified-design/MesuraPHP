@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Time;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class Minute extends Time
 {
@@ -20,5 +21,10 @@ class Minute extends Time
     public function toSecondValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('60')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Other;
     }
 }

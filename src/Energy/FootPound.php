@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Energy;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class FootPound extends Energy
 {
@@ -23,5 +24,10 @@ class FootPound extends Energy
     public function toJouleValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy(self::JOULES_PER_FOOT_POUND)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Imperial;
     }
 }

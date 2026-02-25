@@ -10,6 +10,11 @@ test('getValue returns construction value', function () {
         {
             return 'unit';
         }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
+        }
     };
 
     expect($unit->getValue())->toBe(42.0);
@@ -20,6 +25,11 @@ test('getInstanceSymbol returns class symbol by default', function () {
         public static function getSymbol(): string
         {
             return 'unit';
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -32,6 +42,11 @@ test('getInstanceSymbol returns custom symbol when provided', function () {
         {
             return 'unit';
         }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
+        }
     };
 
     expect($unit->getInstanceSymbol())->toBe('custom');
@@ -42,6 +57,11 @@ test('setInstanceSymbol changes instance symbol and returns self', function () {
         public static function getSymbol(): string
         {
             return 'unit';
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -54,6 +74,11 @@ test('setSymbol changes default symbol', function () {
         public static function getSymbol(): string
         {
             return self::$defaultSymbol;
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -71,6 +96,11 @@ test('setSymbol affects new instances', function () {
         public static function getSymbol(): string
         {
             return self::$defaultSymbol;
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -93,6 +123,11 @@ test('toFormat formats value with symbol', function () {
         {
             return 'unit';
         }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
+        }
     };
 
     expect($unit->toFormat())->toBe('42.0 unit');
@@ -105,6 +140,11 @@ test('toHtml wraps value and symbol in spans', function () {
         public static function getSymbol(): string
         {
             return 'unit';
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -119,6 +159,11 @@ test('withValue transforms value and preserves type', function () {
         public static function getSymbol(): string
         {
             return 'unit';
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 
@@ -135,6 +180,11 @@ test('withValue returns a new instance', function () {
         {
             return 'unit';
         }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
+        }
     };
 
     $result = $unit->withValue(fn (float $v) => $v);
@@ -149,6 +199,11 @@ test('withValue casts integer return to float', function () {
         {
             return 'unit';
         }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
+        }
     };
 
     $result = $unit->withValue(fn (float $v) => (int) ($v * 2));
@@ -161,6 +216,11 @@ test('formatting uses custom instance symbol', function () {
         public static function getSymbol(): string
         {
             return 'unit';
+        }
+
+        public static function unitSystem(): Mesura\UnitSystem
+        {
+            return Mesura\UnitSystem::Other;
         }
     };
 

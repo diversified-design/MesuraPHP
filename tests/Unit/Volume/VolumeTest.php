@@ -36,6 +36,11 @@ describe('Volume', function () {
             {
                 return 21.0;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($volume->value)->toBe(42.0);
@@ -56,6 +61,11 @@ describe('Volume', function () {
             public function toCubicMeterValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 
@@ -92,6 +102,11 @@ describe('Volume', function () {
             public function toCubicMeterValue(): float
             {
                 return 21.0;
+            }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
             }
         };
 

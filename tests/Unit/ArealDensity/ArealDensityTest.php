@@ -22,6 +22,11 @@ describe('ArealDensity', function () {
             {
                 return $this->value;
             }
+
+            public static function unitSystem(): Mesura\UnitSystem
+            {
+                return Mesura\UnitSystem::Other;
+            }
         };
 
         expect($ad->value)->toBe(42.0);

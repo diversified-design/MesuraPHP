@@ -6,11 +6,17 @@ namespace Mesura\Area;
 
 use Brick\Math\BigRational;
 use Mesura\MetricPrefix;
+use Mesura\UnitSystem;
 
 /** @phpstan-consistent-constructor */
 abstract class MetricArea extends Area
 {
     abstract protected static function prefix(): MetricPrefix;
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
+    }
 
     public static function fromSquareMeterValue(float $value): static
     {

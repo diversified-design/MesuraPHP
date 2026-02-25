@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\SpecificEnergy;
 
+use Mesura\UnitSystem;
+
 class JoulePerKilogram extends SpecificEnergy
 {
     protected static string $defaultSymbol = 'J/kg';
@@ -16,5 +18,10 @@ class JoulePerKilogram extends SpecificEnergy
     public function toJoulePerKilogramValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

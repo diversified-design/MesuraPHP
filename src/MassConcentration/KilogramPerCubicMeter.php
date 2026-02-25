@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\MassConcentration;
 
+use Mesura\UnitSystem;
+
 class KilogramPerCubicMeter extends MassConcentration
 {
     protected static string $defaultSymbol = 'kg/m³';
@@ -16,5 +18,10 @@ class KilogramPerCubicMeter extends MassConcentration
     public function toKilogramPerCubicMeterValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

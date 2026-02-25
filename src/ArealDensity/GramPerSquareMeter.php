@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\ArealDensity;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class GramPerSquareMeter extends ArealDensity
 {
@@ -20,5 +21,10 @@ class GramPerSquareMeter extends ArealDensity
     public function toKilogramPerSquareMeterValue(): float
     {
         return BigRational::of((string) $this->value)->dividedBy(1000)->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }

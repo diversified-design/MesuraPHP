@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Length;
 
+use Mesura\UnitSystem;
+
 class Meter extends Length
 {
     protected static string $defaultSymbol = 'm';
@@ -16,5 +18,10 @@ class Meter extends Length
     public function toMeterValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

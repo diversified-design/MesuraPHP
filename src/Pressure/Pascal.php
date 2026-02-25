@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Pressure;
 
+use Mesura\UnitSystem;
+
 class Pascal extends Pressure
 {
     protected static string $defaultSymbol = 'Pa';
@@ -16,5 +18,10 @@ class Pascal extends Pressure
     public function toPascalValue(): float
     {
         return $this->value;
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::SI;
     }
 }

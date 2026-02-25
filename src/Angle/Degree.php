@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura\Angle;
 
+use Mesura\UnitSystem;
+
 class Degree extends Angle
 {
     protected static string $defaultSymbol = '°';
@@ -16,5 +18,10 @@ class Degree extends Angle
     public function toRadianValue(): float
     {
         return deg2rad($this->value);
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Other;
     }
 }

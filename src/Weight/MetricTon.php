@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mesura\Weight;
 
 use Brick\Math\BigRational;
+use Mesura\UnitSystem;
 
 class MetricTon extends Weight
 {
@@ -20,5 +21,10 @@ class MetricTon extends Weight
     public function toKilogramValue(): float
     {
         return BigRational::of((string) $this->value)->multipliedBy('1000')->toFloat();
+    }
+
+    public static function unitSystem(): UnitSystem
+    {
+        return UnitSystem::Metric;
     }
 }
