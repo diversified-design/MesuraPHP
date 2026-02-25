@@ -11,6 +11,10 @@ use Mesura\Volume\Deciliter;
 use Mesura\Volume\FluidDram;
 use Mesura\Volume\FluidOunce;
 use Mesura\Volume\Hectoliter;
+use Mesura\Volume\ImperialFluidDram;
+use Mesura\Volume\ImperialFluidOunce;
+use Mesura\Volume\ImperialPint;
+use Mesura\Volume\ImperialQuart;
 use Mesura\Volume\Kiloliter;
 use Mesura\Volume\Liter;
 use Mesura\Volume\Milliliter;
@@ -34,6 +38,10 @@ dataset('volume units', function () {
     yield Pint::class => [new Pint(42.0)];
     yield Quart::class => [new Quart(42.0)];
     yield TableSpoon::class => [new TableSpoon(42.0)];
+    yield ImperialPint::class => [new ImperialPint(42.0)];
+    yield ImperialQuart::class => [new ImperialQuart(42.0)];
+    yield ImperialFluidOunce::class => [new ImperialFluidOunce(42.0)];
+    yield ImperialFluidDram::class => [new ImperialFluidDram(42.0)];
 });
 
 test('round-trips through cubic meter value', function ($volume) {
@@ -52,4 +60,8 @@ test('converts at correct rate', function () {
     expect((new Pint(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.019873392), 0.000001);
     expect((new Quart(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.0397468), 0.000001);
     expect((new TableSpoon(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.000621044), 0.000001);
+    expect((new ImperialPint(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.02386697), 0.000001);
+    expect((new ImperialQuart(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.04773395), 0.000001);
+    expect((new ImperialFluidOunce(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.001193349), 0.000001);
+    expect((new ImperialFluidDram(42.0))->toCubicMeter())->toEqualWithDelta(new CubicMeter(0.000149169), 0.000001);
 });

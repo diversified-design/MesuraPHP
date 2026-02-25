@@ -99,6 +99,10 @@ dataset('unit-system-classifications', function () {
     yield 'BtuPerHourPerSquareFoot' => [Mesura\Irradiance\BtuPerHourPerSquareFoot::class, UnitSystem::Imperial];
     yield 'GrainPerCubicMeter' => [Mesura\MassConcentration\GrainPerCubicMeter::class, UnitSystem::Imperial];
     yield 'GrainPerCubicFoot' => [Mesura\MassConcentration\GrainPerCubicFoot::class, UnitSystem::Imperial];
+    yield 'ImperialPint' => [Mesura\Volume\ImperialPint::class, UnitSystem::Imperial];
+    yield 'ImperialQuart' => [Mesura\Volume\ImperialQuart::class, UnitSystem::Imperial];
+    yield 'ImperialFluidOunce' => [Mesura\Volume\ImperialFluidOunce::class, UnitSystem::Imperial];
+    yield 'ImperialFluidDram' => [Mesura\Volume\ImperialFluidDram::class, UnitSystem::Imperial];
 
     // USCustomary
     yield 'SurveyMile' => [Mesura\Length\SurveyMile::class, UnitSystem::USCustomary];

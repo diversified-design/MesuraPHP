@@ -11,6 +11,10 @@ use Mesura\Volume\Deciliter;
 use Mesura\Volume\FluidDram;
 use Mesura\Volume\FluidOunce;
 use Mesura\Volume\Hectoliter;
+use Mesura\Volume\ImperialFluidDram;
+use Mesura\Volume\ImperialFluidOunce;
+use Mesura\Volume\ImperialPint;
+use Mesura\Volume\ImperialQuart;
 use Mesura\Volume\Kiloliter;
 use Mesura\Volume\Liter;
 use Mesura\Volume\Milliliter;
@@ -85,6 +89,10 @@ describe('Volume', function () {
         expect($volume->toDecaliter())->toBeInstanceOf(Decaliter::class);
         expect($volume->toHectoliter())->toBeInstanceOf(Hectoliter::class);
         expect($volume->toKiloliter())->toBeInstanceOf(Kiloliter::class);
+        expect($volume->toImperialPint())->toBeInstanceOf(ImperialPint::class);
+        expect($volume->toImperialQuart())->toBeInstanceOf(ImperialQuart::class);
+        expect($volume->toImperialFluidOunce())->toBeInstanceOf(ImperialFluidOunce::class);
+        expect($volume->toImperialFluidDram())->toBeInstanceOf(ImperialFluidDram::class);
     });
 
     test('casts to string', function () {

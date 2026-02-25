@@ -53,6 +53,26 @@ abstract class Volume extends MeasurementUnit implements VolumeInterface
         return $this->toUnit(TableSpoon::class);
     }
 
+    public function toImperialPint(): ImperialPint
+    {
+        return $this->toUnit(ImperialPint::class);
+    }
+
+    public function toImperialQuart(): ImperialQuart
+    {
+        return $this->toUnit(ImperialQuart::class);
+    }
+
+    public function toImperialFluidOunce(): ImperialFluidOunce
+    {
+        return $this->toUnit(ImperialFluidOunce::class);
+    }
+
+    public function toImperialFluidDram(): ImperialFluidDram
+    {
+        return $this->toUnit(ImperialFluidDram::class);
+    }
+
     public function toMilliliter(): Milliliter
     {
         return $this->toUnit(Milliliter::class);
