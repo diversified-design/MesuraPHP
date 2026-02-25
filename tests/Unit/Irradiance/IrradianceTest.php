@@ -14,7 +14,7 @@ describe('Irradiance', function () {
 
             public static function fromWattPerSquareMeterValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toWattPerSquareMeterValue(): float

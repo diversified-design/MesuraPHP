@@ -21,7 +21,7 @@ describe('Power', function () {
 
             public static function fromWattValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toWattValue(): float

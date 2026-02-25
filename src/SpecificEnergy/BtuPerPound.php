@@ -33,6 +33,7 @@ class BtuPerPound extends SpecificEnergy
         return BigRational::of((string) $this->value)
             ->multipliedBy(self::JOULES_PER_BTU)
             ->dividedBy(self::KG_PER_POUND)
-            ->toFloat();
+            ->toFloat()
+        ;
     }
 }

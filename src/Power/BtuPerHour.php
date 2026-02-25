@@ -33,6 +33,7 @@ class BtuPerHour extends Power
         return BigRational::of((string) $this->value)
             ->multipliedBy(self::JOULES_PER_BTU)
             ->dividedBy(self::SECONDS_PER_HOUR)
-            ->toFloat();
+            ->toFloat()
+        ;
     }
 }

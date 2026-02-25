@@ -16,7 +16,7 @@ describe('SpecificEnergy', function () {
 
             public static function fromJoulePerKilogramValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toJoulePerKilogramValue(): float

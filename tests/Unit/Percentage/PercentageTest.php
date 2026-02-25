@@ -11,7 +11,7 @@ describe('Percentage', function () {
 
             public static function fromRatioValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toRatioValue(): float
@@ -29,7 +29,7 @@ describe('Percentage', function () {
 
             public static function fromRatioValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toRatioValue(): float
@@ -47,7 +47,7 @@ describe('Percentage', function () {
 
             public static function fromRatioValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toRatioValue(): float

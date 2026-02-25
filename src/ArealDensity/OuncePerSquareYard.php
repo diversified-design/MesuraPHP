@@ -33,6 +33,7 @@ class OuncePerSquareYard extends ArealDensity
         return BigRational::of((string) $this->value)
             ->multipliedBy(self::KG_PER_OZ)
             ->dividedBy(self::SQ_M_PER_SQ_YD)
-            ->toFloat();
+            ->toFloat()
+        ;
     }
 }

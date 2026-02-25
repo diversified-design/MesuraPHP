@@ -24,7 +24,7 @@ describe('Energy', function () {
 
             public static function fromJouleValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toJouleValue(): float

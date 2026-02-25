@@ -15,7 +15,7 @@ describe('ArealDensity', function () {
 
             public static function fromKilogramPerSquareMeterValue(float $value): static
             {
-                return new static($value);
+                return new self($value);
             }
 
             public function toKilogramPerSquareMeterValue(): float

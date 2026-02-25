@@ -33,6 +33,7 @@ class PoundPerSquareFoot extends ArealDensity
         return BigRational::of((string) $this->value)
             ->multipliedBy(self::KG_PER_LB)
             ->dividedBy(self::SQ_M_PER_SQ_FT)
-            ->toFloat();
+            ->toFloat()
+        ;
     }
 }

@@ -38,6 +38,7 @@ class BtuPerHourPerSquareFoot extends Irradiance
             ->multipliedBy(self::JOULES_PER_BTU)
             ->dividedBy(self::SECONDS_PER_HOUR)
             ->dividedBy(self::SQ_M_PER_SQ_FT)
-            ->toFloat();
+            ->toFloat()
+        ;
     }
 }
