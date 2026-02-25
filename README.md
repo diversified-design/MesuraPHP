@@ -11,27 +11,52 @@ composer require diversified-design/mesura-php
 
 ## Available Units
 
-| Domain          | Available unit                                                                                                    |
-|-----------------|-------------------------------------------------------------------------------------------------------------------|
-| **Angle**       | **Degree**, Radian                                                                                                |
-| **Area**        | Acre, Hectare, SquareFoot, SquareKilometer, **SquareMeter**, SquareMile + all metric prefixes (see below) |
-| **Length**      | **Centimeter**, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard + all metric prefixes (see below) |
-| **Percentage**  | **Percent** ( *as value between 0-100, as decimal between 0-1, to coefficent* )                                       |
-| **Pressure**    | Bar, Hectopascal, Kilopascal, Millibar, MillimetreOfMercury, **Pascal**, PoundPerSquareInch, StandardAtmosphere, Torr | 
-| **Speed**       | KilometerPerHour, Knot, **MeterPerSecond**, MilesPerHour                                                              |
-| **Temperature** | Celsius, Fahrenheit, **Kelvin**, Rankine                                                                              |
-| **Time**        | Day, Hour, Minute, **Second**                                                                                         |
-| **Torque**      | **NewtonMeter**                                                                                                       |
-| **Volume**      | CubicInch, **CubicMeter**, CubicYard, FluidDram, FluidOunce, Liter, Pint, Quart, TableSpoon + all metric prefixes (see below) |
-| **Weight**      | Gram, **Kilogram**, MetricTon, Pound + all metric prefixes (see below)                                                |
+| Domain                | Available unit                                                                                                    |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Angle**             | **Degree**, Radian                                                                                                |
+| **Area**              | Acre, Hectare, SquareFoot, SquareKilometer, **SquareMeter**, SquareMile + all metric prefixes (see below) |
+| **ArealDensity**      | GramPerSquareMeter, **KilogramPerSquareMeter**, OuncePerSquareYard, PoundPerSquareFoot |
+| **Energy**            | BritishThermalUnit, Calorie, FootPound, **Joule**, Kilocalorie, KilowattHour, WattHour + all metric prefixes (see below) |
+| **Irradiance**        | BtuPerHourPerSquareFoot, KilowattPerSquareMeter, **WattPerSquareMeter** |
+| **Length**            | **Centimeter**, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard + all metric prefixes (see below) |
+| **MassConcentration** | GrainPerCubicFoot, GrainPerCubicMeter, GramPerCubicMeter, **KilogramPerCubicMeter**, MicrogramPerCubicMeter, MilligramPerCubicMeter |
+| **Percentage**        | **Percent**, PartsPerMillion, PartsPerBillion |
+| **Power**             | BtuPerHour, CaloriePerSecond, FootPoundPerSecond, Horsepower, **Watt** + all metric prefixes (see below) |
+| **Pressure**          | Bar, Hectopascal, Kilopascal, Millibar, MillimetreOfMercury, **Pascal**, PoundPerSquareInch, StandardAtmosphere, Torr |
+| **SpecificEnergy**    | BtuPerPound, CaloriePerGram, **JoulePerKilogram**, KilojoulePerKilogram, MegajoulePerKilogram |
+| **Speed**             | KilometerPerHour, Knot, **MeterPerSecond**, MilesPerHour                                                              |
+| **Temperature**       | Celsius, Fahrenheit, **Kelvin**, Rankine                                                                              |
+| **Time**              | Day, Hour, Minute, **Second**                                                                                         |
+| **Torque**            | **NewtonMeter**                                                                                                       |
+| **Volume**            | CubicInch, **CubicMeter**, CubicYard, FluidDram, FluidOunce, ImperialFluidDram, ImperialFluidOunce, ImperialPint, ImperialQuart, Liter, Pint, Quart, TableSpoon + all metric prefixes (see below) |
+| **Weight**            | Gram, **Kilogram**, MetricTon, Pound + all metric prefixes (see below)                                                |
 
 All the units of a domain can be converted to each other with corresponding methods.
 
 ### Full SI Metric Prefix Support
 
-Length, Weight, Volume (liters), and Area (square meters) support all 24 SI metric prefixes — from Quetta (10^30) down to Quecto (10^-30). For example, Length includes Quettameter, Megameter, Kilometer, Centimeter, Nanometer, Quectometer, and everything in between. The same applies to the other metric dimensions (e.g. Milligram, Kiloliter, SquareCentimeter).
+Length, Weight, Volume (liters), Area (square meters), Energy (joules), and Power (watts) support all 24 SI metric prefixes — from Quetta (10^30) down to Quecto (10^-30). For example, Length includes Quettameter, Megameter, Kilometer, Centimeter, Nanometer, Quectometer, and everything in between. The same applies to the other metric dimensions (e.g. Milligram, Kiloliter, SquareCentimeter, Megajoule, Gigawatt).
 
 Common prefixed units have dedicated convenience methods (e.g. `->toNanometer()`, `->toMilligram()`). All others are accessible via `->toUnit(Yottameter::class)`.
+
+
+### Unit System Classification
+
+Every unit exposes its measurement system via `unitSystem()`:
+
+```php
+use Mesura\Length\Meter;
+use Mesura\Temperature\Celsius;
+use Mesura\Volume\Pint;
+
+Meter::unitSystem();    // UnitSystem::SI
+Celsius::unitSystem();  // UnitSystem::Metric
+Pint::unitSystem();     // UnitSystem::USCustomary
+```
+
+Available systems: `SI`, `Metric`, `Imperial`, `USCustomary`, `Nautical`, `Dimensionless`, `Other`.
+
+**See `./examples/unit_system.php` for filtering and grouping examples.**
 
 
 ---
