@@ -10,13 +10,25 @@ class Percent extends Percentage
 {
     protected static string $defaultSymbol = '%';
 
+    public static function fromRatioValue(float $value): static
+    {
+        return new static(
+            BigRational::of((string) $value)->multipliedBy(100)->toFloat()
+        );
+    }
+
+    public function toRatioValue(): float
+    {
+        return BigRational::of((string) $this->value)->dividedBy(100)->toFloat();
+    }
+
     /**
      * Returns the percentage as a decimal ratio.
      * Example: 75% => 0.75 (unitless).
      */
     public function toDecimal(): float
     {
-        return $this->toDecimalValue();
+        return $this->toRatioValue();
     }
 
     /**
@@ -26,12 +38,6 @@ class Percent extends Percentage
      */
     public function toCoefficient(): float
     {
-        return 1 + $this->toDecimalValue();
-    }
-
-    // Percentage to Decimal DRY method
-    private function toDecimalValue(): float
-    {
-        return BigRational::of((string) $this->value)->dividedBy(100)->toFloat();
+        return 1 + $this->toRatioValue();
     }
 }

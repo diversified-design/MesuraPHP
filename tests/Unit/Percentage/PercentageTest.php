@@ -7,9 +7,16 @@ use Mesura\Percentage\Percentage;
 describe('Percentage', function () {
     test('stores value on construction', function () {
         $percentage = new class(42.0) extends Percentage {
-            public static function getSymbol(): string
+            protected static string $defaultSymbol = 'unit';
+
+            public static function fromRatioValue(float $value): static
             {
-                return 'unit';
+                return new static($value);
+            }
+
+            public function toRatioValue(): float
+            {
+                return $this->value;
             }
         };
 
@@ -18,9 +25,16 @@ describe('Percentage', function () {
 
     test('returns symbol', function () {
         $percentage = new class(42.0) extends Percentage {
-            public static function getSymbol(): string
+            protected static string $defaultSymbol = 'unit';
+
+            public static function fromRatioValue(float $value): static
             {
-                return 'unit';
+                return new static($value);
+            }
+
+            public function toRatioValue(): float
+            {
+                return $this->value;
             }
         };
 
@@ -29,9 +43,16 @@ describe('Percentage', function () {
 
     test('casts to string', function () {
         $percentage = new class(42.0) extends Percentage {
-            public static function getSymbol(): string
+            protected static string $defaultSymbol = 'unit';
+
+            public static function fromRatioValue(float $value): static
             {
-                return 'unit';
+                return new static($value);
+            }
+
+            public function toRatioValue(): float
+            {
+                return $this->value;
             }
         };
 
