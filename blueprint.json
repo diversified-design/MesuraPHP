@@ -768,10 +768,10 @@
             "setInstanceSymbol(string $symbol): static",
             "static getSymbol(): string",
             "static setSymbol(string $symbol): string",
-            "static unitSystem(): Mesura\\UnitSystem",
             "withValue(callable(float): (float | int) $callback): static",
             "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
-            "toFormat(string $sprintfTemplate = '%.1f %s'): string"
+            "toFormat(string $sprintfTemplate = '%.1f %s'): string",
+            "static unitSystem(): Mesura\\UnitSystem"
         ]
     },
     "Mesura\\MeasurementUnitInterface": {

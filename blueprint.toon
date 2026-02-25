@@ -341,7 +341,7 @@
     doc: /** @phpstan-consistent-constructor */
     implements[2]: "Mesura\\MeasurementUnitInterface",Stringable
     properties[1]: readonly float $value
-    methods[10]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","static unitSystem(): Mesura\\UnitSystem","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string"
+    methods[10]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\MeasurementUnitInterface":
     type: interface
     implements[1]: Stringable
