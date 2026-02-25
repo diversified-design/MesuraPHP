@@ -640,6 +640,18 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Hectoliter":
     extends: "Mesura\\Volume\\MetricLiter"
+"Mesura\\Volume\\ImperialFluidDram":
+    extends: "Mesura\\Volume\\Volume"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\Volume\\ImperialFluidOunce":
+    extends: "Mesura\\Volume\\Volume"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\Volume\\ImperialPint":
+    extends: "Mesura\\Volume\\Volume"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\Volume\\ImperialQuart":
+    extends: "Mesura\\Volume\\Volume"
+    methods[3]: "static fromCubicMeterValue(float $value): static","toCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Volume\\Kiloliter":
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Liter":
@@ -685,7 +697,7 @@
     abstract: true
     extends: "Mesura\\MeasurementUnit"
     implements[1]: "Mesura\\Volume\\VolumeInterface"
-    methods[16]: "toCubicInch(): Mesura\\Volume\\CubicInch","toCubicMeter(): Mesura\\Volume\\CubicMeter","toCubicYard(): Mesura\\Volume\\CubicYard","toFluidDram(): Mesura\\Volume\\FluidDram","toFluidOunce(): Mesura\\Volume\\FluidOunce","toLiter(): Mesura\\Volume\\Liter","toPint(): Mesura\\Volume\\Pint","toQuart(): Mesura\\Volume\\Quart","toTableSpoon(): Mesura\\Volume\\TableSpoon","toMilliliter(): Mesura\\Volume\\Milliliter","toCentiliter(): Mesura\\Volume\\Centiliter","toDeciliter(): Mesura\\Volume\\Deciliter","toDecaliter(): Mesura\\Volume\\Decaliter","toHectoliter(): Mesura\\Volume\\Hectoliter","toKiloliter(): Mesura\\Volume\\Kiloliter","toUnit(class-string<T> $fqn): T"
+    methods[20]: "toCubicInch(): Mesura\\Volume\\CubicInch","toCubicMeter(): Mesura\\Volume\\CubicMeter","toCubicYard(): Mesura\\Volume\\CubicYard","toFluidDram(): Mesura\\Volume\\FluidDram","toFluidOunce(): Mesura\\Volume\\FluidOunce","toLiter(): Mesura\\Volume\\Liter","toPint(): Mesura\\Volume\\Pint","toQuart(): Mesura\\Volume\\Quart","toTableSpoon(): Mesura\\Volume\\TableSpoon","toImperialPint(): Mesura\\Volume\\ImperialPint","toImperialQuart(): Mesura\\Volume\\ImperialQuart","toImperialFluidOunce(): Mesura\\Volume\\ImperialFluidOunce","toImperialFluidDram(): Mesura\\Volume\\ImperialFluidDram","toMilliliter(): Mesura\\Volume\\Milliliter","toCentiliter(): Mesura\\Volume\\Centiliter","toDeciliter(): Mesura\\Volume\\Deciliter","toDecaliter(): Mesura\\Volume\\Decaliter","toHectoliter(): Mesura\\Volume\\Hectoliter","toKiloliter(): Mesura\\Volume\\Kiloliter","toUnit(class-string<T> $fqn): T"
 "Mesura\\Volume\\VolumeInterface":
     type: interface
     implements[1]: "Mesura\\MeasurementUnitInterface"

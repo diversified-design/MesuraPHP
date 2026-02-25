@@ -1464,6 +1464,38 @@
     "Mesura\\Volume\\Hectoliter": {
         "extends": "Mesura\\Volume\\MetricLiter"
     },
+    "Mesura\\Volume\\ImperialFluidDram": {
+        "extends": "Mesura\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): static",
+            "toCubicMeterValue(): float",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
+    "Mesura\\Volume\\ImperialFluidOunce": {
+        "extends": "Mesura\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): static",
+            "toCubicMeterValue(): float",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
+    "Mesura\\Volume\\ImperialPint": {
+        "extends": "Mesura\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): static",
+            "toCubicMeterValue(): float",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
+    "Mesura\\Volume\\ImperialQuart": {
+        "extends": "Mesura\\Volume\\Volume",
+        "methods": [
+            "static fromCubicMeterValue(float $value): static",
+            "toCubicMeterValue(): float",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
     "Mesura\\Volume\\Kiloliter": {
         "extends": "Mesura\\Volume\\MetricLiter"
     },
@@ -1558,6 +1590,10 @@
             "toPint(): Mesura\\Volume\\Pint",
             "toQuart(): Mesura\\Volume\\Quart",
             "toTableSpoon(): Mesura\\Volume\\TableSpoon",
+            "toImperialPint(): Mesura\\Volume\\ImperialPint",
+            "toImperialQuart(): Mesura\\Volume\\ImperialQuart",
+            "toImperialFluidOunce(): Mesura\\Volume\\ImperialFluidOunce",
+            "toImperialFluidDram(): Mesura\\Volume\\ImperialFluidDram",
             "toMilliliter(): Mesura\\Volume\\Milliliter",
             "toCentiliter(): Mesura\\Volume\\Centiliter",
             "toDeciliter(): Mesura\\Volume\\Deciliter",
