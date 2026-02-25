@@ -18,7 +18,7 @@ composer require diversified-design/mesura-php
 | **ArealDensity**      | GramPerSquareMeter, **KilogramPerSquareMeter**, OuncePerSquareYard, PoundPerSquareFoot |
 | **Energy**            | BritishThermalUnit, Calorie, FootPound, **Joule**, Kilocalorie, KilowattHour, WattHour + all metric prefixes (see below) |
 | **Irradiance**        | BtuPerHourPerSquareFoot, KilowattPerSquareMeter, **WattPerSquareMeter** |
-| **Length**            | **Centimeter**, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, Meter, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard + all metric prefixes (see below) |
+| **Length**            | Centimeter, Fathom, Foot, Furlong, HorseLength, Inch, Kilometer, **Meter**, Millimeter, NauticalMile, StatuteMile, SurveyMile, Thou, Yard + all metric prefixes (see below) |
 | **MassConcentration** | GrainPerCubicFoot, GrainPerCubicMeter, GramPerCubicMeter, **KilogramPerCubicMeter**, MicrogramPerCubicMeter, MilligramPerCubicMeter |
 | **Percentage**        | **Percent**, PartsPerMillion, PartsPerBillion |
 | **Power**             | BtuPerHour, CaloriePerSecond, FootPoundPerSecond, Horsepower, **Watt** + all metric prefixes (see below) |
