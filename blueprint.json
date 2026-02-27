@@ -1,7 +1,7 @@
 {
     "Mesura\\Angle\\Angle": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Angle\\AngleInterface"
         ],
@@ -47,7 +47,7 @@
     },
     "Mesura\\Area\\Area": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Area\\AreaInterface"
         ],
@@ -190,7 +190,7 @@
     },
     "Mesura\\ArealDensity\\ArealDensity": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\ArealDensity\\ArealDensityInterface"
         ],
@@ -244,29 +244,6 @@
             "static unitSystem(): Mesura\\UnitSystem"
         ]
     },
-    "Mesura\\BaseMeasurementUnit": {
-        "abstract": true,
-        "doc": "/** @phpstan-consistent-constructor */",
-        "implements": [
-            "Mesura\\MeasurementUnitInterface",
-            "Stringable"
-        ],
-        "properties": [
-            "readonly float $value"
-        ],
-        "methods": [
-            "__construct(float $value, string|null $symbol = null)",
-            "getValue(): float",
-            "getInstanceSymbol(): string",
-            "setInstanceSymbol(string $symbol): static",
-            "static getSymbol(): string",
-            "static setSymbol(string $symbol): string",
-            "withValue(callable(float): (float | int) $callback): static",
-            "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
-            "toFormat(string $sprintfTemplate = '%.1f %s'): string",
-            "static unitSystem(): Mesura\\UnitSystem"
-        ]
-    },
     "Mesura\\Customise": {
         "methods": [
             "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\n                                          e.g.: ['Mesura\\Length\\Meter' => 'METRE', 'Mesura\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
@@ -302,7 +279,7 @@
     },
     "Mesura\\Energy\\Energy": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Energy\\EnergyInterface"
         ],
@@ -443,6 +420,13 @@
     "Mesura\\Energy\\Zettajoule": {
         "extends": "Mesura\\Energy\\MetricJoule"
     },
+    "Mesura\\Generic\\SimpleMeasurement": {
+        "extends": "Mesura\\MeasurementUnit",
+        "methods": [
+            "static fromValue(float $value, string|null $symbol = null): static",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
     "Mesura\\Irradiance\\BtuPerHourPerSquareFoot": {
         "extends": "Mesura\\Irradiance\\Irradiance",
         "methods": [
@@ -453,7 +437,7 @@
     },
     "Mesura\\Irradiance\\Irradiance": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Irradiance\\IrradianceInterface"
         ],
@@ -559,7 +543,7 @@
     },
     "Mesura\\Length\\Length": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Length\\LengthInterface"
         ],
@@ -734,7 +718,7 @@
     },
     "Mesura\\MassConcentration\\MassConcentration": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\MassConcentration\\MassConcentrationInterface"
         ],
@@ -771,6 +755,29 @@
         "methods": [
             "static fromKilogramPerCubicMeterValue(float $value): static",
             "toKilogramPerCubicMeterValue(): float",
+            "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
+    "Mesura\\MeasurementUnit": {
+        "abstract": true,
+        "doc": "/** @phpstan-consistent-constructor */",
+        "implements": [
+            "Mesura\\MeasurementUnitInterface",
+            "Stringable"
+        ],
+        "properties": [
+            "readonly float $value"
+        ],
+        "methods": [
+            "__construct(float $value, string|null $symbol = null)",
+            "getValue(): float",
+            "getInstanceSymbol(): string",
+            "setInstanceSymbol(string $symbol): static",
+            "static getSymbol(): string",
+            "static setSymbol(string $symbol): string",
+            "withValue(callable(float): (float | int) $callback): static",
+            "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
+            "toFormat(string $sprintfTemplate = '%.1f %s'): string",
             "static unitSystem(): Mesura\\UnitSystem"
         ]
     },
@@ -851,7 +858,7 @@
     },
     "Mesura\\Percentage\\Percentage": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Percentage\\PercentageInterface"
         ],
@@ -961,7 +968,7 @@
     },
     "Mesura\\Power\\Power": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Power\\PowerInterface"
         ],
@@ -1082,7 +1089,7 @@
     },
     "Mesura\\Pressure\\Pressure": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Pressure\\PressureInterface"
         ],
@@ -1167,7 +1174,7 @@
     },
     "Mesura\\SpecificEnergy\\SpecificEnergy": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\SpecificEnergy\\SpecificEnergyInterface"
         ],
@@ -1224,7 +1231,7 @@
     },
     "Mesura\\Speed\\Speed": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Speed\\SpeedInterface"
         ],
@@ -1280,7 +1287,7 @@
     },
     "Mesura\\Temperature\\Temperature": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Temperature\\TemperatureInterface"
         ],
@@ -1336,7 +1343,7 @@
     },
     "Mesura\\Time\\Time": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Time\\TimeInterface"
         ],
@@ -1368,7 +1375,7 @@
     },
     "Mesura\\Torque\\Torque": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Torque\\TorqueInterface"
         ],
@@ -1576,7 +1583,7 @@
     },
     "Mesura\\Volume\\Volume": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Volume\\VolumeInterface"
         ],
@@ -1721,7 +1728,7 @@
     },
     "Mesura\\Weight\\Weight": {
         "abstract": true,
-        "extends": "Mesura\\BaseMeasurementUnit",
+        "extends": "Mesura\\MeasurementUnit",
         "implements": [
             "Mesura\\Weight\\WeightInterface"
         ],
