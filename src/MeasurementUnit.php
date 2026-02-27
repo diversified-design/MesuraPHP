@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Mesura;
 
 /** @phpstan-consistent-constructor */
-abstract class BaseMeasurementUnit implements MeasurementUnitInterface
+abstract class MeasurementUnit implements MeasurementUnitInterface
 {
     protected static string $defaultSymbol = 'unit';
 

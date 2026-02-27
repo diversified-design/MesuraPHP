@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Pressure;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Pressure extends BaseMeasurementUnit implements PressureInterface
+abstract class Pressure extends MeasurementUnit implements PressureInterface
 {
     public function toBar(): Bar
     {

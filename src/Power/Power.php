@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Power;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Power extends BaseMeasurementUnit implements PowerInterface
+abstract class Power extends MeasurementUnit implements PowerInterface
 {
     public function toWatt(): Watt
     {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
 test('getValue returns construction value', function () {
-    $unit = new class(42.0) extends BaseMeasurementUnit {
+    $unit = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -21,7 +21,7 @@ test('getValue returns construction value', function () {
 });
 
 test('getInstanceSymbol returns class symbol by default', function () {
-    $unit = new class(42.0) extends BaseMeasurementUnit {
+    $unit = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -37,7 +37,7 @@ test('getInstanceSymbol returns class symbol by default', function () {
 });
 
 test('getInstanceSymbol returns custom symbol when provided', function () {
-    $unit = new class(42.0, 'custom') extends BaseMeasurementUnit {
+    $unit = new class(42.0, 'custom') extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -53,7 +53,7 @@ test('getInstanceSymbol returns custom symbol when provided', function () {
 });
 
 test('setInstanceSymbol changes instance symbol and returns self', function () {
-    $unit = new class(42.0) extends BaseMeasurementUnit {
+    $unit = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -70,7 +70,7 @@ test('setInstanceSymbol changes instance symbol and returns self', function () {
 });
 
 test('setSymbol changes default symbol', function () {
-    $unitClass = new class(42.0) extends BaseMeasurementUnit {
+    $unitClass = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return self::$defaultSymbol;
@@ -92,7 +92,7 @@ test('setSymbol changes default symbol', function () {
 });
 
 test('setSymbol affects new instances', function () {
-    $unitClass = new class(0.0) extends BaseMeasurementUnit {
+    $unitClass = new class(0.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return self::$defaultSymbol;
@@ -118,7 +118,7 @@ test('setSymbol affects new instances', function () {
 });
 
 test('toFormat formats value with symbol', function () {
-    $unit = new class(42.0) extends BaseMeasurementUnit {
+    $unit = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -136,7 +136,7 @@ test('toFormat formats value with symbol', function () {
 });
 
 test('toHtml wraps value and symbol in spans', function () {
-    $unit = new class(42.0) extends BaseMeasurementUnit {
+    $unit = new class(42.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -155,7 +155,7 @@ test('toHtml wraps value and symbol in spans', function () {
 });
 
 test('withValue transforms value and preserves type', function () {
-    $unit = new class(10.0) extends BaseMeasurementUnit {
+    $unit = new class(10.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -175,7 +175,7 @@ test('withValue transforms value and preserves type', function () {
 });
 
 test('withValue returns a new instance', function () {
-    $unit = new class(5.0) extends BaseMeasurementUnit {
+    $unit = new class(5.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -194,7 +194,7 @@ test('withValue returns a new instance', function () {
 });
 
 test('withValue casts integer return to float', function () {
-    $unit = new class(4.0) extends BaseMeasurementUnit {
+    $unit = new class(4.0) extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';
@@ -212,7 +212,7 @@ test('withValue casts integer return to float', function () {
 });
 
 test('formatting uses custom instance symbol', function () {
-    $unit = new class(42.0, 'custom') extends BaseMeasurementUnit {
+    $unit = new class(42.0, 'custom') extends MeasurementUnit {
         public static function getSymbol(): string
         {
             return 'unit';

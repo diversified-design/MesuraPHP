@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Weight;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Weight extends BaseMeasurementUnit implements WeightInterface
+abstract class Weight extends MeasurementUnit implements WeightInterface
 {
     public function toKilogram(): Kilogram
     {

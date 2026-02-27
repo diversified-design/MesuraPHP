@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Angle;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Angle extends BaseMeasurementUnit implements AngleInterface
+abstract class Angle extends MeasurementUnit implements AngleInterface
 {
     public function toDegree(): Degree
     {

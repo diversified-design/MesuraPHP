@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Area;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Area extends BaseMeasurementUnit implements AreaInterface
+abstract class Area extends MeasurementUnit implements AreaInterface
 {
     public function toSquareMeter(): SquareMeter
     {

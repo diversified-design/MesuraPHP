@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Percentage;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Percentage extends BaseMeasurementUnit implements PercentageInterface
+abstract class Percentage extends MeasurementUnit implements PercentageInterface
 {
     public function toPercent(): Percent
     {

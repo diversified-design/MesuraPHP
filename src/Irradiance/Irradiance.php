@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Irradiance;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Irradiance extends BaseMeasurementUnit implements IrradianceInterface
+abstract class Irradiance extends MeasurementUnit implements IrradianceInterface
 {
     public function toWattPerSquareMeter(): WattPerSquareMeter
     {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Volume;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Volume extends BaseMeasurementUnit implements VolumeInterface
+abstract class Volume extends MeasurementUnit implements VolumeInterface
 {
     public function toCubicInch(): CubicInch
     {

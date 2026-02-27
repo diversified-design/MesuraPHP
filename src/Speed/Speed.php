@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Speed;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class Speed extends BaseMeasurementUnit implements SpeedInterface
+abstract class Speed extends MeasurementUnit implements SpeedInterface
 {
     public function toKilometerPerHour(): KilometerPerHour
     {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\SpecificEnergy;
 
-use Mesura\BaseMeasurementUnit;
+use Mesura\MeasurementUnit;
 
-abstract class SpecificEnergy extends BaseMeasurementUnit implements SpecificEnergyInterface
+abstract class SpecificEnergy extends MeasurementUnit implements SpecificEnergyInterface
 {
     public function toJoulePerKilogram(): JoulePerKilogram
     {
