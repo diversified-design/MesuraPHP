@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Energy;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class Energy extends MeasurementUnit implements EnergyInterface
+abstract class Energy extends BaseMeasurementUnit implements EnergyInterface
 {
     public function toJoule(): Joule
     {

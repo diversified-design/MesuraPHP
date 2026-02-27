@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\MassConcentration;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class MassConcentration extends MeasurementUnit implements MassConcentrationInterface
+abstract class MassConcentration extends BaseMeasurementUnit implements MassConcentrationInterface
 {
     public function toKilogramPerCubicMeter(): KilogramPerCubicMeter
     {

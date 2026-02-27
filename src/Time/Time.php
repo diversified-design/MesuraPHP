@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Time;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class Time extends MeasurementUnit implements TimeInterface
+abstract class Time extends BaseMeasurementUnit implements TimeInterface
 {
     public function toSecond(): Second
     {

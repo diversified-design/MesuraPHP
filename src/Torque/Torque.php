@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Torque;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class Torque extends MeasurementUnit implements TorqueInterface
+abstract class Torque extends BaseMeasurementUnit implements TorqueInterface
 {
     public function toNewtonMeter(): NewtonMeter
     {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Length;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class Length extends MeasurementUnit implements LengthInterface
+abstract class Length extends BaseMeasurementUnit implements LengthInterface
 {
     public function toCentimeter(): Centimeter
     {

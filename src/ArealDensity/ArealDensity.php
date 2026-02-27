@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\ArealDensity;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class ArealDensity extends MeasurementUnit implements ArealDensityInterface
+abstract class ArealDensity extends BaseMeasurementUnit implements ArealDensityInterface
 {
     public function toKilogramPerSquareMeter(): KilogramPerSquareMeter
     {

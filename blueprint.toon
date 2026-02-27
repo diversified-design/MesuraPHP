@@ -1,6 +1,6 @@
 "Mesura\\Angle\\Angle":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Angle\\AngleInterface"
     methods[3]: "toDegree(): Mesura\\Angle\\Degree","toRadian(): Mesura\\Angle\\Radian","toUnit(class-string<T> $fqn): T"
 "Mesura\\Angle\\AngleInterface":
@@ -18,7 +18,7 @@
     methods[3]: "static fromSquareMeterValue(float $value): static","toSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Area\\Area":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Area\\AreaInterface"
     methods[10]: "toSquareMeter(): Mesura\\Area\\SquareMeter","toSquareKilometer(): Mesura\\Area\\SquareKilometer","toSquareFoot(): Mesura\\Area\\SquareFoot","toSquareMile(): Mesura\\Area\\SquareMile","toHectare(): Mesura\\Area\\Hectare","toAcre(): Mesura\\Area\\Acre","toSquareMillimeter(): Mesura\\Area\\SquareMillimeter","toSquareCentimeter(): Mesura\\Area\\SquareCentimeter","toSquareDecimeter(): Mesura\\Area\\SquareDecimeter","toUnit(class-string<T> $fqn): T"
 "Mesura\\Area\\AreaInterface":
@@ -92,7 +92,7 @@
     extends: "Mesura\\Area\\MetricArea"
 "Mesura\\ArealDensity\\ArealDensity":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\ArealDensity\\ArealDensityInterface"
     methods[5]: "toKilogramPerSquareMeter(): Mesura\\ArealDensity\\KilogramPerSquareMeter","toGramPerSquareMeter(): Mesura\\ArealDensity\\GramPerSquareMeter","toOuncePerSquareYard(): Mesura\\ArealDensity\\OuncePerSquareYard","toPoundPerSquareFoot(): Mesura\\ArealDensity\\PoundPerSquareFoot","toUnit(class-string<T> $fqn): T"
 "Mesura\\ArealDensity\\ArealDensityInterface":
@@ -111,6 +111,12 @@
 "Mesura\\ArealDensity\\PoundPerSquareFoot":
     extends: "Mesura\\ArealDensity\\ArealDensity"
     methods[3]: "static fromKilogramPerSquareMeterValue(float $value): static","toKilogramPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\BaseMeasurementUnit":
+    abstract: true
+    doc: /** @phpstan-consistent-constructor */
+    implements[2]: "Mesura\\MeasurementUnitInterface",Stringable
+    properties[1]: readonly float $value
+    methods[10]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Customise":
     methods[1]: "static unitSymbols(array<class-string, string> $units /*An associative array where the keys are unit class names and the values are the symbols to set.\\n                                          e.g.: ['Mesura\\Length\\Meter' => 'METRE', 'Mesura\\Length\\Fathom' => 'FATHOM']*/): void — Set the symbols for the given measurement units. @throws InvalidArgumentException"
 "Mesura\\Energy\\Attojoule":
@@ -129,7 +135,7 @@
     extends: "Mesura\\Energy\\MetricJoule"
 "Mesura\\Energy\\Energy":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Energy\\EnergyInterface"
     methods[14]: "toJoule(): Mesura\\Energy\\Joule","toKilojoule(): Mesura\\Energy\\Kilojoule","toMegajoule(): Mesura\\Energy\\Megajoule","toGigajoule(): Mesura\\Energy\\Gigajoule","toMillijoule(): Mesura\\Energy\\Millijoule","toMicrojoule(): Mesura\\Energy\\Microjoule","toNanojoule(): Mesura\\Energy\\Nanojoule","toCalorie(): Mesura\\Energy\\Calorie","toKilocalorie(): Mesura\\Energy\\Kilocalorie","toBritishThermalUnit(): Mesura\\Energy\\BritishThermalUnit","toWattHour(): Mesura\\Energy\\WattHour","toKilowattHour(): Mesura\\Energy\\KilowattHour","toFootPound(): Mesura\\Energy\\FootPound","toUnit(class-string<T> $fqn): T"
 "Mesura\\Energy\\EnergyInterface":
@@ -201,7 +207,7 @@
     methods[3]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Irradiance\\Irradiance":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Irradiance\\IrradianceInterface"
     methods[4]: "toWattPerSquareMeter(): Mesura\\Irradiance\\WattPerSquareMeter","toKilowattPerSquareMeter(): Mesura\\Irradiance\\KilowattPerSquareMeter","toBtuPerHourPerSquareFoot(): Mesura\\Irradiance\\BtuPerHourPerSquareFoot","toUnit(class-string<T> $fqn): T"
 "Mesura\\Irradiance\\IrradianceInterface":
@@ -249,7 +255,7 @@
     extends: "Mesura\\Length\\MetricLength"
 "Mesura\\Length\\Length":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Length\\LengthInterface"
     methods[21]: "toCentimeter(): Mesura\\Length\\Centimeter","toFathom(): Mesura\\Length\\Fathom","toFoot(): Mesura\\Length\\Foot","toFurlong(): Mesura\\Length\\Furlong","toHorseLength(): Mesura\\Length\\HorseLength","toInch(): Mesura\\Length\\Inch","toKilometer(): Mesura\\Length\\Kilometer","toMeter(): Mesura\\Length\\Meter","toMillimeter(): Mesura\\Length\\Millimeter","toStatuteMile(): Mesura\\Length\\StatuteMile","toNauticalMile(): Mesura\\Length\\NauticalMile","toSurveyMile(): Mesura\\Length\\SurveyMile","toThou(): Mesura\\Length\\Thou","toYard(): Mesura\\Length\\Yard","toDecimeter(): Mesura\\Length\\Decimeter","toDecameter(): Mesura\\Length\\Decameter","toHectometer(): Mesura\\Length\\Hectometer","toMegameter(): Mesura\\Length\\Megameter","toMicrometer(): Mesura\\Length\\Micrometer","toNanometer(): Mesura\\Length\\Nanometer","toUnit(class-string<T> $fqn): T"
 "Mesura\\Length\\LengthInterface":
@@ -323,7 +329,7 @@
     methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\MassConcentration\\MassConcentration":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\MassConcentration\\MassConcentrationInterface"
     methods[7]: "toKilogramPerCubicMeter(): Mesura\\MassConcentration\\KilogramPerCubicMeter","toGramPerCubicMeter(): Mesura\\MassConcentration\\GramPerCubicMeter","toMilligramPerCubicMeter(): Mesura\\MassConcentration\\MilligramPerCubicMeter","toMicrogramPerCubicMeter(): Mesura\\MassConcentration\\MicrogramPerCubicMeter","toGrainPerCubicMeter(): Mesura\\MassConcentration\\GrainPerCubicMeter","toGrainPerCubicFoot(): Mesura\\MassConcentration\\GrainPerCubicFoot","toUnit(class-string<T> $fqn): T"
 "Mesura\\MassConcentration\\MassConcentrationInterface":
@@ -336,12 +342,6 @@
 "Mesura\\MassConcentration\\MilligramPerCubicMeter":
     extends: "Mesura\\MassConcentration\\MassConcentration"
     methods[3]: "static fromKilogramPerCubicMeterValue(float $value): static","toKilogramPerCubicMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
-"Mesura\\MeasurementUnit":
-    abstract: true
-    doc: /** @phpstan-consistent-constructor */
-    implements[2]: "Mesura\\MeasurementUnitInterface",Stringable
-    properties[1]: readonly float $value
-    methods[10]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): string","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\MeasurementUnitInterface":
     type: interface
     implements[1]: Stringable
@@ -386,7 +386,7 @@
     methods[5]: "static fromRatioValue(float $value): static","toRatioValue(): float","toDecimal(): float — Returns the percentage as a decimal ratio. Example: 75% => 0.75 (unitless).","toCoefficient(): float — Returns a multiplicative coefficient. Example: 15% => 1.15 (unitless) Can be useful when representing increase/decrease.","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Percentage\\Percentage":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Percentage\\PercentageInterface"
     methods[4]: "toPercent(): Mesura\\Percentage\\Percent","toPartsPerMillion(): Mesura\\Percentage\\PartsPerMillion","toPartsPerBillion(): Mesura\\Percentage\\PartsPerBillion","toUnit(class-string<T> $fqn): T"
 "Mesura\\Percentage\\PercentageInterface":
@@ -442,7 +442,7 @@
     extends: "Mesura\\Power\\MetricWatt"
 "Mesura\\Power\\Power":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Power\\PowerInterface"
     methods[11]: "toWatt(): Mesura\\Power\\Watt","toKilowatt(): Mesura\\Power\\Kilowatt","toMegawatt(): Mesura\\Power\\Megawatt","toGigawatt(): Mesura\\Power\\Gigawatt","toMilliwatt(): Mesura\\Power\\Milliwatt","toMicrowatt(): Mesura\\Power\\Microwatt","toHorsepower(): Mesura\\Power\\Horsepower","toBtuPerHour(): Mesura\\Power\\BtuPerHour","toFootPoundPerSecond(): Mesura\\Power\\FootPoundPerSecond","toCaloriePerSecond(): Mesura\\Power\\CaloriePerSecond","toUnit(class-string<T> $fqn): T"
 "Mesura\\Power\\PowerInterface":
@@ -493,7 +493,7 @@
     methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Pressure\\Pressure":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Pressure\\PressureInterface"
     methods[10]: "toBar(): Mesura\\Pressure\\Bar","toHectopascal(): Mesura\\Pressure\\Hectopascal","toKilopascal(): Mesura\\Pressure\\Kilopascal","toMillibar(): Mesura\\Pressure\\Millibar","toMillimetreOfMercury(): Mesura\\Pressure\\MillimetreOfMercury","toPascal(): Mesura\\Pressure\\Pascal","toPoundPerSquareInch(): Mesura\\Pressure\\PoundPerSquareInch","toStandardAtmosphere(): Mesura\\Pressure\\StandardAtmosphere","toTorr(): Mesura\\Pressure\\Torr","toUnit(class-string<T> $fqn): T"
 "Mesura\\Pressure\\PressureInterface":
@@ -523,7 +523,7 @@
     methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\SpecificEnergy\\SpecificEnergy":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\SpecificEnergy\\SpecificEnergyInterface"
     methods[6]: "toJoulePerKilogram(): Mesura\\SpecificEnergy\\JoulePerKilogram","toKilojoulePerKilogram(): Mesura\\SpecificEnergy\\KilojoulePerKilogram","toMegajoulePerKilogram(): Mesura\\SpecificEnergy\\MegajoulePerKilogram","toBtuPerPound(): Mesura\\SpecificEnergy\\BtuPerPound","toCaloriePerGram(): Mesura\\SpecificEnergy\\CaloriePerGram","toUnit(class-string<T> $fqn): T"
 "Mesura\\SpecificEnergy\\SpecificEnergyInterface":
@@ -544,7 +544,7 @@
     methods[3]: "static fromMeterPerSecondValue(float $value): static","toMeterPerSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Speed\\Speed":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Speed\\SpeedInterface"
     methods[5]: "toKilometerPerHour(): Mesura\\Speed\\KilometerPerHour","toKnot(): Mesura\\Speed\\Knot","toMeterPerSecond(): Mesura\\Speed\\MeterPerSecond","toMilesPerHour(): Mesura\\Speed\\MilesPerHour","toUnit(class-string<T> $fqn): T"
 "Mesura\\Speed\\SpeedInterface":
@@ -565,7 +565,7 @@
     methods[3]: "static fromKelvinValue(float $value): static","toKelvinValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Temperature\\Temperature":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Temperature\\TemperatureInterface"
     methods[5]: "toCelsius(): Mesura\\Temperature\\Celsius","toFahrenheit(): Mesura\\Temperature\\Fahrenheit","toRankine(): Mesura\\Temperature\\Rankine","toKelvin(): Mesura\\Temperature\\Kelvin","toUnit(class-string<T> $fqn): T"
 "Mesura\\Temperature\\TemperatureInterface":
@@ -586,7 +586,7 @@
     methods[3]: "static fromSecondValue(float $value): static","toSecondValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Time\\Time":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Time\\TimeInterface"
     methods[5]: "toSecond(): Mesura\\Time\\Second","toMinute(): Mesura\\Time\\Minute","toHour(): Mesura\\Time\\Hour","toDay(): Mesura\\Time\\Day","toUnit(class-string<T> $fqn): T"
 "Mesura\\Time\\TimeInterface":
@@ -598,7 +598,7 @@
     methods[3]: "static fromNewtonMeterValue(float $value): static","toNewtonMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\Torque\\Torque":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Torque\\TorqueInterface"
     methods[2]: "toNewtonMeter(): Mesura\\Torque\\NewtonMeter","toUnit(class-string<T> $fqn): T"
 "Mesura\\Torque\\TorqueInterface":
@@ -695,7 +695,7 @@
     extends: "Mesura\\Volume\\MetricLiter"
 "Mesura\\Volume\\Volume":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Volume\\VolumeInterface"
     methods[20]: "toCubicInch(): Mesura\\Volume\\CubicInch","toCubicMeter(): Mesura\\Volume\\CubicMeter","toCubicYard(): Mesura\\Volume\\CubicYard","toFluidDram(): Mesura\\Volume\\FluidDram","toFluidOunce(): Mesura\\Volume\\FluidOunce","toLiter(): Mesura\\Volume\\Liter","toPint(): Mesura\\Volume\\Pint","toQuart(): Mesura\\Volume\\Quart","toTableSpoon(): Mesura\\Volume\\TableSpoon","toImperialPint(): Mesura\\Volume\\ImperialPint","toImperialQuart(): Mesura\\Volume\\ImperialQuart","toImperialFluidOunce(): Mesura\\Volume\\ImperialFluidOunce","toImperialFluidDram(): Mesura\\Volume\\ImperialFluidDram","toMilliliter(): Mesura\\Volume\\Milliliter","toCentiliter(): Mesura\\Volume\\Centiliter","toDeciliter(): Mesura\\Volume\\Deciliter","toDecaliter(): Mesura\\Volume\\Decaliter","toHectoliter(): Mesura\\Volume\\Hectoliter","toKiloliter(): Mesura\\Volume\\Kiloliter","toUnit(class-string<T> $fqn): T"
 "Mesura\\Volume\\VolumeInterface":
@@ -766,7 +766,7 @@
     extends: "Mesura\\Weight\\MetricWeight"
 "Mesura\\Weight\\Weight":
     abstract: true
-    extends: "Mesura\\MeasurementUnit"
+    extends: "Mesura\\BaseMeasurementUnit"
     implements[1]: "Mesura\\Weight\\WeightInterface"
     methods[13]: "toKilogram(): Mesura\\Weight\\Kilogram","toMetricTon(): Mesura\\Weight\\MetricTon","toPound(): Mesura\\Weight\\Pound","toGram(): Mesura\\Weight\\Gram","toMilligram(): Mesura\\Weight\\Milligram","toMicrogram(): Mesura\\Weight\\Microgram","toNanogram(): Mesura\\Weight\\Nanogram","toDecigram(): Mesura\\Weight\\Decigram","toCentigram(): Mesura\\Weight\\Centigram","toDecagram(): Mesura\\Weight\\Decagram","toHectogram(): Mesura\\Weight\\Hectogram","toMegagram(): Mesura\\Weight\\Megagram","toUnit(class-string<T> $fqn): T"
 "Mesura\\Weight\\WeightInterface":

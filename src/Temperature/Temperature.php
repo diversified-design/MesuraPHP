@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Mesura\Temperature;
 
-use Mesura\MeasurementUnit;
+use Mesura\BaseMeasurementUnit;
 
-abstract class Temperature extends MeasurementUnit implements TemperatureInterface
+abstract class Temperature extends BaseMeasurementUnit implements TemperatureInterface
 {
     public function toCelsius(): Celsius
     {
