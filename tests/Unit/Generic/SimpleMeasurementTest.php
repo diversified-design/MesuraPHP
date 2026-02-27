@@ -61,6 +61,14 @@ test('withValue transforms value and returns new instance', function () {
     expect($result)->not->toBe($unit);
 });
 
+test('withValue preserves instance symbol', function () {
+    $unit   = SimpleMeasurement::fromValue(10.0, 'px');
+    $result = $unit->withValue(fn (float $v) => $v * 2);
+
+    expect($result->getInstanceSymbol())->toBe('px');
+    expect((string) $result)->toBe('20 px');
+});
+
 test('setInstanceSymbol changes symbol on instance', function () {
     $unit = SimpleMeasurement::fromValue(1.0, 'a');
     $unit->setInstanceSymbol('b');

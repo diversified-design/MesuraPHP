@@ -171,6 +171,7 @@ test('withValue transforms value and preserves type', function () {
 
     expect($result)->toBeInstanceOf(get_class($unit));
     expect($result->getValue())->toBe(30.0);
+    expect($result->getInstanceSymbol())->toBe('unit');
     expect($result)->not->toBe($unit);
 });
 

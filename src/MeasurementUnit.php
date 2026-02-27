@@ -52,7 +52,7 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
      */
     public function withValue(callable $callback): static
     {
-        return new static((float) $callback($this->value));
+        return new static((float) $callback($this->value), $this->symbol);
     }
 
     // Formatting Methods

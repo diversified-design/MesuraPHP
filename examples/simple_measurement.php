@@ -56,18 +56,13 @@ echo $brightness . PHP_EOL; // 250 cd/m²
 $width = SimpleMeasurement::fromValue(1920, 'px');
 
 $doubled = $width->withValue(fn (float $v) => $v * 2);
-echo 'Doubled: ' . $doubled->getValue() . PHP_EOL; // 3840
+echo 'Doubled: ' . $doubled . PHP_EOL; // 3840 px
 
 $halved = $width->withValue(fn (float $v) => $v / 2);
-echo 'Halved: ' . $halved->getValue() . PHP_EOL;   // 960
+echo 'Halved: ' . $halved . PHP_EOL;   // 960 px
 
 // Original is unchanged (withValue returns a new instance)
-echo 'Original: ' . $width . PHP_EOL; // 1920 px
-
-// Note: withValue() does not carry over per-instance symbols.
-// Use setInstanceSymbol() on the new instance if needed.
-$doubled->setInstanceSymbol('px');
-echo 'Doubled with symbol: ' . $doubled . PHP_EOL; // 3840 px
+echo 'Original: ' . $width . PHP_EOL;  // 1920 px
 
 
 // ──────────────────────────────────────────────
