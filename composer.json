@@ -51,11 +51,12 @@
         "brick/math": "^0.15"
     },
     "require-dev": {
+        "diversified-design/php-blueprint": "^0.1",
         "friendsofphp/php-cs-fixer": "^3.94",
-        "phpstan/phpstan": "^2.1",
         "pestphp/pest": "^4.4",
         "pestphp/pest-plugin-type-coverage": "^4.0",
-        "diversified-design/php-blueprint": "^0.1"
+        "phpstan/phpstan": "^2.1",
+        "symfony/var-dumper": "^8.0"
     },
     "scripts": {
         "blueprint": "blueprint",
