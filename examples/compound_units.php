@@ -5,18 +5,9 @@ declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Mesura\ArealDensity\GramPerSquareMeter;
-use Mesura\ArealDensity\KilogramPerSquareMeter;
 use Mesura\ArealDensity\OuncePerSquareYard;
-use Mesura\Irradiance\BtuPerHourPerSquareFoot;
-use Mesura\Irradiance\KilowattPerSquareMeter;
 use Mesura\Irradiance\WattPerSquareMeter;
-use Mesura\MassConcentration\GrainPerCubicFoot;
-use Mesura\MassConcentration\KilogramPerCubicMeter;
 use Mesura\MassConcentration\MicrogramPerCubicMeter;
-use Mesura\MassConcentration\MilligramPerCubicMeter;
-use Mesura\SpecificEnergy\BtuPerPound;
-use Mesura\SpecificEnergy\CaloriePerGram;
-use Mesura\SpecificEnergy\JoulePerKilogram;
 use Mesura\SpecificEnergy\KilojoulePerKilogram;
 
 // Areal Density — paper weight (GSM), fabric weight

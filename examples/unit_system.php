@@ -53,7 +53,7 @@ echo '==================' . PHP_EOL . PHP_EOL;
 
 $grouped = [];
 foreach ($units as $class) {
-    $system = $class::unitSystem()->name;
+    $system             = $class::unitSystem()->name;
     $grouped[$system][] = $class::getSymbol();
 }
 

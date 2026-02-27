@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Mesura\Energy\BritishThermalUnit;
-use Mesura\Energy\Calorie;
 use Mesura\Energy\Joule;
 use Mesura\Energy\Kilocalorie;
 use Mesura\Energy\KilowattHour;
 use Mesura\Power\BtuPerHour;
 use Mesura\Power\Horsepower;
 use Mesura\Power\Kilowatt;
-use Mesura\Power\Watt;
 
 // Energy conversions
 echo 'Energy Conversions' . PHP_EOL;
@@ -45,5 +42,6 @@ echo "1.5 kW = {$kw->toHorsepower()->getValue()} hp" . PHP_EOL;
 $result = (new BtuPerHour(10000.0))
     ->toWatt()
     ->withValue(fn ($v) => $v * 2)
-    ->toKilowatt();
+    ->toKilowatt()
+;
 echo "10,000 BTU/h doubled = {$result->getValue()} kW" . PHP_EOL;
