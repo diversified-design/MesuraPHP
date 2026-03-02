@@ -5,16 +5,13 @@ declare(strict_types=1);
 use Mesura\Customise;
 use Mesura\Length\Fathom;
 use Mesura\Length\Meter;
+use Mesura\MeasurementUnit;
 
-$originalMeterSymbol  = Meter::getSymbol();
-$originalFathomSymbol = Fathom::getSymbol();
-
-afterEach(function () use ($originalMeterSymbol, $originalFathomSymbol) {
-    Meter::setSymbol($originalMeterSymbol);
-    Fathom::setSymbol($originalFathomSymbol);
+afterEach(function () {
+    MeasurementUnit::resetAllSymbols();
 });
 
-test('changes symbols successfully', function () use ($originalMeterSymbol, $originalFathomSymbol) {
+test('changes symbols successfully', function () {
     Customise::unitSymbols([
         Meter::class  => 'METRE',
         Fathom::class => 'FATHOM',
@@ -22,8 +19,8 @@ test('changes symbols successfully', function () use ($originalMeterSymbol, $ori
 
     expect(Meter::getSymbol())->toBe('METRE');
     expect(Fathom::getSymbol())->toBe('FATHOM');
-    expect(Meter::getSymbol())->not->toBe($originalMeterSymbol);
-    expect(Fathom::getSymbol())->not->toBe($originalFathomSymbol);
+    expect(Meter::getSymbol())->not->toBe('m');
+    expect(Fathom::getSymbol())->not->toBe('ftm');
 });
 
 test('throws for non-existent class', function () {

@@ -16,7 +16,11 @@ interface MeasurementUnitInterface extends Stringable
 
     public static function getSymbol(): string;
 
-    public static function setSymbol(string $symbol): string;
+    public static function setSymbol(string $symbol): void;
+
+    public static function resetSymbol(): void;
+
+    public static function resetAllSymbols(): void;
 
     public static function unitSystem(): UnitSystem;
 

@@ -9,13 +9,16 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
 {
     protected static string $defaultSymbol = 'unit';
 
+    /** @var array<class-string, string> */
+    private static array $symbolOverrides = [];
+
     protected string $symbol;
 
     public function __construct(
         public readonly float $value,
         ?string $symbol = null,
     ) {
-        $this->symbol = $symbol ?? static::$defaultSymbol;
+        $this->symbol = $symbol ?? self::$symbolOverrides[static::class] ?? static::$defaultSymbol;
     }
 
     public function getValue(): float
@@ -37,14 +40,22 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
 
     public static function getSymbol(): string
     {
-        return static::$defaultSymbol;
+        return self::$symbolOverrides[static::class] ?? static::$defaultSymbol;
     }
 
-    public static function setSymbol(string $symbol): string
+    public static function setSymbol(string $symbol): void
     {
-        static::$defaultSymbol = $symbol;
+        self::$symbolOverrides[static::class] = $symbol;
+    }
 
-        return static::$defaultSymbol;
+    public static function resetSymbol(): void
+    {
+        unset(self::$symbolOverrides[static::class]);
+    }
+
+    public static function resetAllSymbols(): void
+    {
+        self::$symbolOverrides = [];
     }
 
     /**

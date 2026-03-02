@@ -774,7 +774,9 @@
             "getInstanceSymbol(): string",
             "setInstanceSymbol(string $symbol): static",
             "static getSymbol(): string",
-            "static setSymbol(string $symbol): string",
+            "static setSymbol(string $symbol): void",
+            "static resetSymbol(): void",
+            "static resetAllSymbols(): void",
             "withValue(callable(float): (float | int) $callback): static",
             "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
             "toFormat(string $sprintfTemplate = '%.1f %s'): string",
@@ -791,7 +793,9 @@
             "getInstanceSymbol(): string",
             "setInstanceSymbol(string $symbol): self",
             "static getSymbol(): string",
-            "static setSymbol(string $symbol): string",
+            "static setSymbol(string $symbol): void",
+            "static resetSymbol(): void",
+            "static resetAllSymbols(): void",
             "static unitSystem(): Mesura\\UnitSystem",
             "withValue(callable(float): (float | int) $callback): static"
         ]

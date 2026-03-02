@@ -71,41 +71,30 @@ test('setInstanceSymbol changes instance symbol and returns self', function () {
 
 test('setSymbol changes default symbol', function () {
     $unitClass = new class(42.0) extends MeasurementUnit {
-        public static function getSymbol(): string
-        {
-            return self::$defaultSymbol;
-        }
-
         public static function unitSystem(): Mesura\UnitSystem
         {
             return Mesura\UnitSystem::Other;
         }
     };
 
-    $className      = get_class($unitClass);
-    $originalSymbol = $className::getSymbol();
+    $className = get_class($unitClass);
 
-    expect($className::setSymbol('newSymbol'))->toBe('newSymbol');
+    $className::setSymbol('newSymbol');
     expect($className::getSymbol())->toBe('newSymbol');
 
-    $className::setSymbol($originalSymbol);
+    $className::resetSymbol();
+    expect($className::getSymbol())->toBe('unit');
 });
 
 test('setSymbol affects new instances', function () {
     $unitClass = new class(0.0) extends MeasurementUnit {
-        public static function getSymbol(): string
-        {
-            return self::$defaultSymbol;
-        }
-
         public static function unitSystem(): Mesura\UnitSystem
         {
             return Mesura\UnitSystem::Other;
         }
     };
 
-    $className      = get_class($unitClass);
-    $originalSymbol = $className::getSymbol();
+    $className = get_class($unitClass);
 
     $className::setSymbol('changedSymbol');
 
@@ -114,7 +103,7 @@ test('setSymbol affects new instances', function () {
     $newInstance = new $className(42.0);
     expect($newInstance->getInstanceSymbol())->toBe('changedSymbol');
 
-    $className::setSymbol($originalSymbol);
+    $className::resetSymbol();
 });
 
 test('toFormat formats value with symbol', function () {
