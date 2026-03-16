@@ -22,7 +22,7 @@ abstract class Weight extends MeasurementUnit implements WeightInterface
         return [
             'namePatterns'  => ['%sgram', '%sgramme'],
             'symbolPattern' => '%sg',
-            'namespace'     => 'Mesura\\Weight\\',
+            'namespace'     => 'Mesura\Weight\\',
             'classPattern'  => '%sgram',
         ];
     }

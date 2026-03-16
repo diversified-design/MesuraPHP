@@ -30,11 +30,10 @@ abstract class Length extends MeasurementUnit implements LengthInterface
         return [
             'namePatterns'  => ['%smeter', '%smetre'],
             'symbolPattern' => '%sm',
-            'namespace'     => 'Mesura\\Length\\',
+            'namespace'     => 'Mesura\Length\\',
             'classPattern'  => '%smeter',
         ];
     }
-
 
     public function toCentimeter(): Centimeter
     {

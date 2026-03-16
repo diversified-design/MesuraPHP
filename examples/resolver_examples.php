@@ -85,6 +85,7 @@ echo "Length::resolve('survey mile', 1.0)   → " . get_class($survey) . " ({$su
 
 // Example 8: Error handling
 echo PHP_EOL . 'Example 8: Error handling' . PHP_EOL;
+
 try {
     Length::resolve('parsec', 1.0);
 } catch (InvalidUnitException $e) {
@@ -105,7 +106,7 @@ foreach ($readings as $reading) {
         str_contains($reading['unit'], 'celsius'),
         str_contains($reading['unit'], 'fahrenheit') => Temperature::resolve($reading['unit'], $reading['value']),
         str_contains($reading['unit'], 'Pa'),
-        str_contains($reading['unit'], 'bar')        => Pressure::resolve($reading['unit'], $reading['value']),
+        str_contains($reading['unit'], 'bar')         => Pressure::resolve($reading['unit'], $reading['value']),
         default                                       => null,
     };
 

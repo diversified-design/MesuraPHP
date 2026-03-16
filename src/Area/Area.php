@@ -24,7 +24,7 @@ abstract class Area extends MeasurementUnit implements AreaInterface
         return [
             'namePatterns'  => ['square %smeter', 'square %smetre'],
             'symbolPattern' => '%sm²',
-            'namespace'     => 'Mesura\\Area\\',
+            'namespace'     => 'Mesura\Area\\',
             'classPattern'  => 'Square%smeter',
         ];
     }

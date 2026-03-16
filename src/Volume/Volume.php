@@ -32,7 +32,7 @@ abstract class Volume extends MeasurementUnit implements VolumeInterface
         return [
             'namePatterns'  => ['%sliter', '%slitre'],
             'symbolPattern' => '%sl',
-            'namespace'     => 'Mesura\\Volume\\',
+            'namespace'     => 'Mesura\Volume\\',
             'classPattern'  => '%sliter',
         ];
     }

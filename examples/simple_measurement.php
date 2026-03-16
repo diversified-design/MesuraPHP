@@ -24,7 +24,6 @@ dump($score); // dumps the whole Object
 $raw = SimpleMeasurement::fromValue(42.0);
 echo 'Raw value: ' . $raw->getValue() . PHP_EOL; // 42
 
-
 // ──────────────────────────────────────────────
 // Formatting
 // ──────────────────────────────────────────────
@@ -37,7 +36,6 @@ echo $dpi->toFormat('Resolution: %1$.0f %2$s') . PHP_EOL; // Resolution: 300 dpi
 echo $dpi->toHtml() . PHP_EOL;
 // <span class="value">300.0</span> <span class="symbol">dpi</span>
 
-
 // ──────────────────────────────────────────────
 // Changing the symbol per instance
 // ──────────────────────────────────────────────
@@ -47,7 +45,6 @@ echo $brightness . PHP_EOL; // 250 nits
 
 $brightness->setInstanceSymbol('cd/m²');
 echo $brightness . PHP_EOL; // 250 cd/m²
-
 
 // ──────────────────────────────────────────────
 // Transforming values with withValue()
@@ -63,7 +60,6 @@ echo 'Halved: ' . $halved . PHP_EOL;   // 960 px
 
 // Original is unchanged (withValue returns a new instance)
 echo 'Original: ' . $width . PHP_EOL;  // 1920 px
-
 
 // ──────────────────────────────────────────────
 // Unit system is always "Other"

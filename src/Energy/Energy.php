@@ -11,13 +11,13 @@ abstract class Energy extends MeasurementUnit implements EnergyInterface
     protected static function unitAliases(): array
     {
         return [
-            Joule::class              => ['joule'],
-            Calorie::class            => ['calorie'],
-            Kilocalorie::class        => ['kilocalorie'],
+            Joule::class               => ['joule'],
+            Calorie::class             => ['calorie'],
+            Kilocalorie::class         => ['kilocalorie'],
             BritishThermalUnit::class  => ['british thermal unit', 'btu'],
-            WattHour::class           => ['watt hour'],
-            KilowattHour::class       => ['kilowatt hour'],
-            FootPound::class          => ['foot pound'],
+            WattHour::class            => ['watt hour'],
+            KilowattHour::class        => ['kilowatt hour'],
+            FootPound::class           => ['foot pound'],
         ];
     }
 
@@ -26,7 +26,7 @@ abstract class Energy extends MeasurementUnit implements EnergyInterface
         return [
             'namePatterns'  => ['%sjoule'],
             'symbolPattern' => '%sJ',
-            'namespace'     => 'Mesura\\Energy\\',
+            'namespace'     => 'Mesura\Energy\\',
             'classPattern'  => '%sjoule',
         ];
     }

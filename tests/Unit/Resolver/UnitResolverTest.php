@@ -141,4 +141,4 @@ test('duplicate explicit alias throws LogicException', function () {
         null,
         'shared',
     );
-})->throws(\LogicException::class);
+})->throws(LogicException::class);

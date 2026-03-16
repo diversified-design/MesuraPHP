@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Mesura\Resolver;
 
+use LogicException;
 use Mesura\InvalidUnitException;
 use Mesura\MeasurementUnit;
 use Mesura\MetricPrefix;
@@ -16,7 +17,7 @@ final class UnitResolver
     /**
      * Resolve a unit string to its fully-qualified class name within a domain.
      *
-     * @param array<class-string<MeasurementUnit>, list<string>> $aliases
+     * @param array<class-string<MeasurementUnit>, list<string>>                                                     $aliases
      * @param array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string}|null $metricConfig
      *
      * @return class-string<MeasurementUnit>
@@ -38,15 +39,13 @@ final class UnitResolver
             return $map[$normalized];
         }
 
-        throw new InvalidUnitException(
-            sprintf("Cannot resolve '%s' to a known unit in the %s domain.", $input, $domainKey)
-        );
+        throw new InvalidUnitException(sprintf("Cannot resolve '%s' to a known unit in the %s domain.", $input, $domainKey));
     }
 
     /**
      * Resolve a unit string and hydrate it with the given value.
      *
-     * @param array<class-string<MeasurementUnit>, list<string>> $aliases
+     * @param array<class-string<MeasurementUnit>, list<string>>                                                     $aliases
      * @param array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string}|null $metricConfig
      */
     public static function resolve(
@@ -63,7 +62,7 @@ final class UnitResolver
     }
 
     /**
-     * @param array<class-string<MeasurementUnit>, list<string>> $aliases
+     * @param array<class-string<MeasurementUnit>, list<string>>                                                     $aliases
      * @param array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string}|null $metricConfig
      *
      * @return array<string, class-string<MeasurementUnit>>
@@ -85,7 +84,7 @@ final class UnitResolver
      *   2. Explicit aliases (override auto-seeded; throw on mutual collision)
      *   3. Metric prefix compositions (skip on collision)
      *
-     * @param array<class-string<MeasurementUnit>, list<string>> $aliases
+     * @param array<class-string<MeasurementUnit>, list<string>>                                                     $aliases
      * @param array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string}|null $metricConfig
      *
      * @return array<string, class-string<MeasurementUnit>>
@@ -98,7 +97,7 @@ final class UnitResolver
         foreach ($aliases as $class => $_) {
             $symbol = mb_strtolower($class::getDefaultSymbol());
 
-            if ($symbol !== '' && ! isset($map[$symbol])) {
+            if ($symbol !== '' && !isset($map[$symbol])) {
                 $map[$symbol] = $class;
             }
         }
@@ -111,14 +110,7 @@ final class UnitResolver
                 $key = mb_strtolower($name);
 
                 if (isset($explicitlyAssigned[$key]) && $explicitlyAssigned[$key] !== $class) {
-                    throw new \LogicException(
-                        sprintf(
-                            "Unit alias '%s' is claimed by both %s and %s.",
-                            $name,
-                            $explicitlyAssigned[$key],
-                            $class,
-                        )
-                    );
+                    throw new LogicException(sprintf("Unit alias '%s' is claimed by both %s and %s.", $name, $explicitlyAssigned[$key], $class));
                 }
 
                 $explicitlyAssigned[$key] = $class;
@@ -137,7 +129,7 @@ final class UnitResolver
     /**
      * Generate aliases for all metric-prefixed units in a domain.
      *
-     * @param array<string, class-string<MeasurementUnit>> $map
+     * @param array<string, class-string<MeasurementUnit>>                                                      $map
      * @param array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string} $config
      */
     private static function buildMetricAliases(array &$map, array $config): void
@@ -145,7 +137,7 @@ final class UnitResolver
         foreach (MetricPrefix::cases() as $prefix) {
             $className = $config['namespace'] . sprintf($config['classPattern'], ucfirst($prefix->prefixName()));
 
-            if (! class_exists($className)) {
+            if (!class_exists($className)) {
                 continue;
             }
 
@@ -153,7 +145,7 @@ final class UnitResolver
             /** @var class-string<MeasurementUnit> $className */
             $defaultSymbol = mb_strtolower($className::getDefaultSymbol());
 
-            if ($defaultSymbol !== '' && ! isset($map[$defaultSymbol])) {
+            if ($defaultSymbol !== '' && !isset($map[$defaultSymbol])) {
                 $map[$defaultSymbol] = $className;
             }
 
@@ -161,7 +153,7 @@ final class UnitResolver
             foreach ($config['namePatterns'] as $pattern) {
                 $alias = mb_strtolower(sprintf($pattern, $prefix->prefixName()));
 
-                if (! isset($map[$alias])) {
+                if (!isset($map[$alias])) {
                     $map[$alias] = $className;
                 }
             }
@@ -169,7 +161,7 @@ final class UnitResolver
             // Symbol-based alias (e.g. 'km')
             $symbolAlias = mb_strtolower(sprintf($config['symbolPattern'], $prefix->symbol()));
 
-            if (! isset($map[$symbolAlias])) {
+            if (!isset($map[$symbolAlias])) {
                 $map[$symbolAlias] = $className;
             }
         }

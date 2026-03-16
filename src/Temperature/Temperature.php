@@ -18,7 +18,6 @@ abstract class Temperature extends MeasurementUnit implements TemperatureInterfa
         ];
     }
 
-
     public function toCelsius(): Celsius
     {
         return $this->toUnit(Celsius::class);
