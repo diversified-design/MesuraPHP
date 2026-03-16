@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Mesura;
 
+use Mesura\Resolver\UnitResolver;
+
 /** @phpstan-consistent-constructor */
 abstract class MeasurementUnit implements MeasurementUnitInterface
 {
@@ -84,6 +86,64 @@ abstract class MeasurementUnit implements MeasurementUnitInterface
     public function __toString(): string
     {
         return $this->getValue() . ' ' . $this->getInstanceSymbol();
+    }
+
+    // Resolution Methods
+
+    public static function getDefaultSymbol(): string
+    {
+        return static::$defaultSymbol;
+    }
+
+    /**
+     * Return the alias map for this domain's non-metric units.
+     *
+     * Keys are concrete unit class-strings; values are lists of lowercase alias strings
+     * (beyond the auto-seeded $defaultSymbol).
+     *
+     * @return array<class-string<MeasurementUnit>, list<string>>
+     */
+    abstract protected static function unitAliases(): array;
+
+    /**
+     * Return metric prefix composition config, or null for non-metric domains.
+     *
+     * @return array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string}|null
+     */
+    protected static function metricConfig(): ?array
+    {
+        return null;
+    }
+
+    /**
+     * Resolve a unit identifier string to its fully-qualified class name.
+     *
+     * @return class-string<static>
+     */
+    public static function resolveUnitClass(string $input): string
+    {
+        /** @var class-string<static> */
+        return UnitResolver::resolveClass(
+            static::class,
+            static::unitAliases(),
+            static::metricConfig(),
+            $input,
+        );
+    }
+
+    /**
+     * Resolve a unit identifier string and return a hydrated instance.
+     */
+    public static function resolve(string $input, float $value): static
+    {
+        /** @var static */
+        return UnitResolver::resolve(
+            static::class,
+            static::unitAliases(),
+            static::metricConfig(),
+            $input,
+            $value,
+        );
     }
 
     // Abstract Methods
