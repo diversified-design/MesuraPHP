@@ -174,5 +174,4 @@ final class UnitResolver
     {
         self::$cache = [];
     }
-
 }
