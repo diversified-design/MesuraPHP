@@ -427,6 +427,9 @@
             "static unitSystem(): Mesura\\UnitSystem"
         ]
     },
+    "Mesura\\InvalidUnitException": {
+        "extends": "InvalidArgumentException"
+    },
     "Mesura\\Irradiance\\BtuPerHourPerSquareFoot": {
         "extends": "Mesura\\Irradiance\\Irradiance",
         "methods": [
@@ -780,6 +783,9 @@
             "withValue(callable(float): (float | int) $callback): static",
             "toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string",
             "toFormat(string $sprintfTemplate = '%.1f %s'): string",
+            "static getDefaultSymbol(): string",
+            "static resolveUnitClass(string $input): class-string<static> — Resolve a unit identifier string to its fully-qualified class name.",
+            "static resolve(string $input, float $value): static — Resolve a unit identifier string and return a hydrated instance.",
             "static unitSystem(): Mesura\\UnitSystem"
         ]
     },
@@ -1134,6 +1140,14 @@
             "static fromPascalValue(float $value): static",
             "toPascalValue(): float",
             "static unitSystem(): Mesura\\UnitSystem"
+        ]
+    },
+    "Mesura\\Resolver\\UnitResolver": {
+        "final": true,
+        "methods": [
+            "static resolveClass(string $domainKey, array<class-string<MeasurementUnit>, list<string>> $aliases, (array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string} | null) $metricConfig, string $input): class-string<MeasurementUnit> — Resolve a unit string to its fully-qualified class name within a domain.",
+            "static resolve(string $domainKey, array<class-string<MeasurementUnit>, list<string>> $aliases, (array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string} | null) $metricConfig, string $input, float $value): Mesura\\MeasurementUnit — Resolve a unit string and hydrate it with the given value.",
+            "static clearCache(): void — Clear the resolver cache. Primarily for testing."
         ]
     },
     "Mesura\\SpecificEnergy\\BtuPerPound": {
