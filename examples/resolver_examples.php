@@ -12,7 +12,6 @@ use Mesura\Temperature\Temperature;
 use Mesura\Volume\Volume;
 use Mesura\Weight\Weight;
 
-
 // =============================================================================
 // Unit Resolvers — resolve a string identifier to a unit instance
 // =============================================================================
@@ -128,3 +127,5 @@ echo '==========================================================================
 //     echo "{$char} → " . u($char)->ascii() . PHP_EOL;
 // }
 // echo PHP_EOL;
+
+dump(Length::resolve('m', 10.0)->toMeter()->getValue());
