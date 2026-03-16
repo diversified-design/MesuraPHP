@@ -48,7 +48,7 @@
     },
     "require": {
         "php": "^8.2",
-        "brick/math": "^0.15"
+        "brick/math": "^0.16"
     },
     "require-dev": {
         "diversified-design/php-blueprint": "^0.1",
