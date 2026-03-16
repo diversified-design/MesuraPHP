@@ -8,6 +8,29 @@ use Mesura\MeasurementUnit;
 
 abstract class Energy extends MeasurementUnit implements EnergyInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Joule::class              => ['joule'],
+            Calorie::class            => ['calorie'],
+            Kilocalorie::class        => ['kilocalorie'],
+            BritishThermalUnit::class  => ['british thermal unit', 'btu'],
+            WattHour::class           => ['watt hour'],
+            KilowattHour::class       => ['kilowatt hour'],
+            FootPound::class          => ['foot pound'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['%sjoule'],
+            'symbolPattern' => '%sJ',
+            'namespace'     => 'Mesura\\Energy\\',
+            'classPattern'  => '%sjoule',
+        ];
+    }
+
     public function toJoule(): Joule
     {
         return $this->toUnit(Joule::class);

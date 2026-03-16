@@ -8,6 +8,18 @@ use Mesura\MeasurementUnit;
 
 abstract class MassConcentration extends MeasurementUnit implements MassConcentrationInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            KilogramPerCubicMeter::class  => ['kilogram per cubic meter', 'kilogram per cubic metre'],
+            GramPerCubicMeter::class      => ['gram per cubic meter', 'gram per cubic metre'],
+            MilligramPerCubicMeter::class => ['milligram per cubic meter', 'milligram per cubic metre'],
+            MicrogramPerCubicMeter::class => ['microgram per cubic meter', 'microgram per cubic metre'],
+            GrainPerCubicMeter::class     => ['grain per cubic meter', 'grain per cubic metre'],
+            GrainPerCubicFoot::class      => ['grain per cubic foot'],
+        ];
+    }
+
     public function toKilogramPerCubicMeter(): KilogramPerCubicMeter
     {
         return $this->toUnit(KilogramPerCubicMeter::class);

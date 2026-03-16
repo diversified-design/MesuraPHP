@@ -8,6 +8,17 @@ use Mesura\MeasurementUnit;
 
 abstract class SpecificEnergy extends MeasurementUnit implements SpecificEnergyInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            JoulePerKilogram::class      => ['joule per kilogram'],
+            KilojoulePerKilogram::class  => ['kilojoule per kilogram'],
+            MegajoulePerKilogram::class  => ['megajoule per kilogram'],
+            BtuPerPound::class           => ['btu per pound'],
+            CaloriePerGram::class        => ['calorie per gram'],
+        ];
+    }
+
     public function toJoulePerKilogram(): JoulePerKilogram
     {
         return $this->toUnit(JoulePerKilogram::class);

@@ -8,6 +8,34 @@ use Mesura\MeasurementUnit;
 
 abstract class Length extends MeasurementUnit implements LengthInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Meter::class        => ['meter', 'metre'],
+            Foot::class         => ['foot'],
+            Inch::class         => ['inch'],
+            Yard::class         => ['yard'],
+            StatuteMile::class  => ['mile', 'statute mile'],
+            NauticalMile::class => ['nautical mile'],
+            SurveyMile::class   => ['survey mile'],
+            Fathom::class       => ['fathom'],
+            Furlong::class      => ['furlong'],
+            HorseLength::class  => ['horse length'],
+            Thou::class         => ['thou'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['%smeter', '%smetre'],
+            'symbolPattern' => '%sm',
+            'namespace'     => 'Mesura\\Length\\',
+            'classPattern'  => '%smeter',
+        ];
+    }
+
+
     public function toCentimeter(): Centimeter
     {
         return $this->toUnit(Centimeter::class);

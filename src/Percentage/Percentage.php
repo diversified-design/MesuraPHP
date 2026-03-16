@@ -8,6 +8,15 @@ use Mesura\MeasurementUnit;
 
 abstract class Percentage extends MeasurementUnit implements PercentageInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Percent::class          => ['percent', 'percentage'],
+            PartsPerMillion::class  => ['parts per million'],
+            PartsPerBillion::class  => ['parts per billion'],
+        ];
+    }
+
     public function toPercent(): Percent
     {
         return $this->toUnit(Percent::class);

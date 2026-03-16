@@ -8,6 +8,16 @@ use Mesura\MeasurementUnit;
 
 abstract class ArealDensity extends MeasurementUnit implements ArealDensityInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            KilogramPerSquareMeter::class => ['kilogram per square meter', 'kilogram per square metre'],
+            GramPerSquareMeter::class     => ['gram per square meter', 'gram per square metre'],
+            OuncePerSquareYard::class     => ['ounce per square yard'],
+            PoundPerSquareFoot::class     => ['pound per square foot'],
+        ];
+    }
+
     public function toKilogramPerSquareMeter(): KilogramPerSquareMeter
     {
         return $this->toUnit(KilogramPerSquareMeter::class);

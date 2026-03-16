@@ -8,6 +8,17 @@ use Mesura\MeasurementUnit;
 
 abstract class Temperature extends MeasurementUnit implements TemperatureInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Celsius::class    => ['celsius', 'centigrade'],
+            Fahrenheit::class => ['fahrenheit'],
+            Kelvin::class     => ['kelvin'],
+            Rankine::class    => ['rankine'],
+        ];
+    }
+
+
     public function toCelsius(): Celsius
     {
         return $this->toUnit(Celsius::class);

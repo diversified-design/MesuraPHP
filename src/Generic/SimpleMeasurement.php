@@ -20,4 +20,9 @@ class SimpleMeasurement extends MeasurementUnit
     {
         return UnitSystem::Other;
     }
+
+    protected static function unitAliases(): array
+    {
+        return [];
+    }
 }

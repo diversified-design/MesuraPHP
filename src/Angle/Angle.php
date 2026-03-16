@@ -8,6 +8,14 @@ use Mesura\MeasurementUnit;
 
 abstract class Angle extends MeasurementUnit implements AngleInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Degree::class => ['degree'],
+            Radian::class => ['radian'],
+        ];
+    }
+
     public function toDegree(): Degree
     {
         return $this->toUnit(Degree::class);

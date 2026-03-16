@@ -8,6 +8,27 @@ use Mesura\MeasurementUnit;
 
 abstract class Power extends MeasurementUnit implements PowerInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Watt::class               => ['watt'],
+            Horsepower::class         => ['horsepower'],
+            BtuPerHour::class         => ['btu per hour'],
+            FootPoundPerSecond::class  => ['foot pound per second'],
+            CaloriePerSecond::class    => ['calorie per second'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['%swatt'],
+            'symbolPattern' => '%sW',
+            'namespace'     => 'Mesura\\Power\\',
+            'classPattern'  => '%swatt',
+        ];
+    }
+
     public function toWatt(): Watt
     {
         return $this->toUnit(Watt::class);

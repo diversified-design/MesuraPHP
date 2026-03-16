@@ -8,6 +8,16 @@ use Mesura\MeasurementUnit;
 
 abstract class Speed extends MeasurementUnit implements SpeedInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            MeterPerSecond::class    => ['meter per second', 'metre per second'],
+            KilometerPerHour::class  => ['kilometer per hour', 'kilometre per hour', 'kph'],
+            MilesPerHour::class      => ['miles per hour'],
+            Knot::class              => ['knot'],
+        ];
+    }
+
     public function toKilometerPerHour(): KilometerPerHour
     {
         return $this->toUnit(KilometerPerHour::class);
