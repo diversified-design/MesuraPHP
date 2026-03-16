@@ -12,9 +12,9 @@ abstract class Speed extends MeasurementUnit implements SpeedInterface
     {
         return [
             MeterPerSecond::class    => ['mps', 'meter per second', 'metre per second'],
-            KilometerPerHour::class  => ['kph', 'kilometer per hour', 'kilometre per hour'],
-            MilesPerHour::class      => ['mph', 'miles per hour'],
-            Knot::class              => ['knot'],
+            KilometerPerHour::class  => ['kph', 'kilometersperhour', 'kilometer per hour', 'kilometre per hour'],
+            MilesPerHour::class      => ['mph', 'milesperhour', 'miles per hour'],
+            Knot::class              => ['kt', 'knot', 'knots'],
         ];
     }
 

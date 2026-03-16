@@ -28,7 +28,7 @@ abstract class Length extends MeasurementUnit implements LengthInterface
     protected static function metricConfig(): ?array
     {
         return [
-            'namePatterns'  => ['%smeter', '%smetre'],
+            'namePatterns'  => ['%smeter', '%smetre', '%smeters', '%smetres'],
             'symbolPattern' => '%sm',
             'namespace'     => 'Mesura\Length\\',
             'classPattern'  => '%smeter',

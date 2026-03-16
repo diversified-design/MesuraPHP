@@ -11,11 +11,11 @@ abstract class SpecificEnergy extends MeasurementUnit implements SpecificEnergyI
     protected static function unitAliases(): array
     {
         return [
-            JoulePerKilogram::class      => ['joule per kilogram'],
-            KilojoulePerKilogram::class  => ['kilojoule per kilogram'],
-            MegajoulePerKilogram::class  => ['megajoule per kilogram'],
-            BtuPerPound::class           => ['btu per pound'],
-            CaloriePerGram::class        => ['calorie per gram'],
+            JoulePerKilogram::class      => ['jpkg', 'joule per kilogram'],
+            KilojoulePerKilogram::class  => ['kjpkg', 'kilojoule per kilogram'],
+            MegajoulePerKilogram::class  => ['mjpkg', 'megajoule per kilogram'],
+            BtuPerPound::class           => ['btup', 'btu per pound'],
+            CaloriePerGram::class        => ['calpg', 'calorie per gram'],
         ];
     }
 
