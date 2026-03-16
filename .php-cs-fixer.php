@@ -35,8 +35,8 @@ return (new Config())
         'combine_consecutive_issets'   => true,
         'combine_consecutive_unsets'   => true,
         'concat_space'                 => ['spacing' => 'one'],
-        'declare_parentheses'         => true,
-        'explicit_indirect_variable' => true,
+        'declare_parentheses'          => true,
+        'explicit_indirect_variable'   => true,
         'explicit_string_variable'     => true,
         'global_namespace_import' => [
             'import_classes'       => true,
@@ -65,6 +65,8 @@ return (new Config())
             'identical' => false,
             'less_and_greater' => false,
         ],
+        'comment_to_phpdoc'            => false,
+        'phpdoc_to_comment'            => false,
 
         ])
     ->setFinder(
