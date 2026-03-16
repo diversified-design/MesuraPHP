@@ -199,6 +199,8 @@
 "Mesura\\Generic\\SimpleMeasurement":
     extends: "Mesura\\MeasurementUnit"
     methods[2]: "static fromValue(float $value, string|null $symbol = null): static","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\InvalidUnitException":
+    extends: InvalidArgumentException
 "Mesura\\Irradiance\\BtuPerHourPerSquareFoot":
     extends: "Mesura\\Irradiance\\Irradiance"
     methods[3]: "static fromWattPerSquareMeterValue(float $value): static","toWattPerSquareMeterValue(): float","static unitSystem(): Mesura\\UnitSystem"
@@ -344,7 +346,7 @@
     doc: /** @phpstan-consistent-constructor */
     implements[2]: "Mesura\\MeasurementUnitInterface",Stringable
     properties[1]: readonly float $value
-    methods[12]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): void","static resetSymbol(): void","static resetAllSymbols(): void","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string","static unitSystem(): Mesura\\UnitSystem"
+    methods[15]: "__construct(float $value, string|null $symbol = null)","getValue(): float","getInstanceSymbol(): string","setInstanceSymbol(string $symbol): static","static getSymbol(): string","static setSymbol(string $symbol): void","static resetSymbol(): void","static resetAllSymbols(): void","withValue(callable(float): (float | int) $callback): static","toHtml(string $sprintfTemplate = '<span class=\\\"value\\\">%1$.1f</span> <span class=\\\"symbol\\\">%2$s</span>'): string","toFormat(string $sprintfTemplate = '%.1f %s'): string","static getDefaultSymbol(): string","static resolveUnitClass(string $input): class-string<static> — Resolve a unit identifier string to its fully-qualified class name.","static resolve(string $input, float $value): static — Resolve a unit identifier string and return a hydrated instance.","static unitSystem(): Mesura\\UnitSystem"
 "Mesura\\MeasurementUnitInterface":
     type: interface
     implements[1]: Stringable
@@ -509,6 +511,9 @@
 "Mesura\\Pressure\\Torr":
     extends: "Mesura\\Pressure\\Pressure"
     methods[3]: "static fromPascalValue(float $value): static","toPascalValue(): float","static unitSystem(): Mesura\\UnitSystem"
+"Mesura\\Resolver\\UnitResolver":
+    final: true
+    methods[3]: "static resolveClass(string $domainKey, array<class-string<MeasurementUnit>, list<string>> $aliases, (array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string} | null) $metricConfig, string $input): class-string<MeasurementUnit> — Resolve a unit string to its fully-qualified class name within a domain.","static resolve(string $domainKey, array<class-string<MeasurementUnit>, list<string>> $aliases, (array{namePatterns: list<string>, symbolPattern: string, namespace: string, classPattern: string} | null) $metricConfig, string $input, float $value): Mesura\\MeasurementUnit — Resolve a unit string and hydrate it with the given value.","static clearCache(): void — Clear the resolver cache. Primarily for testing."
 "Mesura\\SpecificEnergy\\BtuPerPound":
     extends: "Mesura\\SpecificEnergy\\SpecificEnergy"
     methods[3]: "static fromJoulePerKilogramValue(float $value): static","toJoulePerKilogramValue(): float","static unitSystem(): Mesura\\UnitSystem"

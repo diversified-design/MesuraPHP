@@ -8,6 +8,21 @@ use Mesura\MeasurementUnit;
 
 abstract class Pressure extends MeasurementUnit implements PressureInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Pascal::class              => ['pascal'],
+            Bar::class                 => ['bar'],
+            Kilopascal::class          => ['kilopascal'],
+            Hectopascal::class         => ['hectopascal'],
+            Millibar::class            => ['millibar'],
+            MillimetreOfMercury::class => ['millimetre of mercury', 'millimeter of mercury'],
+            PoundPerSquareInch::class  => ['pound per square inch'],
+            StandardAtmosphere::class  => ['standard atmosphere', 'atmosphere'],
+            Torr::class                => ['torr'],
+        ];
+    }
+
     public function toBar(): Bar
     {
         return $this->toUnit(Bar::class);

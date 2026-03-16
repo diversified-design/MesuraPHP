@@ -8,6 +8,16 @@ use Mesura\MeasurementUnit;
 
 abstract class Time extends MeasurementUnit implements TimeInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Second::class => ['second', 'sec'],
+            Minute::class => ['minute'],
+            Hour::class   => ['hour', 'hr'],
+            Day::class    => ['day'],
+        ];
+    }
+
     public function toSecond(): Second
     {
         return $this->toUnit(Second::class);

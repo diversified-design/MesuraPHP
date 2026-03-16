@@ -8,6 +8,13 @@ use Mesura\MeasurementUnit;
 
 abstract class Torque extends MeasurementUnit implements TorqueInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            NewtonMeter::class => ['newton meter', 'newton metre'],
+        ];
+    }
+
     public function toNewtonMeter(): NewtonMeter
     {
         return $this->toUnit(NewtonMeter::class);

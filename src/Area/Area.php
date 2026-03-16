@@ -8,6 +8,27 @@ use Mesura\MeasurementUnit;
 
 abstract class Area extends MeasurementUnit implements AreaInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            SquareMeter::class => ['square meter', 'square metre', 'sq m', 'm2', '㎡'],
+            SquareFoot::class  => ['square foot', 'sq ft', 'ft2'],
+            SquareMile::class  => ['square mile', 'sq mi', 'mi2'],
+            Hectare::class     => ['hectare', 'ha'],
+            Acre::class        => ['acre'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['square %smeter', 'square %smetre'],
+            'symbolPattern' => '%sm²',
+            'namespace'     => 'Mesura\Area\\',
+            'classPattern'  => 'Square%smeter',
+        ];
+    }
+
     public function toSquareMeter(): SquareMeter
     {
         return $this->toUnit(SquareMeter::class);

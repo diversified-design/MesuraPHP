@@ -8,6 +8,35 @@ use Mesura\MeasurementUnit;
 
 abstract class Volume extends MeasurementUnit implements VolumeInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            CubicMeter::class         => ['cubic meter', 'cubic metre'],
+            Liter::class              => ['liter', 'litre'],
+            CubicInch::class          => ['cubic inch'],
+            CubicYard::class          => ['cubic yard'],
+            FluidOunce::class         => ['fluid ounce'],
+            FluidDram::class          => ['fluid dram'],
+            Pint::class               => ['pint'],
+            Quart::class              => ['quart'],
+            TableSpoon::class         => ['tablespoon'],
+            ImperialFluidOunce::class => ['imperial fluid ounce'],
+            ImperialFluidDram::class  => ['imperial fluid dram'],
+            ImperialPint::class       => ['imperial pint'],
+            ImperialQuart::class      => ['imperial quart'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['%sliter', '%slitre'],
+            'symbolPattern' => '%sl',
+            'namespace'     => 'Mesura\Volume\\',
+            'classPattern'  => '%sliter',
+        ];
+    }
+
     public function toCubicInch(): CubicInch
     {
         return $this->toUnit(CubicInch::class);

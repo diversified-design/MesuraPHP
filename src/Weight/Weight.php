@@ -8,6 +8,25 @@ use Mesura\MeasurementUnit;
 
 abstract class Weight extends MeasurementUnit implements WeightInterface
 {
+    protected static function unitAliases(): array
+    {
+        return [
+            Gram::class      => ['gram', 'gramme'],
+            MetricTon::class => ['metric ton', 'tonne'],
+            Pound::class     => ['pound'],
+        ];
+    }
+
+    protected static function metricConfig(): ?array
+    {
+        return [
+            'namePatterns'  => ['%sgram', '%sgramme'],
+            'symbolPattern' => '%sg',
+            'namespace'     => 'Mesura\Weight\\',
+            'classPattern'  => '%sgram',
+        ];
+    }
+
     public function toKilogram(): Kilogram
     {
         return $this->toUnit(Kilogram::class);
