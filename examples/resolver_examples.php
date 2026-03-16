@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Mesura\Area\Area;
 use Mesura\InvalidUnitException;
 use Mesura\Length\Length;
 use Mesura\Pressure\Pressure;
 use Mesura\Temperature\Temperature;
 use Mesura\Volume\Volume;
 use Mesura\Weight\Weight;
+
 
 // =============================================================================
 // Unit Resolvers — resolve a string identifier to a unit instance
@@ -114,3 +116,15 @@ foreach ($readings as $reading) {
         echo "  {$reading['value']} {$reading['unit']} → {$resolved}" . PHP_EOL;
     }
 }
+
+echo '==============================================================================' . PHP_EOL;
+
+// $areaTest = Area::resolve('ft2', 500.0);
+// dump($areaTest);
+
+// $utf_junk = ['℃', '℉', '㎀', '㎁', '㎂', '㎃', '㎄', '㎅', '㎈', '㎉', '㎍', '㎎', 'g', '㎏', '℔', '㏏', '㎐', '㎑', '㎒', '㎓', '㎔', '㎕', 'ℓ', '㎖', '㎗', '㎘', '㎛', '㎝', '㎞', '㎟', '㎠', '㎡', '㎢', '㏊', '㎤', '㎥', '㎦', '㎧', '㎨', '㏄', '㏕', '㏔', '㎩', '㍱', '㎪', '㎫', '㎬', '㍴', '㎭', '㎮', '㎯', '㏝', '㏅', '㏐', '㎳', '㎴', '㎵', '㎶', '㎷', '㎸', '㎺', '㎼', '㎽', '㎾', '㎿', 'Ω', '㏀', '㏁', '㏎', '㏙', '㏿', '㍷', '㍸', '㍹'];
+
+// foreach ($utf_junk as $char) {
+//     echo "{$char} → " . u($char)->ascii() . PHP_EOL;
+// }
+// echo PHP_EOL;
