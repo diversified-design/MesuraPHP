@@ -11,10 +11,10 @@ abstract class Area extends MeasurementUnit implements AreaInterface
     protected static function unitAliases(): array
     {
         return [
-            SquareMeter::class => ['square meter', 'square metre', 'sq m'],
-            SquareFoot::class  => ['square foot', 'sq ft'],
-            SquareMile::class  => ['square mile', 'sq mi'],
-            Hectare::class     => ['hectare'],
+            SquareMeter::class => ['square meter', 'square metre', 'sq m', 'm2', '㎡'],
+            SquareFoot::class  => ['square foot', 'sq ft', 'ft2'],
+            SquareMile::class  => ['square mile', 'sq mi', 'mi2'],
+            Hectare::class     => ['hectare', 'ha'],
             Acre::class        => ['acre'],
         ];
     }

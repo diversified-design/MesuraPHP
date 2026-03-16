@@ -11,7 +11,7 @@ abstract class Angle extends MeasurementUnit implements AngleInterface
     protected static function unitAliases(): array
     {
         return [
-            Degree::class => ['degree'],
+            Degree::class => ['deg', 'degree'],
             Radian::class => ['radian'],
         ];
     }

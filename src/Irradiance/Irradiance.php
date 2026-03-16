@@ -11,8 +11,8 @@ abstract class Irradiance extends MeasurementUnit implements IrradianceInterface
     protected static function unitAliases(): array
     {
         return [
-            WattPerSquareMeter::class          => ['watt per square meter', 'watt per square metre'],
-            KilowattPerSquareMeter::class      => ['kilowatt per square meter', 'kilowatt per square metre'],
+            WattPerSquareMeter::class          => ['wm2', 'wpsm', 'wpm2', 'watt per square meter', 'watt per square metre'],
+            KilowattPerSquareMeter::class      => ['kwm2', 'kwpsm', 'kwpm2', 'kilowatt per square meter', 'kilowatt per square metre'],
             BtuPerHourPerSquareFoot::class     => ['btu per hour per square foot'],
         ];
     }

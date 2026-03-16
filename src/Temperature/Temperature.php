@@ -11,10 +11,10 @@ abstract class Temperature extends MeasurementUnit implements TemperatureInterfa
     protected static function unitAliases(): array
     {
         return [
-            Celsius::class    => ['celsius', 'centigrade'],
-            Fahrenheit::class => ['fahrenheit'],
+            Celsius::class    => ['c', 'celsius', 'centigrade'],
+            Fahrenheit::class => ['f', 'fahrenheit'],
             Kelvin::class     => ['kelvin'],
-            Rankine::class    => ['rankine'],
+            Rankine::class    => ['r', 'rankine'],
         ];
     }
 

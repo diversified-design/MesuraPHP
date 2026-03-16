@@ -12,8 +12,8 @@ abstract class Length extends MeasurementUnit implements LengthInterface
     {
         return [
             Meter::class        => ['meter', 'metre'],
-            Foot::class         => ['foot'],
-            Inch::class         => ['inch'],
+            Foot::class         => ['foot', '"'],
+            Inch::class         => ['inch', "'"],
             Yard::class         => ['yard'],
             StatuteMile::class  => ['mile', 'statute mile'],
             NauticalMile::class => ['nautical mile'],

@@ -12,8 +12,8 @@ abstract class Energy extends MeasurementUnit implements EnergyInterface
     {
         return [
             Joule::class               => ['joule'],
-            Calorie::class             => ['calorie'],
-            Kilocalorie::class         => ['kilocalorie'],
+            Calorie::class             => ['calorie', '㎈'],
+            Kilocalorie::class         => ['kilocalorie', '㎉'],
             BritishThermalUnit::class  => ['british thermal unit', 'btu'],
             WattHour::class            => ['watt hour'],
             KilowattHour::class        => ['kilowatt hour'],
